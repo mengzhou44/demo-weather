@@ -23,8 +23,9 @@ export function useDevice() {
     }
   }, []);
    
-  if (windowSize.width <576) return 'mobile' 
+  if (windowSize.width <576) return 'small' 
+   if (windowSize.width < 768) return 'medium'; 
 
-  return 'desktop'
+  return 'large'
 }
  
