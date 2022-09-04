@@ -1,6 +1,7 @@
 import styles from './header.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDevice } from '../hooks/use-device';
+import $ from 'jquery';
 
 const Header = () => {
   const [showLinks, setShowLinks] = useState(false);
@@ -8,7 +9,12 @@ const Header = () => {
 
   function renderLinks() {
     return (
-      <div className={styles.links}>
+      <div
+        className={styles.links}
+        onClick={() => {
+          setShowLinks(false);
+        }}
+      >
         <li>
           <a href="#home">home</a>
         </li>
@@ -26,8 +32,12 @@ const Header = () => {
   }
 
   if (device !== 'large') {
+    let navClassName = styles.nav;
+    if (showLinks === true) {
+      navClassName = `${styles.nav} ${styles.expanded}`;
+    }
     return (
-      <nav id="home" className={styles.nav}>
+      <nav className={navClassName}>
         <div className={styles.container}>
           <div className={styles.logo}>
             <img src="/static/logo.svg" className={styles.logo} alt="logo" />
@@ -59,7 +69,7 @@ const Header = () => {
     );
   }
   return (
-    <nav id="home" className={styles.nav}>
+    <nav className={styles.nav}>
       <div className={styles.container}>
         <div className={styles.logo}>
           <img src="/static/logo.svg" className={styles.logo} alt="logo" />

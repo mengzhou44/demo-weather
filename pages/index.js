@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import styles from './index.module.css';
 import Layout from '../components/layout';
-import Banner from '../components/home/banner';
+ import Hero from '../components/home/hero';
 import About from '../components/home/about';
 import Services from '../components/home/services';
 import Tours from '../components/home/tours';
@@ -13,7 +13,7 @@ export default function Home() {
         <meta name="description" content="Scroll Prototype" />
       </Head>
       <Layout>
-        <Banner />
+        <Hero />
         <About />
         <Services />
         <Tours />
@@ -21,4 +21,3 @@ export default function Home() {
     </div>
   );
 }
- 

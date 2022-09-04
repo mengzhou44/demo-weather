@@ -1,10 +1,15 @@
 .nav {
+  height:  var(--nav-height);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background: var(--clr-white);
   box-shadow: var(--light-shadow);
+}
+
+.expanded {
+   height:  var(--nav-height-expanded) !important;
 }
 
 .container {

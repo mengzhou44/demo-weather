@@ -1,9 +1,8 @@
-import styles from './banner.module.css';
+import styles from './hero.module.css';
 import { memo } from 'react';
 
-const Banner = () => {
-  return (
-    <div className={styles.banner}>
+const Hero= () => {
+  return (<section id="home" className={styles.hero}>
       <div className="container">
         <h1>scroll project</h1>
         <p>
@@ -15,8 +14,8 @@ const Banner = () => {
           explore tours
         </a>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default memo(Banner);
+export default memo(Hero);

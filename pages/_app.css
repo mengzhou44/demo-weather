@@ -39,7 +39,6 @@ Variables
   --clr-black: #222;
   --ff-primary: 'Roboto', sans-serif;
   --ff-secondary: 'Open Sans', sans-serif;
- 
 
   --transition: all 0.3s linear;
   --spacing: 0.25rem;
@@ -47,7 +46,8 @@ Variables
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
-  --nav-height: 4rem;
+  --nav-height: 5rem;
+  --nav-height-expanded: 25rem;
   --z-index-higher: 5;
   --screen-small: 576px;
   --screen-medium: 768px;
@@ -186,7 +186,7 @@ a {
   padding-bottom: 5rem;
 }
 
-.sectio-center {
+.section-center {
   width: 90vw;
   margin: 0 auto;
   max-width: 1170px;
@@ -196,6 +196,10 @@ main {
   min-height: 100vh;
   display: grid;
   place-items: center;
+}
+
+#hero {
+   height: 100vh;
 }
 
 #about,
