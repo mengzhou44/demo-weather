@@ -1,8 +1,9 @@
 import styles from './hero.module.css';
 import { memo } from 'react';
+const Hero = () => {
 
-const Hero= () => {
-  return (<section id="home" className={styles.hero}>
+  return (
+    <section id="home" className={styles.hero}>
       <div className="container">
         <h1>scroll project</h1>
         <p>
@@ -10,7 +11,11 @@ const Hero= () => {
           neque sunt in? Id, necessitatibus quos quisquam distinctio laudantium
           fugiat?
         </p>
-        <a href="#tours" className="scroll-link btn btn-white">
+        <a
+          href="#tours"
+          className="scroll-link btn btn-white"
+        >
+          {' '}
           explore tours
         </a>
       </div>

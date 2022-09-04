@@ -183,7 +183,9 @@ a {
 
 /* section */
 .section {
+  padding-top: 1rem;
   padding-bottom: 5rem;
+  height: 100vh;
 }
 
 .section-center {
@@ -197,17 +199,7 @@ main {
   display: grid;
   place-items: center;
 }
-
-#hero {
-   height: 100vh;
-}
-
-#about,
-#services,
-#tours {
-  height: 80vh;
-}
-
+ 
 #services {
   background: var(--clr-white);
 }
@@ -221,8 +213,3 @@ main {
   color: var(--clr-secondary);
 }
 
-@media screen and (min-width: 992px) {
-  .section-center {
-    width: 95vw;
-  }
-}

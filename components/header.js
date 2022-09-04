@@ -1,8 +1,8 @@
 import styles from './header.module.css';
-import { useState, useEffect } from 'react';
-import { useDevice } from '../hooks/use-device';
-import $ from 'jquery';
+import { useState } from 'react';
 
+import { scrollToSection } from '../utils/scroll-to-section';
+import { useDevice } from '../hooks/use-device';
 const Header = () => {
   const [showLinks, setShowLinks] = useState(false);
   const device = useDevice();
@@ -10,22 +10,31 @@ const Header = () => {
   function renderLinks() {
     return (
       <div
+        id="links"
         className={styles.links}
         onClick={() => {
           setShowLinks(false);
         }}
       >
         <li>
-          <a href="#home">home</a>
+          <a href="#home" onClick={(e) => scrollToSection(e, device)}>
+            home
+          </a>
         </li>
         <li>
-          <a href="#about">about</a>
+          <a href="#about" onClick={(e) => scrollToSection(e, device)}>
+            about
+          </a>
         </li>
         <li>
-          <a href="#services">services</a>
+          <a href="#services" onClick={(e) => scrollToSection(e, device)}>
+            services
+          </a>
         </li>
         <li>
-          <a href="#tours">tours</a>
+          <a href="#tours" onClick={(e) => scrollToSection(e, device)}>
+            tours
+          </a>
         </li>
       </div>
     );
@@ -37,7 +46,7 @@ const Header = () => {
       navClassName = `${styles.nav} ${styles.expanded}`;
     }
     return (
-      <nav className={navClassName}>
+      <nav id="nav" className={navClassName}>
         <div className={styles.container}>
           <div className={styles.logo}>
             <img src="/static/logo.svg" className={styles.logo} alt="logo" />
@@ -69,7 +78,7 @@ const Header = () => {
     );
   }
   return (
-    <nav className={styles.nav}>
+    <nav id="nav" className={styles.nav}>
       <div className={styles.container}>
         <div className={styles.logo}>
           <img src="/static/logo.svg" className={styles.logo} alt="logo" />
