@@ -1,11 +1,28 @@
 import Head from 'next/head';
 import styles from './index.module.css';
 import Layout from '../components/layout';
- import Hero from '../components/home/hero';
+import Hero from '../components/home/hero';
 import About from '../components/home/about';
 import Services from '../components/home/services';
 import Tours from '../components/home/tours';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { scrollToSectionByPath } from '../utils/scroll-to-section';
+import { useDevice } from '../hooks/use-device';
+
 export default function Home() {
+  const router = useRouter();
+  const device = useDevice();
+  const { asPath } = router;
+  
+  useEffect(() => {
+    if (asPath !== '/') {
+      setTimeout(() => {
+        scrollToSectionByPath(asPath, device);
+      }, 1);
+    }
+  }, [asPath]);
+
   return (
     <div className={styles.container}>
       <Head>

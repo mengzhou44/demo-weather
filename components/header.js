@@ -1,40 +1,41 @@
 import styles from './header.module.css';
 import { useState } from 'react';
-
+import Link from 'next/link';
 import { scrollToSection } from '../utils/scroll-to-section';
 import { useDevice } from '../hooks/use-device';
+import { useRouter } from 'next/router';
 const Header = () => {
   const [showLinks, setShowLinks] = useState(false);
   const device = useDevice();
+  const router = useRouter();
+  const isHomePage = router.asPath !== '/courses';
+
+  function renderHomeLink(section) {
+    return (
+      <li>
+        <Link
+          href={`/#${section}`}
+          onClick={(e) => {
+            if (isHomePage) {
+              scrollToSection(e, device);
+            }
+          }}
+        >
+          {section}
+        </Link>
+      </li>
+    );
+  }
 
   function renderLinks() {
     return (
-      <div
-        id="links"
-        className={styles.links}
-        onClick={() => {
-          setShowLinks(false);
-        }}
-      >
+      <div id="links" className={styles.links} onClick={()=> setTimeout(()=> {setShowLinks(false)}, 200)}>
+        {renderHomeLink('home')}
+        {renderHomeLink('about')}
+        {renderHomeLink('services')}
+        {renderHomeLink('tours')}
         <li>
-          <a href="#home" onClick={(e) => scrollToSection(e, device)}>
-            home
-          </a>
-        </li>
-        <li>
-          <a href="#about" onClick={(e) => scrollToSection(e, device)}>
-            about
-          </a>
-        </li>
-        <li>
-          <a href="#services" onClick={(e) => scrollToSection(e, device)}>
-            services
-          </a>
-        </li>
-        <li>
-          <a href="#tours" onClick={(e) => scrollToSection(e, device)}>
-            tours
-          </a>
+          <Link href="/courses">courses</Link>
         </li>
       </div>
     );
