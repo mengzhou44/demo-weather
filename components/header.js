@@ -14,7 +14,8 @@ const Header = () => {
     return (
       <li>
         <Link
-          href={`/#${section}`}
+          href={`/#${section}`}>
+          <a
           onClick={(e) => {
             if (isHomePage) {
               scrollToSection(e, device);
@@ -22,6 +23,7 @@ const Header = () => {
           }}
         >
           {section}
+          </a>
         </Link>
       </li>
     );
@@ -29,7 +31,7 @@ const Header = () => {
 
   function renderLinks() {
     return (
-      <div id="links" className={styles.links} onClick={()=> setTimeout(()=> {setShowLinks(false)}, 200)}>
+      <div id="links" className={styles.links} onClick={()=> setShowLinks(false)}>
         {renderHomeLink('home')}
         {renderHomeLink('about')}
         {renderHomeLink('services')}
