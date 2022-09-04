@@ -1,7 +1,10 @@
 import styles from './hero.module.css';
 import { memo } from 'react';
+import Link from 'next/link';
+import { useDevice } from '../../hooks/use-device';
+import { scrollToSection } from '../../utils/scroll-to-section';
 const Hero = () => {
-
+  const device = useDevice();
   return (
     <section id="home" className={styles.hero}>
       <div className="container">
@@ -11,13 +14,14 @@ const Hero = () => {
           neque sunt in? Id, necessitatibus quos quisquam distinctio laudantium
           fugiat?
         </p>
-        <a
-          href="#tours"
-          className="scroll-link btn btn-white"
-        >
-          {' '}
-          explore tours
-        </a>
+        <Link href="/#services">
+          <a
+            className="scroll-link btn btn-white"
+            onClick={(e) => scrollToSection(e, device)}
+          >
+            explore services
+          </a>
+        </Link>
       </div>
     </section>
   );

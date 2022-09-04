@@ -8,12 +8,13 @@ export function scrollToSection(e, device) {
   let position = element.offsetTop - navHeight;
 
   if (device !== 'large') {
- 
     const linksContainer = document.getElementById('links');
-    const linksContainerHeight =
-      linksContainer?.getBoundingClientRect()?.height ?? 0;
- 
-    position += linksContainerHeight + 110;
+    if (linksContainer !== null) {
+      const linksContainerHeight =
+        linksContainer?.getBoundingClientRect()?.height ?? 0;
+
+      position += linksContainerHeight + 110;
+    }
   }
 
   window.scrollTo({
