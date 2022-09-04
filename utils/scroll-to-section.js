@@ -8,11 +8,11 @@ export function scrollToSection(e, device) {
   let position = element.offsetTop - navHeight;
 
   if (device !== 'large') {
-    console.log('step1');
+ 
     const linksContainer = document.getElementById('links');
     const linksContainerHeight =
       linksContainer?.getBoundingClientRect()?.height ?? 0;
-    console.log(linksContainerHeight);
+ 
     position += linksContainerHeight + 110;
   }
 

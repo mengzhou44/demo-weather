@@ -1,5 +1,5 @@
 .nav {
-  height:  var(--nav-height);
+  height: var(--nav-height);
   position: fixed;
   top: 0;
   left: 0;
@@ -9,7 +9,7 @@
 }
 
 .expanded {
-   height:  var(--nav-height-expanded) !important;
+  height: var(--nav-height-expanded) !important;
 }
 
 .container {
@@ -39,6 +39,10 @@
 
 .links a:hover {
   color: var(--clr-grey-1);
+}
+
+.link-selected {
+  color: red !important;
 }
 
 .logo {
