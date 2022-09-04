@@ -33,7 +33,6 @@ const Header = () => {
         {renderHomeLink('home')}
         {renderHomeLink('about')}
         {renderHomeLink('services')}
-        {renderHomeLink('tours')}
         <li>
           <Link href="/courses">courses</Link>
         </li>

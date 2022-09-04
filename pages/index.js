@@ -4,7 +4,6 @@ import Layout from '../components/layout';
 import Hero from '../components/home/hero';
 import About from '../components/home/about';
 import Services from '../components/home/services';
-import Tours from '../components/home/tours';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { scrollToSectionByPath } from '../utils/scroll-to-section';
@@ -33,7 +32,6 @@ export default function Home() {
         <Hero />
         <About />
         <Services />
-        <Tours />
       </Layout>
     </div>
   );
