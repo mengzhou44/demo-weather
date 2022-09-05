@@ -4,18 +4,17 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { scrollToSection } from '../utils/scroll-to-section';
 import { useDevice } from '../hooks/use-device';
- 
+
 const Header = () => {
   const [showLinks, setShowLinks] = useState(false);
   const [selected, setSelected] = useState();
   const device = useDevice();
   const router = useRouter();
- 
+
   const isHomePage = router.asPath !== '/courses';
 
   useEffect(() => {
     const { pathname, asPath } = router;
-    
     if (pathname === '/') {
       if (asPath.endsWith('services')) {
         setSelected('services');
@@ -41,7 +40,7 @@ const Header = () => {
             onClick={(e) => {
               setSelected(section);
               if (isHomePage) {
-                scrollToSection(e, device);
+                 scrollToSection(e, device);
               }
             }}
             className={linkClassName}
@@ -63,6 +62,7 @@ const Header = () => {
         <Link href={`/${section}`}>
           <a
             onClick={() => {
+               
               setSelected(section);
             }}
             className={linkClassName}
