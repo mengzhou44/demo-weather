@@ -40,7 +40,7 @@ const Header = () => {
             onClick={(e) => {
               setSelected(section);
               if (isHomePage) {
-                 scrollToSection(e, device);
+                scrollToSection(e, device);
               }
             }}
             className={linkClassName}
@@ -49,6 +49,14 @@ const Header = () => {
           </a>
         </Link>
       </li>
+    );
+  }
+
+  function renderAuth() {
+    return (
+      <div className={styles.auth}>
+        <button className="btn">Sign in</button>
+      </div>
     );
   }
 
@@ -62,7 +70,6 @@ const Header = () => {
         <Link href={`/${section}`}>
           <a
             onClick={() => {
-               
               setSelected(section);
             }}
             className={linkClassName}
@@ -100,6 +107,8 @@ const Header = () => {
           <div className={styles.logo}>
             <img src="/static/logo.svg" className={styles.logo} alt="logo" />
           </div>
+          {renderAuth()}
+
           <button
             className={styles.toggle}
             onClick={() => {
@@ -132,6 +141,7 @@ const Header = () => {
         <div className={styles.logo}>
           <img src="/static/logo.svg" className={styles.logo} alt="logo" />
         </div>
+        {renderAuth()}
         {renderLinks()}
       </div>
     </nav>

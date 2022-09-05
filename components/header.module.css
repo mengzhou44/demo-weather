@@ -60,14 +60,27 @@
   width: 2.5rem;
 }
 
+.auth button {
+  font-size: 0.6rem;
+  letter-spacing: 0.15rem;
+}
+
 @media screen and (min-width: 768px) {
   .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+  .container {
+    height: 100%;
+  }
 
   .links {
     display: flex;
+  }
+
+  .auth button {
+    font-size: 0.875rem;
+    letter-spacing: var(--spacing);
   }
 }

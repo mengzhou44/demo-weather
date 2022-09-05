@@ -46,7 +46,7 @@ Variables
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
-  --nav-height: 5rem;
+  --nav-height: 4.2rem;
   --nav-height-expanded: 30rem;
   --z-index-higher: 5;
   --screen-small: 576px;
@@ -146,7 +146,7 @@ a {
   display: inline-block;
   transition: var(--transition);
   font-size: 0.875rem;
-  border: 2px solid var(--clr-black);
+  border: 1px solid var(--clr-black);
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: var(--radius);

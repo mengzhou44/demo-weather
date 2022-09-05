@@ -12,7 +12,7 @@ export function scrollToSection(e, device) {
     if (linksContainer !== null) {
       const linksContainerHeight =
         linksContainer.getBoundingClientRect().height ?? 0;
-      position += linksContainerHeight + 110;
+      position += linksContainerHeight +120;
     }
   }
 
