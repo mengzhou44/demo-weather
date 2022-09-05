@@ -8,12 +8,12 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { scrollToSectionByPath } from '../utils/scroll-to-section';
 import { useDevice } from '../hooks/use-device';
-
+import { ScrollToTop } from '../components/scroll-to-top';
 export default function Home() {
   const router = useRouter();
   const device = useDevice();
   const { asPath } = router;
-  
+
   useEffect(() => {
     if (asPath !== '/') {
       setTimeout(() => {
@@ -24,6 +24,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
+      <ScrollToTop />
       <Head>
         <title></title>
         <meta name="description" content="Scroll Prototype" />
