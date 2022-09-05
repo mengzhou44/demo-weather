@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { scrollToSection } from '../utils/scroll-to-section';
 import { useDevice } from '../hooks/use-device';
+import { motion } from 'framer-motion';
 
 const Header = () => {
   const [showLinks, setShowLinks] = useState(false);
@@ -83,7 +84,22 @@ const Header = () => {
 
   function renderLinks() {
     return (
-      <div
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {
+            scale: 0.8,
+            opacity: 0,
+          },
+          visible: {
+            scale: 1,
+            opacity: 1,
+          },
+          transition: {
+            delay: 0.6,
+          },
+        }}
         id="links"
         className={styles.links}
         onClick={() => setShowLinks(false)}
@@ -92,7 +108,7 @@ const Header = () => {
         {renderHomeLink('about')}
         {renderHomeLink('services')}
         {renderPageLink('courses')}
-      </div>
+      </motion.div>
     );
   }
 
