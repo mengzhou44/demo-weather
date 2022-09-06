@@ -2,13 +2,13 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import styles from './login.module.css';
+import styles from './sign-in.module.css';
 import { useState, useEffect } from 'react';
 import validator from 'email-validator';
 import { magic } from '../utils/magic-client';
 import { setLoginInfo } from '../utils/login-info';
 
-const Login = () => {
+const SignIn = () => {
   const [email, setEmail] = useState('');
   const [userMessage, setUserMessage] = useState('');
   const [isSigning, setIsSigning] = useState(false);
@@ -30,14 +30,14 @@ const Login = () => {
     };
   }, [router]);
 
-  const handleLogin = async (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
 
     try {
       setIsSigning(true);
       const didToken = await magic.auth.loginWithMagicLink({ email });
       if (didToken) {
-        let res = await fetch('/api/login', {
+        let res = await fetch('/api/sign-in', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Login</title>
+        <title>Sign in</title>
       </Head>
       <header className={styles.header}>
         <Link href="/">
@@ -88,7 +88,7 @@ const Login = () => {
         </Link>
       </header>
       <main className={styles.main}>
-        <h1 className={styles.title}>Sign In</h1>
+        <h2 className={styles.title}>Sign In</h2>
         <input
           className={styles['txt-email']}
           type="text"
@@ -97,7 +97,7 @@ const Login = () => {
           onChange={handleTextChange}
         ></input>
         <p>{userMessage}</p>
-        <button className={styles['btn-login']} onClick={handleLogin}>
+        <button className={styles['btn-login']} onClick={handleSignIn}>
           {isSigning ? 'Signing ...' : 'Sign in'}
         </button>
       </main>
@@ -105,4 +105,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignIn;

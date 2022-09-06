@@ -1,8 +1,8 @@
 export let loginInfo = null;
 
-export const setLoginInfo = (email) => {
+export const setLoginInfo = (firstName) => {
   loginInfo = {
-    email,
+    firstName
   };
 };
 

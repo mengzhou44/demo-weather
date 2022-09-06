@@ -56,11 +56,12 @@ const Header = () => {
   function renderAuth() {
     return (
       <div className={styles.auth}>
-        <button className="btn">Sign in</button>
+        <Link href="/sign-in">
+          <button className="btn">Sign in</button>
+        </Link>
       </div>
     );
   }
-
   function renderPageLink(section) {
     let linkClassName = '';
     if (section === selected) {
