@@ -88,7 +88,7 @@ const SignIn = () => {
         </Link>
       </header>
       <main className={styles.main}>
-        <h2 className={styles.title}>Sign In</h2>
+        <h3 className={styles.title}>Sign In</h3>
         <input
           className={styles['txt-email']}
           type="text"
@@ -97,9 +97,14 @@ const SignIn = () => {
           onChange={handleTextChange}
         ></input>
         <p>{userMessage}</p>
-        <button className={styles['btn-login']} onClick={handleSignIn}>
-          {isSigning ? 'Signing ...' : 'Sign in'}
+        <button className={styles['btn-sign-in']} onClick={handleSignIn}>
+          {isSigning ? 'Signing in ...' : 'Sign in'}
         </button>
+        <div className={styles['sign-up']}>
+          <p>
+            Not signed up yet?   <Link href="/sign-up">Sign up now</Link>
+          </p>
+        </div>
       </main>
     </div>
   );

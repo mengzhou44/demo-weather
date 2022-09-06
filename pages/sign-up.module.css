@@ -30,7 +30,7 @@
 .main {
   background-color: var(--clr-white);
   padding: 2rem;
-  min-height: 40rem;
+  min-height: 35rem;
   width: 30rem;
   display: flex;
   flex-direction: column;
