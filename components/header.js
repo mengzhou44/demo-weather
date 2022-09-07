@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { scrollToSection } from '../utils/scroll-to-section';
 import { useDevice } from '../hooks/use-device';
 import { motion } from 'framer-motion';
+import { loginInfo } from '../utils/login-info';
 
 const Header = () => {
   const [showLinks, setShowLinks] = useState(false);
@@ -53,12 +54,27 @@ const Header = () => {
     );
   }
 
+  function renderSignIn() {
+    return (
+      <Link href="/sign-in">
+        <button className="btn">Sign in</button>
+      </Link>
+    );
+  }
+
+  function renderSignOut() {
+    return (
+      <div className={styles['sign-out']}>
+        <p>{`Hi, ${loginInfo.firstName.toUpperCase()}`}</p>
+        <button className="btn">Sign out</button>
+      </div>
+    );
+  }
+
   function renderAuth() {
     return (
       <div className={styles.auth}>
-        <Link href="/sign-in">
-          <button className="btn">Sign in</button>
-        </Link>
+        {loginInfo === null ? renderSignIn() : renderSignOut()}
       </div>
     );
   }

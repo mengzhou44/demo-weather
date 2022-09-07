@@ -24,12 +24,12 @@ export default async (req, res) => {
         process.env.JWT_SECRET
       );
 
-      const newUser = await isNewUser(token, metadata.issuer);
-      if (newUser === true) {
+      const  {isNew, firstName } = await isNewUser(token, metadata.issuer);
+      if (isNew === true) {
         res.send({ done: false, message: 'Please sign up first!'});
       } else {
         setTokenCookie(token, res);
-        res.send({ done: true });
+        res.send({ done: true, firstName });
       }
     } catch (err) {
       console.log(`Something wenty wrong while logging ${err}`);

@@ -50,6 +50,7 @@ export async function isNewUser(token, issuer) {
       id
       email
       issuer
+      firstName
     }
   }
 `;
@@ -62,7 +63,14 @@ export async function isNewUser(token, issuer) {
     },
     token
   );
-  return response?.data?.users?.length === 0;
+  const isNew = response?.data?.users?.length === 0;
+  let res= {
+    isNew
+  }
+  if (isNew === false) {
+      res.firstName =  response.data.users[0].firstName  
+  }
+  return  res
 }
 
 async function queryHasuraGQL(operationsDoc, operationName, variables, token) {

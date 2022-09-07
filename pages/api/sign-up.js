@@ -24,22 +24,23 @@ export default async (req, res) => {
         process.env.JWT_SECRET
       );
 
-      const result = await isNewUser(token, metadata.issuer);
-      console.log('step1')
-      if (result === true) {
+      const { isNew } = await isNewUser(token, metadata.issuer);
+
+      if (isNew === true) {
         const { firstName, lastName } = req.body;
-      console.log('step2');
-        if (!firstName || !lastName ) {
-          res.send({ done: false, message: 'Some inputs are empty.' });
+
+        if (!firstName) {
+          res.send({ done: false, message: 'First name is empty.' });
+        } else if (!lastName) {
+          res.send({ done: false, message: 'Last name is empty.' });
         } else {
           const newUser = {
             firstName,
             lastName,
             ...metadata,
           };
-     console.log('step3');
-          await createUser(token, newUser);  
-           console.log('step4');
+
+          await createUser(token, newUser);
           setTokenCookie(token, res);
           res.send({ done: true });
         }
@@ -47,7 +48,6 @@ export default async (req, res) => {
         res.send({ done: false, message: 'This email already exists.' });
       }
     } catch (err) {
-
       console.log(`Something wenty wrong while logging ${err}`);
       res.status(500).send({ done: false });
     }

@@ -46,7 +46,7 @@ const SignIn = () => {
         });
         res = await res.json();
         if (res.done) {
-          setLoginInfo(email);
+          setLoginInfo(res.firstName);
           router.push('/');
         } else {
           console.log('something went wrong!');
