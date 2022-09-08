@@ -1,11 +1,18 @@
-export let loginInfo = null;
-
 export const setLoginInfo = (firstName) => {
-  loginInfo = {
-    firstName
-  };
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('login', firstName);
+  }
+};
+
+export const getLoginInfo = () => {
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem('login');
+  }
+  return null;
 };
 
 export const clearLoginInfo = () => {
-  loginInfo = null;
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('login');
+  }
 };

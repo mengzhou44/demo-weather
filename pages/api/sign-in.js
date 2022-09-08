@@ -24,9 +24,9 @@ export default async (req, res) => {
         process.env.JWT_SECRET
       );
 
-      const  {isNew, firstName } = await isNewUser(token, metadata.issuer);
+      const { isNew, firstName } = await isNewUser(token, metadata.issuer);
       if (isNew === true) {
-        res.send({ done: false, message: 'Please sign up first!'});
+        res.send({ done: false, message: 'Please sign up first!' });
       } else {
         setTokenCookie(token, res);
         res.send({ done: true, firstName });

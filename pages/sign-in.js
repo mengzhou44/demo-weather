@@ -49,6 +49,7 @@ const SignIn = () => {
           setLoginInfo(res.firstName);
           router.push('/');
         } else {
+          setUserMessage(res.message);
           console.log('something went wrong!');
           setIsSigning(false);
         }
@@ -102,7 +103,7 @@ const SignIn = () => {
         </button>
         <div className={styles['sign-up']}>
           <p>
-            Not signed up yet?   <Link href="/sign-up">Sign up now</Link>
+            Not signed up yet? <Link href="/sign-up">Sign up now</Link>
           </p>
         </div>
       </main>

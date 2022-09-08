@@ -12,6 +12,7 @@ export const setTokenCookie = (token, res) => {
   res.setHeader('Set-Cookie', setCookie);
 };
 
+
 export const removeTokenCookie = (res) => {
   const val = cookie.serialize('token', '', {
     maxAge: -1,
@@ -20,3 +21,6 @@ export const removeTokenCookie = (res) => {
 
   res.setHeader('Set-Cookie', val);
 };
+
+
+  

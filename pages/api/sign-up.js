@@ -42,7 +42,7 @@ export default async (req, res) => {
 
           await createUser(token, newUser);
           setTokenCookie(token, res);
-          res.send({ done: true });
+          res.send({ done: true, firstName });
         }
       } else {
         res.send({ done: false, message: 'This email already exists.' });

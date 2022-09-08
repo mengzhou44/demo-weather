@@ -5,15 +5,20 @@ import { useRouter } from 'next/router';
 import { scrollToSection } from '../utils/scroll-to-section';
 import { useDevice } from '../hooks/use-device';
 import { motion } from 'framer-motion';
-import { loginInfo } from '../utils/login-info';
+import { getLoginInfo, clearLoginInfo } from '../utils/login-info';
 
 const Header = () => {
   const [showLinks, setShowLinks] = useState(false);
   const [selected, setSelected] = useState();
+  const [firstName, setFirstName] = useState(null);
+
   const device = useDevice();
   const router = useRouter();
-
   const isHomePage = router.asPath !== '/courses';
+
+  useEffect(() => {
+    setFirstName(getLoginInfo());
+  }, []);
 
   useEffect(() => {
     const { pathname, asPath } = router;
@@ -65,8 +70,21 @@ const Header = () => {
   function renderSignOut() {
     return (
       <div className={styles['sign-out']}>
-        <p>{`Hi, ${loginInfo.firstName.toUpperCase()}`}</p>
-        <button className="btn">Sign out</button>
+        <p>{`Hi, ${firstName.toUpperCase()}`}</p>
+        <button
+          className="btn"
+          onClick={async (e) => {
+            e.preventDefault();
+            await fetch('/api/sign-out', {
+              method: 'POST',
+            });
+
+            clearLoginInfo();
+            setFirstName(null);
+          }}
+        >
+          Sign out
+        </button>
       </div>
     );
   }
@@ -74,7 +92,7 @@ const Header = () => {
   function renderAuth() {
     return (
       <div className={styles.auth}>
-        {loginInfo === null ? renderSignIn() : renderSignOut()}
+        {firstName === null ? renderSignIn() : renderSignOut()}
       </div>
     );
   }
