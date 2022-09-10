@@ -15,9 +15,10 @@ function generatePublicJWT() {
   );
 }
 
+
 function generateUserJWT() {
   const metadata = {
-    issuer: 'did:ethr:0x82b92bb1A7414B8D8569446BC2A8a5C2eEeBa41a0x82b92bb1A',
+    issuer: 'did:ethr:0x82b92bb1A7414B8D8569446BC2A8a5C2eEeBa41a',
     publicAddress: '0x82b92bb1A7414B8D8569446BC2A8a5C2eEeBa41a',
     email: 'mengzhouaws@gmail.com',
   };
@@ -40,6 +41,6 @@ let token = generatePublicJWT();
 console.log(`************************* PUBLIC *********************`)
 console.log(`Bearer ${token}`);
 
-console.log(`************************* PUBLIC *********************`);
+console.log(`************************* USER *********************`);
 token = generateUserJWT();
 console.log(`Bearer ${token}`);

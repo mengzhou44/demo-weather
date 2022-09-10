@@ -1,3 +1,5 @@
+import { queryHasuraGQL } from "./query-hasura-GQL";
+
 export async function createUser(token, user) {
   const operationsDoc = `
   mutation createUser(
@@ -39,7 +41,6 @@ export async function createUser(token, user) {
   if (response?.errors?.length ?? 0 > 0) {
     throw new Error(JSON.stringify(response.errors[0]));
   }
-  console.log({ response });
   return response;
 }
 
@@ -64,28 +65,13 @@ export async function isNewUser(token, issuer) {
     token
   );
   const isNew = response?.data?.users?.length === 0;
-  let res= {
-    isNew
-  }
+  let res = {
+    isNew,
+  };
   if (isNew === false) {
-      res.firstName =  response.data.users[0].firstName  
+    res.firstName = response.data.users[0].firstName;
   }
-  return  res
+  return res;
 }
 
-async function queryHasuraGQL(operationsDoc, operationName, variables, token) {
-  const result = await fetch(process.env.HASURA_GRAPHQL_URL, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: operationsDoc,
-      variables: variables,
-      operationName: operationName,
-    }),
-  });
 
-  return await result.json();
-}

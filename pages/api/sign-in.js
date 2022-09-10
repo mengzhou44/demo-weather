@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { magicAdmin } from './utils/magic';
-import { isNewUser } from './utils/hasura';
+import { isNewUser } from './utils/db/users';
 import { setTokenCookie } from './utils/cookies';
 
 export default async (req, res) => {
