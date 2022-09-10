@@ -1,3 +1,4 @@
-.courses {
+.container {
+  padding: 2rem;
   margin-top: var(--nav-height);
 }

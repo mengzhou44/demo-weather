@@ -8,6 +8,8 @@ export async function getCourses() {
       category
       description
       id
+      name
+      teacher
     }
   }
 `;
@@ -15,4 +17,3 @@ export async function getCourses() {
   const response = await queryHasuraGQL(operationsDoc, 'getCourses');
   return response?.data?.courses;
 }
- 

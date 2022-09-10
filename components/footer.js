@@ -3,7 +3,7 @@ const Footer = () => {
   return (
     <footer className={`${styles.footer}`}>
       <p>
-        copyright &copy; backroads travel tours company
+        copyright &copy; Agoura Hills Academy
         <span> {new Date().getFullYear()} </span>. all rights reserved
       </p>
     </footer>
