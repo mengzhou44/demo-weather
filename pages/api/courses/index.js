@@ -1,4 +1,4 @@
-import { getCourses } from './utils/db/courses';
+import { getCourses } from '../utils/db/courses';
 
 export default async (req, res) => {
   if (req.method === 'GET') {

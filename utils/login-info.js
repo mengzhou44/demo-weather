@@ -11,6 +11,12 @@ export const getLoginInfo = () => {
   return null;
 };
 
+export const isSignedIn = () => {
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem('login') !== null;
+  }
+};
+
 export const clearLoginInfo = () => {
   if (typeof window !== 'undefined') {
     localStorage.removeItem('login');

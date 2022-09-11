@@ -24,7 +24,7 @@ export function scrollToSection(e, device) {
 }
 
 export function scrollToSectionByPath(path, device) {
-  console.log({ path });
+  
   const id = path.slice(2);
   const navbar = document.getElementById('nav');
   const element = document.getElementById(id);

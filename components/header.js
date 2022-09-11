@@ -14,7 +14,7 @@ const Header = () => {
 
   const device = useDevice();
   const router = useRouter();
-  const isHomePage = router.asPath !== '/courses';
+  const isHomePage = !router.asPath.includes('/courses');
 
   useEffect(() => {
     setFirstName(getLoginInfo());
@@ -30,7 +30,7 @@ const Header = () => {
       } else {
         setSelected('home');
       }
-    } else if (pathname === '/courses') {
+    } else if (pathname.includes('/courses')) {
       setSelected('courses');
     }
   }, []);

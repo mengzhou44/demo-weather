@@ -1,16 +1,19 @@
-import Layout from '../components/layout';
-
-import styles from './courses.module.css';
+import Link from 'next/link';
+import Layout from '../../components/layout';
+import styles from './index.module.css';
+ 
 export default function Course({ courses }) {
-  console.log(JSON.stringify(courses));
   return (
     <Layout>
       <div className={styles.container}>
         <h3>Courses</h3>
+
         {courses.length > 0 &&
           courses.map((course) => (
             <div key={course.id}>
-              <h4>{course.name}</h4>
+              <Link href={`/courses/${course.id}`}>
+                <h4>{course.name}</h4>
+              </Link>
               <p>{course.description}</p>
             </div>
           ))}
