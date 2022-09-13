@@ -79,7 +79,7 @@ const SignIn = () => {
           <a className={styles['logo-link']}>
             <div className={styles['logo-wrapper']}>
               <Image
-                src="/static/logo.svg"
+                src="/static/logo.png"
                 alt="logo"
                 width="128px"
                 height="34px"

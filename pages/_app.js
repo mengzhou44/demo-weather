@@ -1,3 +1,4 @@
+import 'react-toastify/dist/ReactToastify.css';
 import './_app.css';
 import { motion } from 'framer-motion';
 

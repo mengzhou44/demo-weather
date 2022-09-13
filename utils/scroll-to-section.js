@@ -29,7 +29,7 @@ export function scrollToSectionByPath(path, device) {
   const navbar = document.getElementById('nav');
   const element = document.getElementById(id);
   const navHeight = navbar.getBoundingClientRect().height;
-  console.log({ id, element });
+ 
   let position = element.offsetTop - navHeight;
 
   if (device !== 'large') {

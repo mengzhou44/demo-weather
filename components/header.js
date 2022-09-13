@@ -156,7 +156,7 @@ const Header = () => {
       <nav id="nav" className={navClassName}>
         <div className={styles.container}>
           <div className={styles.logo}>
-            <img src="/static/logo.svg" className={styles.logo} alt="logo" />
+            <img src="/static/logo.jpg" className={styles.logo} alt="logo" />
           </div>
           {renderAuth()}
 
@@ -190,7 +190,7 @@ const Header = () => {
     <nav id="nav" className={styles.nav}>
       <div className={styles.container}>
         <div className={styles.logo}>
-          <img src="/static/logo.svg" className={styles.logo} alt="logo" />
+          <img src="/static/logo.jpg" className={styles.logo} alt="logo" />
         </div>
         {renderAuth()}
         {renderLinks()}

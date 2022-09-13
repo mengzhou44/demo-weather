@@ -17,17 +17,34 @@ export async function getCourses() {
   const response = await queryHasuraGQL(operationsDoc, 'getCourses');
   return response?.data?.courses;
 }
-
-export async function getCourseByUserId(id, userId, token) {
-  console.log({ id, userId, token });
+export async function isCourseEnrolled(courseId, userId, token) {
   const operationsDoc = `
-  query getCourseByUserId($id: Int!, $userId: String!) {
-        enrollments_by_pk(courseId: $id , userId: $userId) {
+  query isCourseEnrolled($courseId: Int!, $userId: String!) {
+        enrollments_by_pk(courseId: $courseId, userId: $userId) {
             courseId
             enrolledDate
             userId
         }
-        courses_by_pk(id: $id) {
+  }
+`;
+
+  const response = await queryHasuraGQL(
+    operationsDoc,
+    'isCourseEnrolled',
+    { courseId, userId },
+    token
+  );
+
+  if (response?.data?.enrollments_by_pk) {
+    return true;
+  }
+  return false;
+}
+
+export async function getCourseByUserId(courseId, userId, token) {
+  const operationsDoc = `
+  query getCourseByUserId($courseId: Int!) {
+        courses_by_pk(id: $courseId) {
             active
             category
             description
@@ -41,19 +58,16 @@ export async function getCourseByUserId(id, userId, token) {
   const response = await queryHasuraGQL(
     operationsDoc,
     'getCourseByUserId',
-    { id, userId },
+    { courseId },
     token
   );
-
+ 
   let course = {
     ...response?.data?.courses_by_pk,
   };
 
-  if (response?.data?.enrollments_by_pk) {
-    course.isEnrolled = true;
-  } else {
-    course.isEnrolled = false;
-  }
+  course.isEnrolled = await isCourseEnrolled(courseId, userId, token);
+
   return course;
 }
 
@@ -73,4 +87,22 @@ export async function getCourse(id) {
 
   const response = await queryHasuraGQL(operationsDoc, 'getCourse', { id });
   return response?.data?.courses_by_pk;
+}
+
+export async function enrollCourse(courseId, userId, token) {
+  const operationsDoc = `
+   mutation enrollCourse ($courseId: Int!, $userId: String!) {
+    insert_enrollments_one(object: {courseId: $courseId, userId: $userId}) {
+      userId
+      courseId
+    }
+  }
+`;
+
+  await queryHasuraGQL(
+    operationsDoc,
+    'enrollCourse',
+    { courseId, userId },
+    token
+  );
 }

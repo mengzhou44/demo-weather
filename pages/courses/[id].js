@@ -1,31 +1,51 @@
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from './[id].module.css';
 import Head from 'next/head';
 import Layout from '../../components/layout';
 import { isSignedIn } from '../../utils/login-info';
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function () {
   const [course, setCourse] = useState(null);
+
   const router = useRouter();
- 
+
   useEffect(() => {
     if (!router.isReady) return;
     async function fetchCourse() {
       const { id } = router.query;
       let res = await fetch(`/api/courses/${id}`);
       res = await res.json();
+ 
       setCourse(res);
     }
     fetchCourse();
   }, [router.isReady]);
+
+  async function enrollCourse(e, course) {
+    e.preventDefault();
+    try {
+      await fetch('/api/courses/enroll', {
+        method: 'POST',
+        body: JSON.stringify({ courseId: course.id }),
+      });
+      let res = await fetch(`/api/courses/${course.id}`);
+      res = await res.json();
+      setCourse(res);
+      toast.success('Course is enrolled!');
+    } catch (err) {
+      toast.error('Somthing went wrong! Course can not be  enrolled!');
+    }
+  }
 
   function renderEnrollment(course) {
     if (isSignedIn()) {
       if (course.isEnrolled) {
         return <h3>enrolled!</h3>;
       }
-      return <button>Enroll</button>;
+      return <button onClick={(e) => enrollCourse(e, course)}>Enroll</button>;
     }
     return (
       <Link href="/sign-in">
@@ -49,6 +69,18 @@ export default function () {
             {renderEnrollment(course)}
           </div>
         )}
+        <ToastContainer
+          className={styles.toast}
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </Layout>
     </>
   );
