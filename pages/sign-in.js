@@ -13,6 +13,7 @@ const SignIn = () => {
   const [userMessage, setUserMessage] = useState('');
   const [isSigning, setIsSigning] = useState(false);
   const router = useRouter();
+  const { redirect } = router.query;
 
   useEffect(() => {
     const handleRouteChange = (url) => {
@@ -47,7 +48,11 @@ const SignIn = () => {
         res = await res.json();
         if (res.done) {
           setLoginInfo(res.firstName);
-          router.push('/');
+          if (redirect) {
+            router.push(redirect);
+          } else {
+            router.push('/');
+          }
         } else {
           setUserMessage(res.message);
           console.log('something went wrong!');

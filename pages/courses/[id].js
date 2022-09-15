@@ -48,8 +48,8 @@ export default function () {
       return <button onClick={(e) => enrollCourse(e, course)}>Enroll</button>;
     }
     return (
-      <Link href="/sign-in">
-        <button>Enroll</button>
+      <Link href={`/sign-in?redirect=/courses/${course.id}`}>
+        <button >Enroll</button>
       </Link>
     );
   }
