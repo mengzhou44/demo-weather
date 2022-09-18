@@ -26,6 +26,7 @@ export function scrollToSection(e, device) {
 export function scrollToSectionByPath(path, device) {
   
   const id = path.slice(2);
+ 
   const navbar = document.getElementById('nav');
   const element = document.getElementById(id);
   const navHeight = navbar.getBoundingClientRect().height;

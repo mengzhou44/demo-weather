@@ -3,7 +3,8 @@ import styles from './index.module.css';
 import Layout from '../components/layout';
 import Hero from '../components/home/hero';
 import About from '../components/home/about';
-import Services from '../components/home/services';
+import Academics from '../components/home/academics';
+import Admission from '../components/home/admission';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { scrollToSectionByPath } from '../utils/scroll-to-section';
@@ -32,7 +33,8 @@ export default function Home() {
       <Layout>
         <Hero />
         <About />
-        <Services />
+        <Academics />
+        <Admission />
       </Layout>
     </div>
   );

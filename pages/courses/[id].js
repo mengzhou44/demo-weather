@@ -6,6 +6,7 @@ import Head from 'next/head';
 import Layout from '../../components/layout';
 import { isSignedIn } from '../../utils/login-info';
 import { ToastContainer, toast } from 'react-toastify';
+import Image from 'next/image';
 
 export default function () {
   const [course, setCourse] = useState(null);
@@ -18,7 +19,7 @@ export default function () {
       const { id } = router.query;
       let res = await fetch(`/api/courses/${id}`);
       res = await res.json();
- 
+
       setCourse(res);
     }
     fetchCourse();
@@ -34,6 +35,7 @@ export default function () {
       let res = await fetch(`/api/courses/${course.id}`);
       res = await res.json();
       setCourse(res);
+
       toast.success('Course is enrolled!');
     } catch (err) {
       toast.error('Somthing went wrong! Course can not be  enrolled!');
@@ -41,6 +43,7 @@ export default function () {
   }
 
   function renderEnrollment(course) {
+ 
     if (isSignedIn()) {
       if (course.isEnrolled) {
         return <h3>enrolled!</h3>;
@@ -49,7 +52,7 @@ export default function () {
     }
     return (
       <Link href={`/sign-in?redirect=/courses/${course.id}`}>
-        <button >Enroll</button>
+        <button>Enroll</button>
       </Link>
     );
   }
@@ -62,11 +65,21 @@ export default function () {
       <Layout>
         {course && (
           <div className={styles.container}>
-            <h3>{course.name}</h3>
-            <p>{course.category}</p>
-            <p>{course.teacher}</p>
-            <p>{course.description}</p>
-            {renderEnrollment(course)}
+            <div className={styles['image-container']}>
+              <Image
+                src={course.imageUrl}
+                alt="course image"
+                width={320}
+                height={213}
+              />
+            </div>
+            <div>
+              <h3>{course.name}</h3>
+              <p>{course.category}</p>
+              <p>{course.teacher}</p>
+              <p>{course.description}</p>
+              {renderEnrollment(course)}
+            </div>
           </div>
         )}
         <ToastContainer

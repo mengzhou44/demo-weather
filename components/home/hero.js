@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useDevice } from '../../hooks/use-device';
 import { scrollToSection } from '../../utils/scroll-to-section';
- 
+
 const Hero = () => {
   const device = useDevice();
   const router = useRouter();
@@ -17,14 +17,14 @@ const Hero = () => {
           neque sunt in? Id, necessitatibus quos quisquam distinctio laudantium
           fugiat?
         </p>
-        <Link href="/#services">
+        <Link href="/#admission">
           <a
             className="scroll-link btn btn-white"
             onClick={(e) => {
-               scrollToSection(e, device);
+              scrollToSection(e, device);
             }}
           >
-            explore services
+            explore admission
           </a>
         </Link>
       </div>

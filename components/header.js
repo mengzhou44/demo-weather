@@ -9,7 +9,7 @@ import { getLoginInfo, clearLoginInfo } from '../utils/login-info';
 
 const Header = () => {
   const [showLinks, setShowLinks] = useState(false);
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState('');
   const [firstName, setFirstName] = useState(null);
 
   const device = useDevice();
@@ -23,12 +23,14 @@ const Header = () => {
   useEffect(() => {
     const { pathname, asPath } = router;
     if (pathname === '/') {
-      if (asPath.endsWith('services')) {
-        setSelected('services');
-      } else if (asPath.endsWith('about')) {
+      if (asPath.endsWith('about')) {
         setSelected('about');
+      } else if (asPath.endsWith('admission')) {
+        setSelected('admission');
+      } else if (asPath.endsWith('academics')) {
+        setSelected('academics');
       } else {
-        setSelected('home');
+        setSelected();
       }
     } else if (pathname.includes('/courses')) {
       setSelected('courses');
@@ -139,11 +141,21 @@ const Header = () => {
         className={styles.links}
         onClick={() => setShowLinks(false)}
       >
-        {renderHomeLink('home')}
         {renderHomeLink('about')}
-        {renderHomeLink('services')}
+        {renderHomeLink('academics')}
+        {renderHomeLink('admission')}
         {renderPageLink('courses')}
       </motion.div>
+    );
+  }
+
+  function renderLogo() {
+    return (
+      <Link href={`/#home`}>
+        <div className={styles.logo} onClick={() => setSelected('')}>
+          <img src="/static/logo.jpg" className={styles.logo} alt="logo" />
+        </div>
+      </Link>
     );
   }
 
@@ -155,9 +167,7 @@ const Header = () => {
     return (
       <nav id="nav" className={navClassName}>
         <div className={styles.container}>
-          <div className={styles.logo}>
-            <img src="/static/logo.jpg" className={styles.logo} alt="logo" />
-          </div>
+          {renderLogo()}
           {renderAuth()}
 
           <button
@@ -189,9 +199,7 @@ const Header = () => {
   return (
     <nav id="nav" className={styles.nav}>
       <div className={styles.container}>
-        <div className={styles.logo}>
-          <img src="/static/logo.jpg" className={styles.logo} alt="logo" />
-        </div>
+        {renderLogo()}
         {renderAuth()}
         {renderLinks()}
       </div>

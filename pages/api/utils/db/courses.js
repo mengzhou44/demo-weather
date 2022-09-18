@@ -10,6 +10,7 @@ export async function getCourses() {
       id
       name
       teacher
+      imageUrl
     }
   }
 `;
@@ -51,6 +52,7 @@ export async function getCourseByUserId(courseId, userId, token) {
             id
             name
             teacher
+            imageUrl
         }
   }
 `;
@@ -61,7 +63,7 @@ export async function getCourseByUserId(courseId, userId, token) {
     { courseId },
     token
   );
- 
+
   let course = {
     ...response?.data?.courses_by_pk,
   };
@@ -81,6 +83,7 @@ export async function getCourse(id) {
       id
       name
       teacher
+      imageUrl
     }
   }
 `;
