@@ -27,13 +27,12 @@
 
 .links a {
   background: var(--clr-white);
-  color: var(--clr-grey-5);
+  color: var(--clr-grey-1);
   font-size: 1.1rem;
   text-transform: capitalize;
   letter-spacing: var(--spacing);
   display: block;
   transition: var(--transition);
-  font-weight: bold;
   padding: 0.75rem 0;
 }
 

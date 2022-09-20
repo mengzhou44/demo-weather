@@ -7,7 +7,7 @@
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  background-color: var(--clr-secondary);
+  background-color: var(--clr-red-light);
   box-shadow: var(--dark-shadow);
 }
 
