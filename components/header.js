@@ -159,12 +159,24 @@ const Header = () => {
     );
   }
 
-  if (device !== 'large') {
-    let navClassName = styles.nav;
-    if (showLinks === true) {
-      navClassName = `${styles.nav} ${styles.expanded}`;
-    }
+  if (device === 'large') {
     return (
+      <nav id="nav" className={styles.nav}>
+        <div className={styles.container}>
+          {renderLogo()}
+          {renderAuth()}
+          {renderLinks()}
+        </div>
+      </nav>
+    );
+  }
+
+  let navClassName = styles.nav;
+  if (showLinks === true) {
+      navClassName = `${styles.nav} ${styles.expanded}`;
+  }
+
+  return (
       <nav id="nav" className={navClassName}>
         <div className={styles.container}>
           {renderLogo()}
@@ -195,16 +207,6 @@ const Header = () => {
         {showLinks && renderLinks()}
       </nav>
     );
-  }
-  return (
-    <nav id="nav" className={styles.nav}>
-      <div className={styles.container}>
-        {renderLogo()}
-        {renderAuth()}
-        {renderLinks()}
-      </div>
-    </nav>
-  );
-};
+}
 
 export default Header;

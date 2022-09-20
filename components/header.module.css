@@ -6,6 +6,7 @@
   width: 100%;
   background: var(--clr-white);
   box-shadow: var(--light-shadow);
+  z-index: var(--z-index-higher) !important;
 }
 
 .expanded {
@@ -101,4 +102,7 @@
     font-size: 0.875rem;
     letter-spacing: var(--spacing);
   }
+}
+
+@media screen and (min-width: 1023px) {
 }
