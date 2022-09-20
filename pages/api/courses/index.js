@@ -1,6 +1,6 @@
 import { getCourses } from '../utils/db/courses';
 
-export default async (req, res) => {
+ const Courses = async (req, res) => {
   if (req.method === 'GET') {
     try {
       const courses = await getCourses();
@@ -13,3 +13,6 @@ export default async (req, res) => {
     res.status(400).send({ done: false });
   }
 };
+
+
+export default Courses;

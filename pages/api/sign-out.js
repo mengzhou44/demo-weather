@@ -2,7 +2,7 @@ import { magicAdmin } from './utils/magic';
 import { removeTokenCookie } from './utils/cookies';
 import { verifyToken } from './utils/verify-token';
 
-export default async (req, res) => {
+const SignOut = async (req, res) => {
   try {
     if (!req.cookies.token)
       return res.status(401).json({ message: 'User is not signed in' });
@@ -23,3 +23,5 @@ export default async (req, res) => {
     res.status(401).json({ message: 'User is not signed in' });
   }
 }
+
+export default SignOut

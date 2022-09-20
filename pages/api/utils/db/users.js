@@ -1,4 +1,4 @@
-import { queryHasuraGQL } from "./query-hasura-GQL";
+import { queryHasura } from "./query-hasura";
 
 export async function createUser(token, user) {
   const operationsDoc = `
@@ -26,7 +26,7 @@ export async function createUser(token, user) {
 `;
 
   const { issuer, email, publicAddress, firstName, lastName } = user;
-  const response = await queryHasuraGQL(
+  const response = await queryHasura(
     operationsDoc,
     'createUser',
     {
@@ -56,7 +56,7 @@ export async function isNewUser(token, issuer) {
   }
 `;
 
-  const response = await queryHasuraGQL(
+  const response = await queryHasura(
     operationsDoc,
     'isNewUser',
     {

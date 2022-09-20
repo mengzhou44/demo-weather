@@ -3,7 +3,7 @@ import { magicAdmin } from './utils/magic';
 import { createUser, isNewUser } from './utils/db/users';
 import { setTokenCookie } from './utils/cookies';
 
-export default async (req, res) => {
+const SignUp=  async (req, res) => {
   if (req.method === 'POST') {
     try {
       const { authorization } = req.headers;
@@ -55,3 +55,5 @@ export default async (req, res) => {
     res.status(400).send({ done: false });
   }
 };
+
+export default SignUp;

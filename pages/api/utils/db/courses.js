@@ -1,4 +1,4 @@
-import { queryHasuraGQL } from './query-hasura-GQL';
+import { queryHasura } from './query-hasura';
 
 export async function getCourses() {
   const operationsDoc = `
@@ -15,7 +15,7 @@ export async function getCourses() {
   }
 `;
 
-  const response = await queryHasuraGQL(operationsDoc, 'getCourses');
+  const response = await queryHasura(operationsDoc, 'getCourses');
   return response?.data?.courses;
 }
 export async function isCourseEnrolled(courseId, userId, token) {
@@ -88,7 +88,7 @@ export async function getCourse(id) {
   }
 `;
 
-  const response = await queryHasuraGQL(operationsDoc, 'getCourse', { id });
+  const response = await queryHasura(operationsDoc, 'getCourse', { id });
   return response?.data?.courses_by_pk;
 }
 
@@ -102,7 +102,7 @@ export async function enrollCourse(courseId, userId, token) {
   }
 `;
 
-  await queryHasuraGQL(
+  await queryHasura(
     operationsDoc,
     'enrollCourse',
     { courseId, userId },

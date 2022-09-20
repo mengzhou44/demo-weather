@@ -2,10 +2,10 @@ import { enrollCourse, isCourseEnrolled } from '../utils/db/courses';
 import { verifyToken } from '../utils/verify-token';
 
 function isNumeric(value) {
-    return /^\d+$/.test(value);
+  return /^\d+$/.test(value);
 }
 
-export default async (req, res) => {
+const Enroll = async (req, res) => {
   if (req.method === 'POST') {
     try {
       const { token } = req.cookies;
@@ -15,12 +15,12 @@ export default async (req, res) => {
       }
       const { courseId } = JSON.parse(req.body);
       if (!isNumeric(courseId)) {
-         throw new Error(`course ${courseId} is invalid!`)
+        throw new Error(`course ${courseId} is invalid!`);
       }
       const enrolled = await isCourseEnrolled(courseId, userId, token);
 
       if (enrolled === true) {
-         throw new Error('course is enrolled!')
+        throw new Error('course is enrolled!');
       }
 
       await enrollCourse(courseId, userId, token);
@@ -33,3 +33,5 @@ export default async (req, res) => {
     res.status(400).send({ done: false });
   }
 };
+
+export default Enroll;

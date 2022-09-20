@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-export async function queryHasuraGQL(
+export async function queryHasura(
   operationsDoc,
   operationName,
   variables,

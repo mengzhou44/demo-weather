@@ -1,9 +1,24 @@
+import { useState, useEffect} from 'react'
 import Link from 'next/link';
 import Layout from '../../components/layout';
 import styles from './index.module.css';
 import Image from 'next/image';
 
-export default function Course({ courses }) {
+export default function Course() {
+    const [courses, setCourses] = useState([])
+   
+    useEffect(() => {
+       
+      async function fetchCourses() {
+    
+        let res = await fetch(`/api/courses`);
+        res = await res.json();
+
+        setCourses(res);
+      }
+      fetchCourses();
+    }, []);
+
   return (
     <Layout>
       <div className={styles.container}>
@@ -32,12 +47,3 @@ export default function Course({ courses }) {
   );
 }
 
-export async function getStaticProps() {
-  let courses = await fetch(`${process.env.BASE_URL}/api/courses`);
-  courses = await courses.json();
-  return {
-    props: {
-      courses,
-    },
-  };
-}

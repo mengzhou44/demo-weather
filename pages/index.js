@@ -21,7 +21,7 @@ export default function Home() {
         scrollToSectionByPath(asPath, device);
       }, 1);
     }
-  }, [asPath]);
+  }, [asPath, device]);
 
   return (
     <div className={styles.container}>

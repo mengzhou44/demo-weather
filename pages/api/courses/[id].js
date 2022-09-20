@@ -1,7 +1,7 @@
 import { getCourse, getCourseByUserId } from '../utils/db/courses';
 import { verifyToken } from '../utils/verify-token';
 
-export default async (req, res) => {
+const Course = async (req, res) => {
   if (req.method === 'GET') {
     const { id } = req.query;
     const { token } = req.cookies;
@@ -30,3 +30,5 @@ export default async (req, res) => {
     res.status(400).send({ done: false });
   }
 };
+
+export default Course

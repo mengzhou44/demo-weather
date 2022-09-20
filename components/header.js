@@ -35,7 +35,7 @@ const Header = () => {
     } else if (pathname.includes('/courses')) {
       setSelected('courses');
     }
-  }, []);
+  }, [router]);
 
   function renderHomeLink(section) {
     let linkClassName = '';

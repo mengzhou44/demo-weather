@@ -8,7 +8,7 @@ import { isSignedIn } from '../../utils/login-info';
 import { ToastContainer, toast } from 'react-toastify';
 import Image from 'next/image';
 
-export default function () {
+const Course = () => {
   const [course, setCourse] = useState(null);
 
   const router = useRouter();
@@ -23,7 +23,7 @@ export default function () {
       setCourse(res);
     }
     fetchCourse();
-  }, [router.isReady]);
+  }, [router.isReady, router.query]);
 
   async function enrollCourse(e, course) {
     e.preventDefault();
@@ -43,7 +43,6 @@ export default function () {
   }
 
   function renderEnrollment(course) {
- 
     if (isSignedIn()) {
       if (course.isEnrolled) {
         return <h3>enrolled!</h3>;
@@ -97,4 +96,6 @@ export default function () {
       </Layout>
     </>
   );
-}
+};
+
+export default Course;
