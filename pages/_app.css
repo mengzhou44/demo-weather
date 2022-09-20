@@ -31,7 +31,7 @@ Variables
   --clr-grey-9: hsl(212, 33%, 89%);
   --clr-grey-10: hsl(210, 36%, 96%);
   --clr-white: #fff;
-  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-dark: #d00a2d;
   --clr-red-light: hsl(360, 71%, 66%);
   --clr-green-dark: hsl(125, 67%, 44%);
   --clr-green-light: hsl(125, 71%, 66%);
@@ -70,13 +70,10 @@ html {
   box-sizing: border-box;
 }
 body {
-  font-family: var(--ff-secondary);
   background: var(--clr-grey-10);
   color: var(--clr-grey-1);
   line-height: 1.5;
-  font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.875rem;
 }
 
@@ -150,6 +147,7 @@ a {
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: var(--radius);
+  font-family: 'Inter';
 }
 
 .btn:hover {
@@ -199,7 +197,7 @@ main {
   display: grid;
   place-items: center;
 }
- 
+
 #services {
   background: var(--clr-white);
 }
@@ -212,4 +210,3 @@ main {
 .title span {
   color: var(--clr-secondary);
 }
-

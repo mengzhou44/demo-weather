@@ -42,7 +42,7 @@
 }
 
 .link-selected {
-  color: red !important;
+  color: var(--clr-red-dark) !important;
 }
 
 .logo {
