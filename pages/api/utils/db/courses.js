@@ -29,7 +29,7 @@ export async function isCourseEnrolled(courseId, userId, token) {
   }
 `;
 
-  const response = await queryHasuraGQL(
+  const response = await queryHasura(
     operationsDoc,
     'isCourseEnrolled',
     { courseId, userId },
@@ -57,7 +57,7 @@ export async function getCourseByUserId(courseId, userId, token) {
   }
 `;
 
-  const response = await queryHasuraGQL(
+  const response = await queryHasura(
     operationsDoc,
     'getCourseByUserId',
     { courseId },
