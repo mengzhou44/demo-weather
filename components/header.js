@@ -142,9 +142,9 @@ const Header = () => {
         onClick={() => setShowLinks(false)}
       >
         {renderHomeLink('about')}
+        {renderPageLink('courses')}
         {renderHomeLink('academics')}
         {renderHomeLink('admission')}
-        {renderPageLink('courses')}
       </motion.div>
     );
   }
