@@ -18,12 +18,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 2rem;
+  padding: 0rem .5rem; 
 }
 
 .links li {
   list-style-type: none;
-  margin: 2rem;
+  margin: 1rem;
 }
 
 .links a {
@@ -46,8 +46,7 @@
 }
 
 .logo {
-  height: 50px;
- 
+  height: 30px;
   cursor: pointer;
 }
 
@@ -85,14 +84,28 @@
   font-size: 0.7rem;
 }
 
+@media screen and (min-width: 500px) {
+    .nav {
+      padding: 0.5rem;
+    }
+    .logo {
+      height: 40px; 
+    }
+}
+
+
 @media screen and (min-width: 768px) {
   .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+
+
+
   .container {
     height: 100%;
+
   }
 
   .links {
@@ -106,4 +119,14 @@
 }
 
 @media screen and (min-width: 1023px) {
+
+  .logo {
+    height: 50px; 
+  }
+
+  .links li {
+  
+    margin: 2rem;
+  }
+  
 }
