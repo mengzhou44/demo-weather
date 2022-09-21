@@ -152,7 +152,13 @@ const Header = () => {
   function renderLogo() {
     return (
       <Link href={`/#home`}>
-        <div className={styles.logo} onClick={() => setSelected('')}>
+        <div
+          className={styles.logo}
+          onClick={() => {
+            setSelected('');
+            setShowLinks(false);
+          }}
+        >
           <img src="/static/logo.jpg" className={styles.logo} alt="logo" />
         </div>
       </Link>
@@ -173,40 +179,40 @@ const Header = () => {
 
   let navClassName = styles.nav;
   if (showLinks === true) {
-      navClassName = `${styles.nav} ${styles.expanded}`;
+    navClassName = `${styles.nav} ${styles.expanded}`;
   }
 
   return (
-      <nav id="nav" className={navClassName}>
-        <div className={styles.container}>
-          {renderLogo()}
-          {renderAuth()}
+    <nav id="nav" className={navClassName}>
+      <div className={styles.container}>
+        {renderLogo()}
+        {renderAuth()}
 
-          <button
-            className={styles.toggle}
-            onClick={() => {
-              setShowLinks(!showLinks);
-            }}
+        <button
+          className={styles.toggle}
+          onClick={() => {
+            setShowLinks(!showLinks);
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          </button>
-        </div>
-        {showLinks && renderLinks()}
-      </nav>
-    );
-}
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+      </div>
+      {showLinks && renderLinks()}
+    </nav>
+  );
+};
 
 export default Header;
