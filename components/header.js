@@ -169,9 +169,11 @@ const Header = () => {
     return (
       <nav id="nav" className={styles.nav}>
         <div className={styles.container}>
-          {renderLogo()}
-          {renderAuth()}
-          {renderLinks()}
+          <div className={styles['nav-content']}>
+            {renderLogo()}
+            {renderAuth()}
+            {renderLinks()}
+          </div>
         </div>
       </nav>
     );
@@ -185,30 +187,32 @@ const Header = () => {
   return (
     <nav id="nav" className={navClassName}>
       <div className={styles.container}>
-        {renderLogo()}
-        {renderAuth()}
+        <div className={styles['nav-content']}>
+          {renderLogo()}
+          {renderAuth()}
 
-        <button
-          className={styles.toggle}
-          onClick={() => {
-            setShowLinks(!showLinks);
-          }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
+          <button
+            className={styles.toggle}
+            onClick={() => {
+              setShowLinks(!showLinks);
+            }}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
       {showLinks && renderLinks()}
     </nav>
