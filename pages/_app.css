@@ -34,9 +34,6 @@ Variables
   --clr-white: #fff;
   --clr-red-dark: #d00a2d;
   --clr-red-light: #de546c;
-  --clr-green-dark: hsl(125, 67%, 44%);
-  --clr-green-light: hsl(125, 71%, 66%);
-  --clr-secondary: hsla(182, 63%, 54%);
   --clr-black: #222;
   --ff-primary: 'Inter', sans-serif;
 
@@ -162,6 +159,7 @@ a {
   text-transform: uppercase;
 }
 
+
 .container p {
   color: var(--clr-white);
   max-width: 25rem;
@@ -172,8 +170,7 @@ a {
 /* section */
 .section {
   padding-top: 1rem;
-  padding-bottom: 5rem;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .section-center {

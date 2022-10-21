@@ -1,0 +1,43 @@
+
+.container {
+    background-color: var(--clr-white);
+    padding-top: 1rem; 
+}
+
+.section {
+    margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.section p {
+    color: var(--clr-black);
+}
+
+.section ul {
+    margin-top: -1rem;
+}
+.bold {
+  font-weight: 600; 
+  color: var(--clr-black);
+  margin-right: .5rem;
+}
+
+.section li {
+    list-style-type: disc;
+    margin-left: 1rem;
+}
+.content {
+   padding: 2rem; 
+}
+
+.summary {
+     width: 100%;
+     margin-bottom: 2rem;
+     color: var(--clr-red-dark);
+}
+
+.summary h4 {
+  text-align: center; 
+  line-height: 145%;
+}

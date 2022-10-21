@@ -23,7 +23,7 @@ const SignIn = async (req, res) => {
         },
         process.env.JWT_SECRET
       );
-
+      console.log({token})
       const { isNew, firstName } = await isNewUser(token, metadata.issuer);
       if (isNew === true) {
         res.send({ done: false, message: 'Please sign up first!' });
