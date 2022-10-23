@@ -16,7 +16,7 @@ const Hero = () => {
       
         <Link href="/#admission">
           <a
-            className="scroll-link btn btn-white"
+            className="btn btn-white"
             onClick={(e) => {
               scrollToSection(e, device);
             }}
