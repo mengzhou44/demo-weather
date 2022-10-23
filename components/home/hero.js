@@ -9,7 +9,9 @@ const Hero = () => {
   return (
     <section id="home" className={styles.hero}>
       <div className={styles.container}>
-        <h3>Achieve Anything You Put Your Mind To With Agoura Hills</h3>
+        <h3>Achieve Your College Dream With </h3>
+        <h3 className={styles.school}> Agoura Hills Academy </h3>
+
         <Link href="/#admission">
           <a
             className="scroll-link btn btn-white"

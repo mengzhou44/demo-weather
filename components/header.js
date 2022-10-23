@@ -27,8 +27,8 @@ const Header = () => {
         setSelected('about');
       } else if (asPath.endsWith('admission')) {
         setSelected('admission');
-      } else if (asPath.endsWith('academics')) {
-        setSelected('academics');
+      } else if (asPath.endsWith('counseling')) {
+        setSelected('counseling');
       } else {
         setSelected();
       }
@@ -143,9 +143,8 @@ const Header = () => {
       >
         {renderHomeLink('about')}
         {renderHomeLink('admission')}
+        {renderHomeLink('counseling')}
         {renderPageLink('courses')}
-        {renderHomeLink('academics')}
-
       </motion.div>
     );
   }

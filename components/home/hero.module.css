@@ -13,6 +13,10 @@
 .container h3 {
   color: var(--clr-white);
   text-transform: uppercase;
-  line-height: 145%;
   width: 50rem;
+}
+
+.container .school {
+   color: var(--clr-red-light);
+   font-weight: 700; 
 }
