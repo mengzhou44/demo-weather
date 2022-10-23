@@ -1,9 +1,10 @@
-
 .container {
-    background-color: var(--clr-white);
+    min-height: 100vh;
+    background-color: #fff;
     padding-top: 1rem; 
 }
 
+  
 .section {
     margin-bottom: 3rem;
     margin-left: auto;
@@ -17,6 +18,7 @@
 .section ul {
     margin-top: -1rem;
 }
+
 .bold {
   font-weight: 600; 
   color: var(--clr-black);

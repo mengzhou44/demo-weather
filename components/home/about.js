@@ -3,8 +3,8 @@ import styles from './about.module.css';
 
 const About = () => {
   return (
-    <section id="about" className="section">
-      <div className={styles.container}>
+    <section id="about" className={styles.container}>
+     
       <div className="title">
         <h2>
           About 
@@ -57,7 +57,6 @@ const About = () => {
               <li>Regular class sizes</li>
           </ul>
       </div>
-     </div>
      </div>
     </section>
   );

@@ -3,12 +3,15 @@ import styles from './academics.module.css';
 
 const Academics = () => {
   return (
-    <section id="academics" className="section">
+    <section id="academics" className={styles.container}>
+
+   
       <div className="title">
         <h2>
-          Academics 
+          Academics
         </h2>
       </div>
+ 
     </section>
   );
 };

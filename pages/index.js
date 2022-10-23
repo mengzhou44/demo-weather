@@ -3,7 +3,6 @@ import styles from './index.module.css';
 import Layout from '../components/layout';
 import Hero from '../components/home/hero';
 import About from '../components/home/about';
-import Academics from '../components/home/academics';
 import Admission from '../components/home/admission';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -33,7 +32,6 @@ export default function Home() {
       <Layout>
         <Hero />
         <About />
-        <Academics />
         <Admission />
       </Layout>
     </div>

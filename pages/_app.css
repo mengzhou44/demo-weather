@@ -66,6 +66,7 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   background: var(--clr-grey-10);
   color: var(--clr-grey-1);
@@ -167,11 +168,6 @@ a {
   margin-bottom: 1.25rem;
 }
 
-/* section */
-.section {
-  padding-top: 1rem;
-  min-height: 100vh;
-}
 
 .section-center {
   width: 90vw;
