@@ -40,7 +40,7 @@
 
 .title {
   font-size: 2rem;
-  color: var(--clr-primary-3);
+  color: var(--clr-red-dark);
 }
 
 .txt-email {
@@ -56,12 +56,13 @@
 .btn-sign-in {
   display: block;
   text-align: center;
-  background-color: var(--clr-primary-4);
+  background-color: var(--clr-red-dark);
   color: var(--clr-white);
   width: 25rem;
   padding: 0.7rem;
   font-size: 1.2rem;
   border-radius: 0.5rem;
+  border: none; 
   cursor: pointer;
 }
 
@@ -69,24 +70,31 @@
   margin-top: 1rem;
   width: 100%;
   padding-left: 0.5rem;
+ 
 }
 .sign-up p {
   text-align: left;
+ 
 }
 
 .main p {
   align-self: flex-start;
   margin-left: 1rem;
-  color: var(--clr-primary-3);
+  color: var(--clr-grey-1);
 }
 .sign-up a {
   margin-left: 2rem;
-  color: var(--clr-red-dark);
+  color: var(--clr-grey-1);
+  font-weight: 600; 
   text-decoration: underline;
 }
 
-@media screen and (min-width: 768px) {
-  .container {
-    justify-content: center;
-  }
+@media screen and (max-width: 800px) {
+  
+  .header {
+    top:1rem; 
+    left: 50%;
+    transform: translateX(-50%);
+ }
 }
+   

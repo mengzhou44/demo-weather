@@ -45,7 +45,6 @@ const SignIn = () => {
             Authorization: `Bearer ${didToken}`,
           },
         });
-        console.log({didToken})
         res = await res.json();
         if (res.done) {
           setLoginInfo(res.firstName);
