@@ -23,7 +23,7 @@
   text-decoration: underline;
   color: var(--clr-red-light);
   margin-top: 1rem;
- display: block;
+  display: block;
  
 }
 
@@ -33,3 +33,52 @@
    padding: 1rem; 
 }
 
+.messageForm {
+   position: fixed; 
+   top: 50%;
+   left: 50%;
+   transform:  translate(-50%, -50%);
+   display: flex; 
+   justify-content: space-around;
+   flex-direction: column; 
+   background-color: var(--clr-white);
+   height: 50vh; 
+   width: 60%;
+   border-radius: .3rem; 
+   padding: 2rem; 
+}
+
+.messageForm input {
+   padding: .5rem .5rem; 
+   max-width: 20rem;
+   font-size: 1rem; 
+   outline: none;
+   border: 1px solid  var(--clr-red-light);
+}
+
+.messageForm textarea {
+  padding: .5rem .5rem; 
+  font-size: 1rem; 
+  outline: none; 
+  border-color: var(--clr-red-light);
+}
+.messageForm .buttons {
+   display: flex; 
+   flex-direction: row;
+   justify-content: flex-end; 
+}
+
+.messageForm button {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 1rem; 
+  cursor: pointer;
+  border-radius: 0.3rem;
+  margin-left: 1rem;
+  background-color: var(--clr-white);
+  border: 1px solid var(--clr-red-light);
+  color: var(--clr-red-light);
+  width: 7rem;
+}
+
+ 

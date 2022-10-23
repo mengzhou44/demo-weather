@@ -1,5 +1,12 @@
 import styles from './footer.module.css';
+import {useState} from 'react'
+import { StyleRegistry } from 'styled-jsx';
 const Footer = () => {
+
+  const [showMessageForm, setShowMessageForm] = useState(true)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage]= useState('')
   return (
     <footer className={`${styles.footer}`}>
       <div className={styles.content}>
@@ -26,6 +33,19 @@ const Footer = () => {
         copyright &copy; Agoura Hills Academy
         <span>{new Date().getFullYear()}</span>. all rights reserved
       </p>
+      { showMessageForm &&
+         <div className={styles.messageForm} >
+               <input type='text' placeholder ='Name' value={name}></input>
+               <input type='text' placeholder ='Email' value={email}></input>
+              <textarea placeholder='Message' value={message} rows={4} />
+              <div className={styles.buttons}>
+                <button>Send</button> 
+                <button>Cancel</button>
+              </div>
+             
+         </div>
+      }
+   
     </footer>
   );
 };
