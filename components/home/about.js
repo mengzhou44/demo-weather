@@ -30,21 +30,21 @@ const About = () => {
       </div>
               
       <div className={styles.section}>
-             <p><span className={styles.bold}>Synchronous:</span>
+             <p className={styles.simple}><span className={styles.bold}>Synchronous:</span>
              All our classes are live in real time to ensure our students' success.
           </p>
       </div>
       
         
       <div className={styles.section}>
-      <p><span className={styles.bold}>Staff:</span>
+      <p className={styles.simple}><span className={styles.bold}>Staff:</span>
           We employee experienced teachers who understand international students needs. 
           </p>   
       </div>
       
 
       <div className={styles.section}>
-      <p><span className={styles.bold}>Schedule:</span>
+      <p className={styles.simple}><span className={styles.bold}>Schedule:</span>
       We offer a flexible schedule that works around local school time. 
           </p>   
       </div>

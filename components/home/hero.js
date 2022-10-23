@@ -9,9 +9,11 @@ const Hero = () => {
   return (
     <section id="home" className={styles.hero}>
       <div className={styles.container}>
+        <div className={styles.text} >
         <h3>Achieve Your College Dream With </h3>
         <h3 className={styles.school}> Agoura Hills Academy </h3>
-
+        </div>
+      
         <Link href="/#admission">
           <a
             className="scroll-link btn btn-white"
@@ -21,7 +23,7 @@ const Hero = () => {
           >
               Get Started
           </a>
-        </Link>
+        </Link> 
       </div>
     </section>
   );

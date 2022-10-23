@@ -4,15 +4,29 @@
     padding-top: 1rem; 
 }
 
+.content {
+    max-width: 70%;
+    margin: 0 auto; 
+}
   
 .section {
     margin-bottom: 3rem;
     margin-left: auto;
     margin-right: auto; 
+    border: 1px solid  var(--clr-grey-10);
+    border-radius: 3px;
+    padding: 1rem;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
 }
 
 .section p {
     color: var(--clr-black);
+}
+
+.section .simple {
+    margin-bottom: 0px;
 }
 
 .section ul {
@@ -40,6 +54,14 @@
 }
 
 .summary h4 {
-  text-align: center; 
+  text-transform: none;
   line-height: 145%;
+  text-align: center;
 }
+
+@media screen and (max-width: 800px) {
+    .content {
+       max-width: none; 
+    }    
+}
+

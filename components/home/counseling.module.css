@@ -1,5 +1,5 @@
 .container {
-    min-height: 100vh;
+    height: 100vh;
     padding-top: 1rem; 
     background-color: #fff;
     padding-left: 2rem;
@@ -17,8 +17,9 @@
     justify-content: space-around;
     position: absolute;
     left: 50%;
-    top: 50%; 
+    top: 40%; 
     transform: translate(-50%, -50%);
+    width: 60%;
 }
 
 .summary { 
@@ -26,4 +27,14 @@
     margin-top: 2rem;
     margin-bottom: 4rem;
     color: var(--clr-red-dark);
+}
+
+.bold {
+    font-weight: 600;
+}
+
+@media screen and (max-width: 800px) {
+    .content {
+       width: 100%; 
+    }    
 }

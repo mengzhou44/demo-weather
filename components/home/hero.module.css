@@ -2,21 +2,37 @@
   min-height: 100vh;
   display: grid;
   place-items: end  center;
-  text-align: center;
   background: linear-gradient(rgba(222, 84, 108, 0.5), rgba(0, 0, 0, 0.8)),
   url(../../public/static/hero.jpg) center/cover;
 }
 
 .container {
-   padding-bottom: 2rem;
+   padding: 2rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   height: 12rem; 
 }
 .container h3 {
   color: var(--clr-white);
   text-transform: uppercase;
-  width: 50rem;
+  line-height: 80%;
+  text-align: center;
 }
 
 .container .school {
    color: var(--clr-red-light);
    font-weight: 700; 
 }
+
+
+@media screen and (max-width: 800px) {
+  .container {
+     height: 10rem;
+  }
+  .container h3 {
+     font-size:  1rem; 
+  }
+}
+
