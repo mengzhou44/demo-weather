@@ -24,7 +24,7 @@ const Footer = () => {
      
       <p className={styles.copyright}>
         copyright &copy; Agoura Hills Academy
-        <span> {new Date().getFullYear()} </span>. all rights reserved
+        <span>{new Date().getFullYear()}</span>. all rights reserved
       </p>
     </footer>
   );
