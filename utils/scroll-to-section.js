@@ -6,13 +6,13 @@ export function scrollToSection(e, device) {
   const navHeight = navbar.getBoundingClientRect().height;
 
   let position = element.offsetTop - navHeight;
-
   if (device !== 'large') {
     const linksContainer = document.getElementById('links');
     if (linksContainer !== null) {
       const linksContainerHeight =
         linksContainer.getBoundingClientRect().height ?? 0;
-      position += linksContainerHeight +120;
+      position += linksContainerHeight + 170;
+      console.log('step1')
     }
   }
 
@@ -37,7 +37,9 @@ export function scrollToSectionByPath(path, device) {
     const linksContainer = document.getElementById('links');
     const linksContainerHeight =
       linksContainer?.getBoundingClientRect()?.height;
-    position += linksContainerHeight + 24;
+    position += linksContainerHeight +24
+ 
+    console.log({position})
   }
 
   window.scrollTo({

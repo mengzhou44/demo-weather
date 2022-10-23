@@ -10,7 +10,7 @@
 .content {
     border: 1px solid var(--clr-grey-10);
     border-radius: .3rem; 
-    padding: 2rem; 
+    padding: 1rem; 
     margin: 0 auto; 
     display: flex; 
     flex-direction: column;
@@ -22,11 +22,16 @@
     width: 60%;
 }
 
+.content p {
+    line-height: 175%;
+}
+
 .summary { 
     text-transform: none;
     margin-top: 2rem;
     margin-bottom: 4rem;
     color: var(--clr-red-dark);
+    line-height: 175%; 
 }
 
 .bold {
@@ -35,6 +40,7 @@
 
 @media screen and (max-width: 800px) {
     .content {
+        border: none; 
        width: 100%; 
-    }    
+    }   
 }

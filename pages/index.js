@@ -18,6 +18,7 @@ export default function Home() {
   useEffect(() => {
     if (asPath !== '/') {
       setTimeout(() => {
+        console.log({asPath})
         scrollToSectionByPath(asPath, device);
       }, 1);
     }

@@ -22,7 +22,7 @@ const Counseling = () => {
           </h4>
 
           <p>
-           We have partnered with UC Riverside to offer a dual program. After completing their high school diploma with <span className={styles.bold}> Agoura Hills Academy </span>, students will be able to receive a  Preliminary Acceptance Letter from UC Riverside simultaneously. 					    
+           We have partnered with UC Riverside to offer a dual program. After completing high school diploma with <span className={styles.bold}> Agoura Hills Academy</span>, students will be able to receive a  Preliminary Acceptance Letter from UC Riverside simultaneously. 					    
         </p> 
       </div>
 

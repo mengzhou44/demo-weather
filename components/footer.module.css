@@ -1,6 +1,6 @@
 .footer {
   background: var(--clr-grey-1);
-  padding: 5rem 1rem;
+  padding: 3rem 1rem;
 }
 
 .footer h4 {
@@ -16,14 +16,20 @@
 .footer p {
   color: var(--clr-white);
   text-transform: capitalize;
- 
   margin-bottom: 0;
+}
+
+.footer a {
+  text-decoration: underline;
+  color: var(--clr-red-light);
+  margin-top: 1rem;
+ display: block;
+ 
 }
 
 .copyright {
    margin-top: 2rem; 
    text-align: center; 
-   color: var(--clr-dark-red); 
    padding: 1rem; 
 }
 
