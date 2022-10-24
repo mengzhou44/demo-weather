@@ -40,7 +40,7 @@
 
 .title {
   font-size: 2rem;
-  color: var(--clr-red-dark);
+  color: var(--clr-red-light);
 }
 
 .txt-email {
@@ -56,7 +56,7 @@
 .btn-sign-in {
   display: block;
   text-align: center;
-  background-color: var(--clr-red-dark);
+  background-color: var(--clr-red-light);
   color: var(--clr-white);
   width: 25rem;
   padding: 0.7rem;

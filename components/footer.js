@@ -1,12 +1,30 @@
 import styles from './footer.module.css';
-import {useState} from 'react'
-import { StyleRegistry } from 'styled-jsx';
+import {useState} from 'react';
+import validator from 'validator'; 
 const Footer = () => {
 
-  const [showMessageForm, setShowMessageForm] = useState(true)
+  const [showMessageForm, setShowMessageForm] = useState(false)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage]= useState('')
+  const [errorMessage, setErrorMessage]= useState('')
+
+  function sendMessage() {
+      setErrorMessage('')
+      if (name=== '') {
+          setErrorMessage('Name is required!')
+      } else  if ( email === '') {
+        setErrorMessage('Email is required!')
+      } else  if ( message  === '') {
+        setErrorMessage('Message is required!')
+      }  else if ( !validator.isEmail(email)) {
+         setErrorMessage('Email is invalid!')
+      } else {
+         setShowMessageForm(false)
+         console.log({name, email, message})
+      }
+  }
+
   return (
     <footer className={`${styles.footer}`}>
       <div className={styles.content}>
@@ -22,6 +40,7 @@ const Footer = () => {
             <p>info@agourahills.com</p>
             <a
               onClick={(e) => {
+                setShowMessageForm(true)
             }}
           >
               Send Message
@@ -34,15 +53,25 @@ const Footer = () => {
         <span>{new Date().getFullYear()}</span>. all rights reserved
       </p>
       { showMessageForm &&
+         <div className={styles.messageFormWrapper}>
          <div className={styles.messageForm} >
-               <input type='text' placeholder ='Name' value={name}></input>
-               <input type='text' placeholder ='Email' value={email}></input>
-              <textarea placeholder='Message' value={message} rows={4} />
+               <div className={styles.formTitle}>Send Us Message</div>
+               <input type='text' placeholder ='Name' value={name} onChange={(e)=> setName(e.target.value)}></input>
+               <input type='text' placeholder ='Email' value={email} onChange={(e)=> setEmail(e.target.value)}></input>
+              <textarea placeholder='Message' value={message} rows={4} onChange={e=> setMessage(e.target.value)} />
+              {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
               <div className={styles.buttons}>
-                <button>Send</button> 
-                <button>Cancel</button>
+                <button onClick={()=> sendMessage()}>Send</button> 
+                <button onClick={()=>  {
+                  setShowMessageForm(false)
+                  setEmail('');
+                  setMessage('')
+                  setName('')
+                  setErrorMessage('')
+                }}
+                >Cancel</button>
               </div>
-             
+              </div>             
          </div>
       }
    

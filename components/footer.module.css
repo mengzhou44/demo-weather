@@ -24,13 +24,22 @@
   color: var(--clr-red-light);
   margin-top: 1rem;
   display: block;
- 
+  cursor: pointer;
 }
 
 .copyright {
    margin-top: 2rem; 
    text-align: center; 
    padding: 1rem; 
+}
+
+.messageFormWrapper {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; 
+  background-color: var(--clr-white);
 }
 
 .messageForm {
@@ -42,25 +51,41 @@
    justify-content: space-around;
    flex-direction: column; 
    background-color: var(--clr-white);
-   height: 50vh; 
+   height: 60vh; 
    width: 60%;
+   border: 1px solid var(--clr-grey-7);
    border-radius: .3rem; 
    padding: 2rem; 
+   box-shadow: var(--dark-shadow);
+   padding-top: 4rem; 
 }
 
+.formTitle{
+   position: absolute; 
+   left: 0; 
+   top: 0;
+   width: 100%;
+   background-color: var(--clr-grey-5);
+   color: var(--clr-white);
+   font-weight: 600; 
+   padding: .5rem; 
+   text-align: center; 
+}
 .messageForm input {
-   padding: .5rem .5rem; 
+   padding: .5rem; 
+   border-radius: .2rem; 
+   border: 1px solid;
    max-width: 20rem;
    font-size: 1rem; 
    outline: none;
-   border: 1px solid  var(--clr-red-light);
 }
 
 .messageForm textarea {
-  padding: .5rem .5rem; 
+  padding: .5rem; 
+  border-radius: .2rem; 
   font-size: 1rem; 
+  border: 1px solid;
   outline: none; 
-  border-color: var(--clr-red-light);
 }
 .messageForm .buttons {
    display: flex; 
@@ -79,6 +104,19 @@
   border: 1px solid var(--clr-red-light);
   color: var(--clr-red-light);
   width: 7rem;
+}
+
+.errorMessage {
+   color: var(--clr-red-light) !important;
+   text-transform: none !important;
+}
+
+@media screen and (max-width: 800px) {
+   .messageForm {
+       width: 100%; 
+       padding: 1rem;
+       padding-top: 3rem; 
+   }
 }
 
  
