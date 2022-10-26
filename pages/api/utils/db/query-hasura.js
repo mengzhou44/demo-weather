@@ -6,6 +6,7 @@ export async function queryHasura(
   variables,
   token = generatePublicJWT()
 ) {
+
   const result = await fetch(process.env.HASURA_GRAPHQL_URL, {
     method: 'POST',
     headers: {
@@ -14,8 +15,8 @@ export async function queryHasura(
     },
     body: JSON.stringify({
       query: operationsDoc,
-      variables: variables,
-      operationName: operationName,
+      variables,
+      operationName
     }),
   });
 

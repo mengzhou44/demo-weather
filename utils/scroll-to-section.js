@@ -12,7 +12,6 @@ export function scrollToSection(e, device) {
       const linksContainerHeight =
         linksContainer.getBoundingClientRect().height ?? 0;
       position += linksContainerHeight + 170;
-      console.log('step1')
     }
   }
 
@@ -38,8 +37,6 @@ export function scrollToSectionByPath(path, device) {
     const linksContainerHeight =
       linksContainer?.getBoundingClientRect()?.height;
     position += linksContainerHeight +24
- 
-    console.log({position})
   }
 
   window.scrollTo({

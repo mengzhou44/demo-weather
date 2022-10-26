@@ -111,6 +111,30 @@
    text-transform: none !important;
 }
 
+.success {
+   height: 60%;
+   display: flex; 
+   flex-direction: column; 
+   justify-content: space-around;
+   align-items: center;
+}
+.success h4 {
+   color: var(--clr-grey-1);
+}
+
+.success button {
+    text-align: center;
+    padding: 0.5rem 1rem;
+    font-size: 1rem; 
+    cursor: pointer;
+    border-radius: 0.3rem;
+    margin-left: 1rem;
+    background-color: var(--clr-white);
+    border: 1px solid var(--clr-red-light);
+    color: var(--clr-red-light);
+    width: 7rem; 
+}
+
 @media screen and (max-width: 800px) {
    .messageForm {
        width: 100%; 

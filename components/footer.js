@@ -1,6 +1,7 @@
 import styles from './footer.module.css';
 import {useState} from 'react';
 import validator from 'validator'; 
+import { motion } from 'framer-motion';
 const Footer = () => {
 
   const [showMessageForm, setShowMessageForm] = useState(false)
@@ -8,8 +9,9 @@ const Footer = () => {
   const [email, setEmail] = useState('')
   const [message, setMessage]= useState('')
   const [errorMessage, setErrorMessage]= useState('')
+  const [successMessage, setSuccessMessage] = useState('')
 
-  function sendMessage() {
+  async function sendMessage() {
       setErrorMessage('')
       if (name=== '') {
           setErrorMessage('Name is required!')
@@ -20,8 +22,61 @@ const Footer = () => {
       }  else if ( !validator.isEmail(email)) {
          setErrorMessage('Email is invalid!')
       } else {
-         setShowMessageForm(false)
-         console.log({name, email, message})
+          let  res= await fetch('/api/save-message', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({name, email, message}),
+          });
+          res = await res.json();
+         
+          if (res.done) {
+              clearInputs()
+              setSuccessMessage('We received your message. Thank You!')
+          } else {
+             setErrorMessage('Sorry, error occured!')
+          }
+      }
+  }
+
+  function clearInputs() {
+    setEmail('');
+    setMessage('')
+    setName('')
+    setErrorMessage('')
+  }
+
+  function renderSuccessMessage() {
+     if (successMessage) {
+       return <div className={styles.success}>
+           <h4>
+           {successMessage}
+            </h4> 
+            <button onClick={()=>  {
+              setSuccessMessage('')
+              setShowMessageForm(false)
+            }}> Ok</button>
+         </div>
+     } 
+  }
+
+  function renderFormContent() {
+      if (!successMessage) {
+         return <>
+           <input type='text' placeholder ='Name' value={name} onChange={(e)=> setName(e.target.value)}></input>
+           <input type='text' placeholder ='Email' value={email} onChange={(e)=> setEmail(e.target.value)}></input>
+            <textarea placeholder='Message' value={message} rows={4} onChange={e=> setMessage(e.target.value)} />
+            {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
+             <div className={styles.buttons}>
+                 <button onClick={()=> sendMessage()}>Send</button> 
+                 <button onClick={()=>  {
+                      setShowMessageForm(false)
+                      clearInputs()
+                    }}
+                  >Cancel</button>
+            </div>
+         </>
       }
   }
 
@@ -53,26 +108,26 @@ const Footer = () => {
         <span>{new Date().getFullYear()}</span>. all rights reserved
       </p>
       { showMessageForm &&
-         <div className={styles.messageFormWrapper}>
-         <div className={styles.messageForm} >
+         <motion.div 
+           className={styles.messageFormWrapper}
+           initial="pageInitial"
+           animate="pageAnimate"
+           variants={{
+              pageInitial: {
+                opacity: 0,
+              },
+              pageAnimate: {
+                opacity: 1,
+              },
+            }}
+          >
+      
+          <div  className={styles.messageForm}>
                <div className={styles.formTitle}>Send Us Message</div>
-               <input type='text' placeholder ='Name' value={name} onChange={(e)=> setName(e.target.value)}></input>
-               <input type='text' placeholder ='Email' value={email} onChange={(e)=> setEmail(e.target.value)}></input>
-              <textarea placeholder='Message' value={message} rows={4} onChange={e=> setMessage(e.target.value)} />
-              {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
-              <div className={styles.buttons}>
-                <button onClick={()=> sendMessage()}>Send</button> 
-                <button onClick={()=>  {
-                  setShowMessageForm(false)
-                  setEmail('');
-                  setMessage('')
-                  setName('')
-                  setErrorMessage('')
-                }}
-                >Cancel</button>
-              </div>
-              </div>             
-         </div>
+                  { renderSuccessMessage()} 
+                  { renderFormContent()}
+            </div>          
+         </motion.div>
       }
    
     </footer>
