@@ -91,8 +91,8 @@ const Footer = () => {
           </div>
 
           <div className={styles.section}>
-            <h4> 1-888-511-7550</h4>    
-            <p>info@agourahills.com</p>
+            <h4>626-466-8899</h4>    
+            <p>zhu@agourahillsacademy.org</p>
             <a
               onClick={(e) => {
                 setShowMessageForm(true)
@@ -104,7 +104,7 @@ const Footer = () => {
       </div>
      
       <p className={styles.copyright}>
-        copyright &copy; Agoura Hills Academy
+        copyright &copy; Agoura Hills Academy &nbsp;
         <span>{new Date().getFullYear()}</span>. all rights reserved
       </p>
       { showMessageForm &&

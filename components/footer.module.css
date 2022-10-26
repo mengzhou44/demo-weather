@@ -65,7 +65,7 @@
    left: 0; 
    top: 0;
    width: 100%;
-   background-color: var(--clr-grey-5);
+   background-color: var(--clr-red-light);
    color: var(--clr-white);
    font-weight: 600; 
    padding: .5rem; 

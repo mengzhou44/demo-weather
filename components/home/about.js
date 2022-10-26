@@ -31,7 +31,7 @@ const About = () => {
               
       <div className={styles.section}>
              <p className={styles.simple}><span className={styles.bold}>Synchronous:</span>
-             All our classes are live in real time to ensure our students' success.
+             All our classes are live in real time to ensure our students&lsquo; success.
           </p>
       </div>
       
