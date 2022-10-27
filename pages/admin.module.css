@@ -1,0 +1,20 @@
+.container {
+  margin-top:  var(--nav-height);
+  padding-top: 1rem; 
+}
+
+.title {
+   text-align: center; 
+   margin: 0 auto; 
+ 
+}
+
+.title h3 {
+  text-transform: uppercase;
+  color: var(--clr-red-light);
+
+}
+.courses {
+  
+   border :1px solid red; 
+}

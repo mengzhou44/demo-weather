@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import { magicAdmin } from './utils/magic';
 import { isNewUser } from './utils/db/users';
 import { setTokenCookie } from './utils/cookies';
+import { createClaim } from './utils/create-claim';
 
 const SignIn = async (req, res) => {
   if (req.method === 'POST') {
@@ -9,17 +10,13 @@ const SignIn = async (req, res) => {
       const { authorization } = req.headers;
       const didToken = authorization.split(' ')[1];
       const metadata = await magicAdmin.users.getMetadataByToken(didToken);
-
+    
       const token = jwt.sign(
         {
           ...metadata,
           exp: Math.floor(Date.now() / 1000) + 7 * 24 * 60 * 60,
           iat: Math.floor(Date.now() / 1000),
-          'https://hasura.io/jwt/claims': {
-            'x-hasura-allowed-roles': ['user'],
-            'x-hasura-default-role': 'user',
-            'x-hasura-user-id': metadata.issuer,
-          },
+          'https://hasura.io/jwt/claims':  createClaim(metadata)
         },
         process.env.JWT_SECRET
       );

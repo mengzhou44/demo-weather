@@ -14,7 +14,8 @@ const Header = () => {
 
   const device = useDevice();
   const router = useRouter();
-  const isHomePage = !router.asPath.includes('/courses');
+  const isHomePage = !router.asPath.includes('/courses') &&
+                     !router.asPath.includes('/admin');
 
   useEffect(() => {
     setFirstName(getLoginInfo());
