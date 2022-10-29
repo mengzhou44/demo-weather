@@ -31,7 +31,10 @@
      height: 10rem;
   }
   .container h3 {
-     font-size:  1rem; 
+     font-size:  1.2rem; 
+  }
+  .hero {
+     padding-bottom: 5rem;
   }
 }
 
