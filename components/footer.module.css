@@ -135,6 +135,11 @@
     width: 7rem; 
 }
 
+.loading { 
+   text-align: center; 
+   color: var(--clr-red-light) !important;
+}
+
 @media screen and (max-width: 800px) {
    .messageForm {
        width: 100%; 

@@ -1,5 +1,4 @@
-import { queryHasura } from './query-hasura';
- 
+import { queryHasura } from './query-hasura'; 
 
 export async function insertMessage({name, email, message}) {
     const operationsDoc = `
@@ -16,24 +15,9 @@ export async function insertMessage({name, email, message}) {
       {name, email, message }
     );
      if (response.errors && response.errors.length>0) {
-        console.log({length:response.errors.length})
+         console.log({length:response.errors.length})
          console.log(JSON.stringify(response.errors[0], 4))
          throw new Error(response.errors[0])
      }
   }
- 
-//   const operationsDoc = `
-//   mutation enrollCourse ($courseId: Int!, $userId: String!) {
-//    insert_enrollments_one(object: {courseId: $courseId, userId: $userId}) {
-//      userId
-//      courseId
-//    }
-//  }
-// `;
-
-//  await queryHasura(
-//    operationsDoc,
-//    'enrollCourse',
-//    { courseId, userId },
-//    token
-//  );
+  

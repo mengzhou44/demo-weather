@@ -10,6 +10,7 @@ const Footer = () => {
   const [message, setMessage]= useState('')
   const [errorMessage, setErrorMessage]= useState('')
   const [successMessage, setSuccessMessage] = useState('')
+  const [loading, setLoading] = useState(false)
 
   async function sendMessage() {
       setErrorMessage('')
@@ -22,20 +23,23 @@ const Footer = () => {
       }  else if ( !validator.isEmail(email)) {
          setErrorMessage('Email is invalid!')
       } else {
-          let  res= await fetch('/api/save-message', {
+          setLoading(true)
+          let  res= await fetch('/api/send-message', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({name, email, message}),
           });
+          console.log('step1')
           res = await res.json();
-         
+          console.log('step2')
+          setLoading(false)
           if (res.done) {
               clearInputs()
               setSuccessMessage('We received your message. Thank You!')
           } else {
-             setErrorMessage('Sorry, error occured!')
+             setErrorMessage('Sorry, error occured. Message was not sent!')
           }
       }
   }
@@ -62,6 +66,10 @@ const Footer = () => {
   }
 
   function renderFormContent() {
+      if (loading === true)  {
+           return <h4 className={styles.loading}>Please wait... </h4>
+      }
+
       if (!successMessage) {
          return <>
            <input type='text' placeholder ='Name' value={name} onChange={(e)=> setName(e.target.value)}></input>

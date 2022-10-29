@@ -1,6 +1,7 @@
 import { insertMessage } from './utils/db/messages';
+import { sendEMail } from './utils/send-email';
 
-const SaveMessage =  async (req, res) => {
+const SendMessage =  async (req, res) => {
   if (req.method === 'POST') {
     try {
 
@@ -11,16 +12,11 @@ const SaveMessage =  async (req, res) => {
         } else if (!email) {
           res.send({ done: false, message: 'Email is required.' });
         }  else if (!message) {
-            res.send({ done: false, message: 'Message is required.' });
+          res.send({ done: false, message: 'Message is required.' });
         } else {
-          const newMessage= {
-              name, 
-              email,
-              message
-          };
-
-          await insertMessage(newMessage);
-          res.send({ done: true});
+          await insertMessage({name,email, message});
+          await sendEMail({name,email, message});
+          res.send({done:true})
         }
 
     } catch (err) {
@@ -32,4 +28,5 @@ const SaveMessage =  async (req, res) => {
   }
 };
 
-export default SaveMessage;
+export default SendMessage;
+
