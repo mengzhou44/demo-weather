@@ -30,12 +30,14 @@
   background-color: var(--clr-white);
   padding: 2rem;
   min-height: 24rem;
-  width: 30rem;
+  margin: 1rem;
+  width: 25rem; 
+  border-radius: var(--radius);
+  position: relative; 
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border-radius: var(--radius);
-  position: relative; 
+  align-items: center;
 }
 
 .close {
@@ -59,7 +61,7 @@
   padding: 1rem;
   border-radius: 0.5rem;
   font-size: 1.2rem;
-  width: 25rem;
+  width: 23rem;
   outline: none;
   border: 1px solid var(--clr-grey-5);
 }
@@ -69,7 +71,7 @@
   text-align: center;
   background-color: var(--clr-red-light);
   color: var(--clr-white);
-  width: 25rem;
+  width: 23rem;
   padding: 0.7rem;
   font-size: 1.2rem;
   border-radius: 0.5rem;
@@ -107,5 +109,18 @@
     left: 50%;
     transform: translateX(-50%);
  }
+
+  .main {
+     width: 100%;  
+  }
+
+  .txt-email {
+     width: 90%;
+  }
+
+  .btn-sign-in {
+     width: 90%; 
+  }
+ 
 }
    

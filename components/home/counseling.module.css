@@ -49,7 +49,6 @@
          line-height: 145%;
     }
     .content p {
-        line-height: 145%;
-        text-align: justify;  
+        line-height: 175%;
     }
 }

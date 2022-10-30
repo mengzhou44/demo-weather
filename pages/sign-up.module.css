@@ -31,11 +31,12 @@
  
   background-color: var(--clr-white);
   padding: 2rem;
-  min-height: 35rem;
-  width: 30rem;
+  min-height: 32rem;
+  width: 25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   border-radius: var(--radius);
   position: relative; 
 }
@@ -57,9 +58,8 @@
 
 .inputs {
   padding-top: 2rem;
-  width: 100%;
+  width: 23rem;
   flex: 1;
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -67,10 +67,12 @@
 
 .inputs input,
 .inputs select {
+  border: 1px solid var(--clr-grey-5);
   height: 2.5rem;
   padding: 0.5rem;
   font-size: 1.2rem;
   outline: none;
+  border-radius: .5rem;
 }
 
 .inputs p {
@@ -87,7 +89,7 @@
   text-align: center;
   background-color: var(--clr-red-light);
   color: var(--clr-white);
-  width: 25rem;
+  width: 23rem;
   padding: 0.5rem;
   font-size: 1.4rem;
   border-radius: 0.5rem;
@@ -98,9 +100,22 @@
 @media screen and (max-width: 800px) {
 
   .header {
-     top: .5rem; 
+     top: 2rem; 
      left: 50%;
      transform: translateX(-50%);
   }
+
+  .main {
+     max-width: 95%;
+  }
     
+  .inputs {
+     width: 98%;
+  }
+
+  .btn-sign-up {
+     width: 98%;
+  }
+ 
+
 }
