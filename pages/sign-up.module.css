@@ -37,6 +37,17 @@
   flex-direction: column;
   justify-content: space-around;
   border-radius: var(--radius);
+  position: relative; 
+}
+
+.close {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--clr-grey-8); 
+  position: absolute; 
+  right: 1rem;
+  top: 1.5rem; 
+  cursor: pointer;
 }
 
 .title {
@@ -87,7 +98,7 @@
 @media screen and (max-width: 800px) {
 
   .header {
-     top:1rem; 
+     top: .5rem; 
      left: 50%;
      transform: translateX(-50%);
   }
