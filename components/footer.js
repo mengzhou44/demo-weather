@@ -112,8 +112,8 @@ const Footer = () => {
       </div>
      
       <p className={styles.copyright}>
-        copyright &copy; Agoura Hills Academy &nbsp;
-        <span>{new Date().getFullYear()}</span>. all rights reserved
+        Copyright &copy; Agoura Hills Academy &nbsp;
+        <span>{new Date().getFullYear()}</span>. All rights reserved
       </p>
       { showMessageForm &&
          <motion.div 
