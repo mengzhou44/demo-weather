@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@magic-sdk/admin": "^1.4.1",
+    "@reduxjs/toolkit": "^1.8.6",
     "cookie": "^0.5.0",
     "dotenv": "^16.0.2",
     "email-validator": "^2.0.4",
@@ -21,6 +22,7 @@
     "nodemailer": "^6.8.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-redux": "^8.0.4",
     "react-toastify": "^9.0.8",
     "validator": "^13.7.0"
   },

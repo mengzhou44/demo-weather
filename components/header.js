@@ -6,16 +6,24 @@ import { scrollToSection } from '../utils/scroll-to-section';
 import { useDevice } from '../hooks/use-device';
 import { motion } from 'framer-motion';
 import { getLoginInfo, clearLoginInfo } from '../utils/login-info';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+   expand,
+   collapse
+} from '../state/header-slice';
+
 
 const Header = () => {
-  const [showLinks, setShowLinks] = useState(false);
+ 
   const [selected, setSelected] = useState('');
   const [firstName, setFirstName] = useState(null);
-
+  const {linksExpanded} = useSelector(store=>  store.header)
+  
   const device = useDevice();
   const router = useRouter();
   const isHomePage = !router.asPath.includes('/courses') &&
                      !router.asPath.includes('/admin');
+  const dispatch = useDispatch()
 
   useEffect(() => {
     setFirstName(getLoginInfo());
@@ -140,7 +148,7 @@ const Header = () => {
         }}
         id="links"
         className={styles.links}
-        onClick={() => setShowLinks(false)}
+        onClick={() => dispatch(collapse())}
       >
         {renderHomeLink('about')}
         {renderHomeLink('admission')}
@@ -157,7 +165,7 @@ const Header = () => {
           className={styles.logo}
           onClick={() => {
             setSelected('');
-            setShowLinks(false);
+            dispatch(collapse());
           }}
         >
           <img src="/static/logo.jpg" className={styles.logo} alt="logo" />
@@ -181,7 +189,7 @@ const Header = () => {
   }
 
   let navClassName = styles.nav;
-  if (showLinks === true) {
+  if (linksExpanded=== true) {
     navClassName = `${styles.nav} ${styles.expanded}`;
   }
 
@@ -194,9 +202,15 @@ const Header = () => {
 
           <button
             className={styles.toggle}
-            onClick={() => {
-              setShowLinks(!showLinks);
-            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (linksExpanded){
+                dispatch(collapse())
+              } else {
+                dispatch(expand())
+             }
+            }
+          }    
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -215,7 +229,7 @@ const Header = () => {
           </button>
         </div>
       </div>
-      {showLinks && renderLinks()}
+      {linksExpanded && renderLinks()}
     </nav>
   );
 };
