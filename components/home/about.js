@@ -13,7 +13,7 @@ const About = () => {
        
       <div className={styles.content}>
         <div className={styles.summary}>
-           <h4>Agoura Hills Academy is a college preparatory High School in Los Angeles California</h4>
+           <h4>Agoura Hills Academy is a college preparatory High School in Los Angeles</h4>
         </div>
       
       <div className={styles.section}>

@@ -30,7 +30,7 @@
 }
 
 .section ul {
-    margin-top: -1rem;
+    margin-top: 1rem;
 }
 
 .bold {
@@ -61,7 +61,13 @@
 
 @media screen and (max-width: 800px) {
     .content {
-       max-width: none; 
+       max-width: none;
+       width: 100%;
+       padding-left : 1rem; 
+       padding-right: 1rem;
+    }
+    .section {
+        margin-bottom: 2rem;
     }    
 }
 

@@ -92,14 +92,14 @@ const Footer = () => {
     <footer className={`${styles.footer}`}>
       <div className={styles.content}>
           <div className={styles.section}>
-            <h4>Los Angeles</h4>    
+            <p>Los Angeles</p>    
             <p> 909 - 11 Avenue SW </p>
             <p> Calgary, AB  </p>
             <p> T2R 1L8 </p>
           </div>
 
           <div className={styles.section}>
-            <h4>626-466-8899</h4>    
+            <p>626-466-8899</p>    
             <p>zhu@agourahillsacademy.org</p>
             <a
               onClick={(e) => {
@@ -131,7 +131,7 @@ const Footer = () => {
           >
       
           <div  className={styles.messageForm}>
-               <div className={styles.formTitle}>Send Us Message</div>
+               <div className={styles.formTitle}><h4>Send Us Message</h4></div>
                   { renderSuccessMessage()} 
                   { renderFormContent()}
             </div>          

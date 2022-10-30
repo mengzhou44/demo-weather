@@ -7,7 +7,7 @@ const Counseling = () => {
    
       <div className="title">
         <h2>
-          College Counseling
+          Counseling
         </h2>
       </div>
      

@@ -5,21 +5,6 @@ Variables
 */
 
 :root {
-  /* dark shades of primary color*/
-  --clr-primary-1: hsl(205, 86%, 17%);
-  --clr-primary-2: hsl(205, 77%, 27%);
-  --clr-primary-3: hsl(205, 72%, 37%);
-  --clr-primary-4: hsl(205, 63%, 48%);
-  /* primary/main color */
-  --clr-primary-5: #49a6e9;
-  /* lighter shades of primary color */
-  --clr-primary-6: hsl(205, 89%, 70%);
-  --clr-primary-7: hsl(205, 90%, 76%);
-  --clr-primary-8: hsl(205, 86%, 81%);
-  --clr-primary-9: hsl(205, 90%, 88%);
-  --clr-primary-10: hsl(205, 100%, 96%);
-  /* darkest grey - used for headings */
-
   --clr-grey-1: #231f20;
   --clr-grey-2: #393536;
   --clr-grey-3: #4f4c4d;
@@ -46,6 +31,7 @@ Variables
   --nav-height: 4.2rem;
   --nav-height-expanded: 30rem;
   --z-index-higher: 5;
+  --z-index-lower: -1;
   --screen-small: 576px;
   --screen-medium: 768px;
   --screen-large: 1023px;
@@ -75,6 +61,28 @@ body {
   font-size: 0.875rem;
 }
 
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 1.75rem;
+}
+h4 {
+  font-size: 1.25rem;
+}
+body {
+  font-size: 1rem;
+}
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1;
+}
+
 h1,
 h2,
 h3,
@@ -84,48 +92,27 @@ h4 {
   margin-bottom: 0.75rem;
   font-family: var(--ff-primary);
 }
-h1 {
-  font-size: 3rem;
-  letter-spacing: var(--spacing);
-}
-h2 {
-  font-size: 2rem;
-  letter-spacing: var(--spacing);
-}
-h3 {
-  font-size: 1.25rem;
-  letter-spacing: var(--spacing);
-}
-h4 {
-  font-size: 1.1rem;
-}
-p {
-  margin-bottom: 1.25rem;
-  color: var(--clr-grey-5);
-}
 
-@media screen and (min-width: 800px) {
+@media screen and (max-width: 800px) {
   h1 {
-    font-size: 4rem;
+    font-size: 3rem;
+    letter-spacing: var(--spacing);
   }
   h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    letter-spacing: var(--spacing);
   }
   h3 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+    letter-spacing: var(--spacing);
   }
   h4 {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
-  body {
-    font-size: 1rem;
-  }
-  h1,
-  h2,
-  h3,
-  h4 {
-    line-height: 1;
-  }
+  p {
+    margin-bottom: 1rem;
+    color: var(--clr-grey-5);
+  } 
 }
 
 a {
