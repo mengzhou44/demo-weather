@@ -4,17 +4,17 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import styles from './sign-up.module.css';
 import { useState, useEffect } from 'react';
-import validator from 'email-validator';
+
 import { magic } from '../utils/magic-client';
 import { setLoginInfo } from '../utils/login-info';
+import {Form1} from '../components/sing-up-forms/form1'
+import {Form2} from '../components/sing-up-forms/form2'
+import {Form3} from '../components/sing-up-forms/form3'
+
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-
-  const [userMessage, setUserMessage] = useState('');
+  const [user, setUser] = useState({})
+  const [step, setStep] = useState(1)  
   const [isSigning, setIsSigning] = useState(false);
   const router = useRouter();
 
@@ -25,9 +25,6 @@ const SignUp = () => {
 
     router.events.on('routeChangeComplete', handleRouteChange);
     router.events.on('routeChangeError', handleRouteChange);
-
-    // If the component is unmounted, unsubscribe
-    // from the event with the `off` method:
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
       router.events.off('routeChangeError', handleRouteChange);
@@ -68,35 +65,41 @@ const SignUp = () => {
     }
   };
 
-  const validateInputs = () => {
-    setUserMessage('');
-    if (email === '') {
-      setUserMessage('Email is required!');
-      return false;
-    } else if (email !== '' && !validator.validate(email)) {
-      setUserMessage('Enter valid email address!');
-      return false;
-    } else if (firstName === '') {
-      setUserMessage('First name is required!');
-      return false;
-    } else if (lastName === '') {
-      setUserMessage('Last name is required!');
-      return false;
-    }
-    return true;
-  };
+  function renderForm() {
+      if (step === 1) {
+          return <Form1 
+             data={user}
+             onNext={(data)=> {
+              setUser(Object.assign(user, data))
+              setStep(step+1) 
+             }}></Form1>
+      }
+      else if (step === 2) {
+        return  <Form2 
+                    data={user}
+                    onNext={data=> {
+                      setUser(Object.assign(user, data))
+                      console.log({user})
+                      setStep(step+1)
+                    } 
+                   } 
+                  onPrev={()=> setStep(step-1)}>
+          
+                </Form2>
+      }  else if (step === 3) {
+           return   <Form3
+                        data={user}
+                        onNext={data=> {
+                          setUser(Object.assign(user, data))
+                          setStep(step+1)
+                        } 
+                      } onPrev={()=> setStep(step-1)}>
 
-  const handleEmailTextChange = (e) => {
-    setEmail(e.target.value);
-  };
+                   </Form3>
+      } 
+       
+  }
 
-  const handleFirstNameTextChange = (e) => {
-    setFirstName(e.target.value);
-  };
-
-  const handleLastNameTextChange = (e) => {
-    setLastName(e.target.value);
-  };
 
   return (
     <div className={styles.container}>
@@ -126,40 +129,7 @@ const SignUp = () => {
           </Link>
         </div>
         <h2 className={styles.title}>Sign Up</h2>
-        <div className={styles.inputs}>
-          <div className={styles.field}>
-            <label htmlFor="email">Email *</label>
-            <input
-              id="email"
-              type="text"
-              value={email}
-              onChange={handleEmailTextChange}
-            ></input>
-          </div>
-
-          <div className={styles.field}>
-            <label htmlFor="firstName">First name *</label>
-            <input
-              id="firstName"
-              type="text"
-              value={firstName}
-              onChange={handleFirstNameTextChange}
-            ></input>
-          </div>
-          <div className={styles.field}>
-            <label htmlFor="lastName">Last name *</label>
-            <input
-              id="lastName"
-              type="text"
-              value={lastName}
-              onChange={handleLastNameTextChange}
-            ></input>
-          </div>
-          <p>{userMessage}</p>
-        </div>
-        <button className={styles['btn-sign-up']} onClick={handleSignUp}>
-          {isSigning ? 'Signing Up...' : 'Sign up'}
-        </button>
+        {renderForm()}  
       </main>
     </div>
   );

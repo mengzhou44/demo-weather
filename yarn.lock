@@ -2274,6 +2274,11 @@
     "safe-buffer" "^5.0.1"
     "sha.js" "^2.4.8"
 
+"phone@^3.1.29":
+  "integrity" "sha512-D80A7L4UyUnu5MMB4V4LAgwUvDMnFQYBNN87gJJoEyQL+TrRibSR17dHe9O7dY4EEoyc+QmmpZ1/YL5lHwAuDQ=="
+  "resolved" "https://registry.npmjs.org/phone/-/phone-3.1.29.tgz"
+  "version" "3.1.29"
+
 "picocolors@^1.0.0":
   "integrity" "sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ=="
   "resolved" "https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz"
