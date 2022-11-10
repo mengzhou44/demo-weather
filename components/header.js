@@ -1,127 +1,58 @@
 import styles from './header.module.css';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { scrollToSection } from '../utils/scroll-to-section';
+import { useRouter } from 'next/router'; 
 import { useDevice } from '../hooks/use-device';
-import { motion } from 'framer-motion';
-import { getLoginInfo, clearLoginInfo } from '../utils/login-info';
+import { motion } from 'framer-motion'; 
 import { useDispatch, useSelector } from 'react-redux';
 import {
    expand,
    collapse
 } from '../state/header-slice';
 
-
 const Header = () => {
  
   const [selected, setSelected] = useState('');
-  const [firstName, setFirstName] = useState(null);
+ 
   const {linksExpanded} = useSelector(store=>  store.header)
   
   const device = useDevice();
   const router = useRouter();
-  const isHomePage = !router.asPath.includes('/courses') &&
-                     !router.asPath.includes('/admin');
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setFirstName(getLoginInfo());
-  }, []);
+    const { pathname} = router;
 
-  useEffect(() => {
-    const { pathname, asPath } = router;
-    if (pathname === '/') {
-      if (asPath.endsWith('about')) {
-        setSelected('about');
-      } else if (asPath.endsWith('admission')) {
-        setSelected('admission');
-      } else if (asPath.endsWith('counseling')) {
-        setSelected('counseling');
-      } else {
-        setSelected();
-      }
-    } else if (pathname.includes('/courses')) {
+    if (pathname.includes('/about')) {
+      setSelected('about');
+    }
+    else if (pathname.includes('/admission')) {
+      setSelected('admission');
+    }
+    else if (pathname.includes('/counseling')) {
+      setSelected('counseling');
+    }
+    else if (pathname.includes('/courses')) {
       setSelected('courses');
     }
   }, [router]);
+ 
 
-  function renderHomeLink(section) {
+  function renderPageLink(pageName) {
     let linkClassName = '';
-    if (section === selected) {
+    if (pageName === selected) {
       linkClassName = styles['link-selected'];
     }
     return (
       <li>
-        <Link href={`/#${section}`}>
-          <a
-            onClick={(e) => {
-              setSelected(section);
-              if (isHomePage) {
-                scrollToSection(e, device);
-              }
-            }}
-            className={linkClassName}
-          >
-            {section}
-          </a>
-        </Link>
-      </li>
-    );
-  }
-
-  function renderSignIn() {
-    return (
-      <Link href="/sign-in">
-        <button className="btn">Sign in</button>
-      </Link>
-    );
-  }
-
-  function renderSignOut() {
-    return (
-      <div className={styles['sign-out']}>
-        <p>{`Hi, ${firstName.toUpperCase()}`}</p>
-        <button
-          className="btn"
-          onClick={async (e) => {
-            e.preventDefault();
-            await fetch('/api/sign-out', {
-              method: 'POST',
-            });
-
-            clearLoginInfo();
-            setFirstName(null);
-          }}
-        >
-          Sign out
-        </button>
-      </div>
-    );
-  }
-
-  function renderAuth() {
-    return (
-      <div className={styles.auth}>
-        {firstName === null ? renderSignIn() : renderSignOut()}
-      </div>
-    );
-  }
-  function renderPageLink(section) {
-    let linkClassName = '';
-    if (section === selected) {
-      linkClassName = styles['link-selected'];
-    }
-    return (
-      <li>
-        <Link href={`/${section}`}>
+        <Link href={`/${pageName}`}>
           <a
             onClick={() => {
-              setSelected(section);
+              setSelected(pageName);
             }}
             className={linkClassName}
           >
-            courses
+             {pageName}
           </a>
         </Link>
       </li>
@@ -150,9 +81,9 @@ const Header = () => {
         className={styles.links}
         onClick={() => dispatch(collapse())}
       >
-        {renderHomeLink('about')}
-        {renderHomeLink('admission')}
-        {renderHomeLink('counseling')}
+        {renderPageLink('about')}
+        {renderPageLink('admission')}
+        {renderPageLink('counseling')}
         {renderPageLink('courses')}
       </motion.div>
     );
@@ -160,7 +91,7 @@ const Header = () => {
 
   function renderLogo() {
     return (
-      <Link href={`/#home`}>
+      <Link href={`/`}>
         <div
           className={styles.logo}
           onClick={() => {
@@ -180,7 +111,6 @@ const Header = () => {
         <div className={styles.container}>
           <div className={styles['nav-content']}>
             {renderLogo()}
-            {renderAuth()}
             {renderLinks()}
           </div>
         </div>
@@ -198,8 +128,7 @@ const Header = () => {
       <div className={styles.container}>
         <div className={styles['nav-content']}>
           {renderLogo()}
-          {renderAuth()}
-
+        
           <button
             className={styles.toggle}
             onClick={(e) => {

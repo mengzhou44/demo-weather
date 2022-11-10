@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import styles from './index.module.css';
 import Layout from '../components/layout';
-import Hero from '../components/home/hero';
+import About from '../components/about';
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -10,7 +10,7 @@ export default function Home() {
         <meta name="description" content="Scroll Prototype" />
       </Head>
       <Layout>
-        <Hero />
+        <About />
       </Layout>
     </div>
   );

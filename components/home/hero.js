@@ -2,7 +2,7 @@ import styles from './hero.module.css';
 import { memo } from 'react';
 import Link from 'next/link';
 import { useDevice } from '../../hooks/use-device';
-import { scrollToSection } from '../../utils/scroll-to-section';
+ 
 
 const Hero = () => {
   const device = useDevice();
@@ -14,12 +14,9 @@ const Hero = () => {
         <h3 className={styles.school}> Agoura Hills Academy </h3>
         </div>
       
-        <Link href="/#admission">
+        <Link href="/admission">
           <a
             className="btn btn-white"
-            onClick={(e) => {
-              scrollToSection(e, device);
-            }}
           >
               Get Started
           </a>
