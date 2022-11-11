@@ -44,34 +44,5 @@ export async function createUser(token, user) {
   return response;
 }
 
-export async function isNewUser(token, issuer) {
-  const operationsDoc = `
-  query isNewUser($issuer: String!) {
-    users(where: {issuer: {_eq: $issuer}}) {
-      id
-      email
-      issuer
-      firstName
-    }
-  }
-`;
-
-  const response = await queryHasura(
-    operationsDoc,
-    'isNewUser',
-    {
-      issuer,
-    },
-    token
-  );
-  const isNew = response?.data?.users?.length === 0;
-  let res = {
-    isNew,
-  };
-  if (isNew === false) {
-    res.firstName = response.data.users[0].firstName;
-  }
-  return res;
-}
 
 

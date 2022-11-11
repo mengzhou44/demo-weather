@@ -1,4 +1,4 @@
-import { getCourses } from '../utils/db/courses';
+import { getCourses } from './utils/db/courses';
 
  const Courses = async (req, res) => {
   if (req.method === 'GET') {
@@ -6,7 +6,7 @@ import { getCourses } from '../utils/db/courses';
       const courses = await getCourses();
       res.send(courses);
     } catch (err) {
-      console.log(`Something wenty wrong while logging ${err}`);
+      console.log(`Something wenty wrong ${err}`);
       res.status(500).send({ done: false });
     }
   } else {

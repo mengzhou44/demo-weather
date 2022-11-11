@@ -8,19 +8,11 @@ const Hero = () => {
   const device = useDevice();
   return (
     <section id="home" className={styles.hero}>
-      <div className={styles.container}>
-        <div className={styles.text} >
-        <h3>Achieve Your College Dream With </h3>
-        <h3 className={styles.school}> Agoura Hills Academy </h3>
-        </div>
-      
-        <Link href="/admission">
-          <a
-            className="btn btn-white"
-          >
-              Get Started
-          </a>
-        </Link> 
+   
+        <div className={styles.mission} >
+        <h3>At AHA, our mission is to provide
+international students a global education, preparing them for a
+diverse world.</h3>
       </div>
     </section>
   );
