@@ -24,6 +24,9 @@ export default function Home() {
            <div className={styles['form-container']}>
            <div className={styles.form}>
               <div className={styles.field} >
+                  <h4>Contact Us</h4>
+              </div> 
+              <div className={styles.field} >
                   <input placeholder='Last name' type='text' value={lastName}></input>
               </div>
               <div className={styles.field} >

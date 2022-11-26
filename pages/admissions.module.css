@@ -1,0 +1,35 @@
+.page {
+    margin-top: 4rem; 
+    padding-top: 2rem; 
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+.container {
+     display: flex;
+     flex-direction: row; 
+     padding: 0 2rem; 
+}
+
+
+.content {
+     flex: 1;
+     padding: 1rem; 
+}
+
+.content h4 {
+    margin-top: 3rem; 
+    text-decoration: underline; 
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+       flex-direction: column;  
+    }
+
+    .content {
+   
+        padding: 0rem; 
+    }   
+    
+}

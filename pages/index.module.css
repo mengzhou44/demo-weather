@@ -28,13 +28,18 @@
 .form-container {
    flex: 1;  
    min-height: 100vh;
-   display: flex; 
+   display: flex;
    justify-content: flex-end; 
+ 
 }
 
 .form {
    font-size: 1.3rem; 
 } 
+
+.form h4 {
+   color: var(--clr-white);
+}
  
 .field {
    margin-right: 5rem; 
@@ -62,7 +67,6 @@
    padding: .5rem; 
    border-radius: .2rem;
    border: none ;
-   font-weight: 600; 
 }
 
 @media screen and (max-width: 800px) {

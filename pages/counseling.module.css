@@ -1,0 +1,38 @@
+.page {
+    margin-top: 4rem; 
+    padding-top: 2rem; 
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+.container {
+     display: flex;
+     flex-direction: row; 
+     padding: 0 2rem; 
+}
+
+ 
+.group {
+   border: 1px solid var(--clr-grey-10); 
+   padding: 1rem; 
+   border-radius: .3rem ;   
+   margin-bottom: 2rem;
+}
+.content {
+   flex:1;
+   padding: 2rem; 
+}
+
+.content p {
+    margin-bottom: 1.5rem; 
+    list-style: 145%;
+    text-align: justify;
+}
+
+.yourself {
+    margin-bottom: 0rem !important; 
+}
+
+.content ul {
+     margin-left: 1.5rem; 
+}

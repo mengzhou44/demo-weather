@@ -26,8 +26,8 @@ const Header = () => {
     if (pathname.includes('/about')) {
       setSelected('about');
     }
-    else if (pathname.includes('/admission')) {
-      setSelected('admission');
+    else if (pathname.includes('/admissions')) {
+      setSelected('admissions');
     }
     else if (pathname.includes('/counseling')) {
       setSelected('counseling');
@@ -82,7 +82,7 @@ const Header = () => {
         onClick={() => dispatch(collapse())}
       >
         {renderPageLink('about')}
-        {renderPageLink('admission')}
+        {renderPageLink('admissions')}
         {renderPageLink('counseling')}
         {renderPageLink('courses')}
       </motion.div>

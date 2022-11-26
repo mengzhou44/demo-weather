@@ -37,6 +37,7 @@ Variables
   --screen-large: 1023px;
 }
 
+
 /*
 =============== 
 Global Styles
@@ -60,6 +61,8 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 0.875rem;
 }
+
+input, select, textarea, button{font-family:inherit;}
 
 h1 {
   font-size: 4rem;
@@ -177,7 +180,7 @@ main {
 .title h2 {
   text-align: center;
   text-transform: uppercase;
-  color: var(--clr-grey-1);
+  color: var(--clr-red-dark);
   font-size: 2rem;
 }
 
