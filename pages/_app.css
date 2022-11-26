@@ -172,9 +172,10 @@ main {
   display: grid;
   place-items: center;
 }
+ 
 
-#services {
-  background: var(--clr-white);
+.title {
+  margin-bottom: 2rem; 
 }
 
 .title h2 {
@@ -186,5 +187,6 @@ main {
 
 .title span {
   color: var(--clr-secondary);
+ 
 }
 

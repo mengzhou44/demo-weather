@@ -67,6 +67,13 @@
    padding: .5rem; 
    border-radius: .2rem;
    border: none ;
+   background-color: var(--clr-red-light);
+   color:var(--clr-white);
+   cursor: pointer; 
+}
+.warning {
+  font-size: 1rem; 
+   color: var(--clr-white);
 }
 
 @media screen and (max-width: 800px) {
