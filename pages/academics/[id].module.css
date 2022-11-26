@@ -1,0 +1,11 @@
+.container {
+  padding: 2rem;
+  margin-top: var(--nav-height);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.image-container {
+  margin-right: 3rem;
+}

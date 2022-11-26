@@ -1,3 +1,93 @@
 .container {
   position: relative;
 }
+
+.hero {
+  min-height: 100vh;
+  display: flex; 
+  background: linear-gradient(rgba(222, 84, 108, 0.5), rgba(0, 0, 0, 0.8)),
+  url(../public/static/hero.jpg) center/cover;
+  position: relative;
+  display: flex; 
+  flex-direction: row; 
+  justify-content: space-between;
+  padding: 2rem; 
+}
+
+.mission {
+   margin-top: 4rem; 
+   width: 40rem;  
+   min-height: 100vh; 
+   display: flex; 
+}
+.mission h3 {
+  color: var(--clr-white);
+  line-height: 145%;
+}
+
+.form-container {
+   flex: 1;  
+   min-height: 100vh;
+   display: flex; 
+   justify-content: flex-end; 
+}
+
+.form {
+   font-size: 1.3rem; 
+} 
+ 
+.field {
+   margin-right: 5rem; 
+}
+
+.field:first-child {
+  margin-top: 4rem; 
+}
+
+.field:not(:first-child) {
+   margin-top: 1.5rem; 
+}
+
+.field input,
+.field textarea
+{
+    padding: .5rem; 
+    border-radius:  .2rem;
+    border: none; 
+    outline: none; 
+}
+
+.submit{
+   width: 6rem;
+   padding: .5rem; 
+   border-radius: .2rem;
+   border: none ;
+   font-weight: 600; 
+}
+
+@media screen and (max-width: 800px) {
+   .hero {
+     flex-direction: column;
+   } 
+
+   .mission {
+      min-height: 20vh;
+      width: 100%;
+      justify-content: center;  
+  }
+
+  .form {
+     width: 100%;
+  }
+
+  .field:first-child {
+    margin-top: 0rem; 
+  }
+
+  
+  .form-container {
+     justify-content: center;
+     min-height: auto; 
+  }
+}
+
