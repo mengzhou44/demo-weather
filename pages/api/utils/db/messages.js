@@ -2,11 +2,11 @@ import { queryHasura } from './query-hasura';
 
 export async function insertMessage({lastName, firstName,  email, phone, message}) {
     const operationsDoc = `
-    mutation insertMessage ($firstName: String!, $lastName: String!, $email: String!, $phone: String!, $message: String!) {
-      insert_messages_one(object: {lastName: $lastName, firstName: $firstName,  email: $email, phone: $phone, message: $message,}) {
-        id
+    mutation insertMessage($firstName: String!, $lastName: String!, $email: String!, $phone: String!, $message: String!) {
+      insert_messages(objects: {email: $email, firstName: $firstName, lastName: $lastName, message: $message, phone: $phone}) {
+        affected_rows
       }
-    }    
+    }
   `;
   
     const response = await queryHasura(
