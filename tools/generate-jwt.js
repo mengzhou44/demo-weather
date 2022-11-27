@@ -1,5 +1,7 @@
-require('dotenv').config();
-const jwt = require('jsonwebtoken');
+import dotenv  from 'dotenv'
+import  jwt from 'jsonwebtoken';
+
+dotenv.config();
 
 function generatePublicJWT() {
   return jwt.sign(

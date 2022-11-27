@@ -4,13 +4,9 @@ export async function getCourses() {
   const operationsDoc = `
   query  getCourses {
     courses {
-      active
-      category
-      description
       id
+      category
       name
-      teacher
-      imageUrl
     }
   }
 `;
@@ -18,4 +14,5 @@ export async function getCourses() {
   const response = await queryHasura(operationsDoc, 'getCourses');
   return response?.data?.courses;
 }
+
 

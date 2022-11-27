@@ -9,37 +9,16 @@ export default function Course() {
   const [current, setCurrent] = useState('')
 
   useEffect(() => {
-    let temp = [
-      {
-        id: 1,
-        category: 'A-History/Social Sciences',
-        name: 'World History'
-      },
-      {
-        id: 2,
-        category: 'A-History/Social Sciences',
-        name: 'US History'
-      },
-      {
-        id: 3,
-        category: 'B-English',
-        name: 'English 9'
-      },
-      {
-        id: 4,
-        category: 'B-English',
-        name: 'English 9 with Romeo and Juliet'
-      },
-      {
-        id: 5,
-        category: 'B-English',
-        name: 'English 10'
-      }
-    ]
+    async function fetchCourses() {
+      const res = await fetch('/api/courses');
+      const courses = await res.json();
+      setCategorized(
+        categorize(courses)
+      )
+    }
 
-    setCategorized(
-      categorize(temp)
-    )
+    fetchCourses()
+
   }, [])
 
   function categorize(courses) {
@@ -81,7 +60,7 @@ export default function Course() {
             {categorized.map(item => {
               return <div
                 key={item.category}
-                className={`${styles.category} ${current===item.category ? styles.current: ''}`}
+                className={`${styles.category} ${current === item.category ? styles.current : ''}`}
               >
                 <h4 className={styles['category-name']} onClick={() => setCurrent(item.category)}>{item.category}</h4>
                 {
@@ -102,7 +81,7 @@ export default function Course() {
                           delay: 0.6,
                         },
                       }}>
-          
+
                       {course.name}
                     </motion.div>)
                     }

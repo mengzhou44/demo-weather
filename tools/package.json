@@ -2,15 +2,18 @@
   "name": "tools",
   "version": "1.0.0",
   "description": "",
+  "type": "module", 
   "main": "generate-jwt.js",
   "scripts": {
-    "token": "node generate-jwt"
+    "token": "node generate-jwt",
+    "courses": "node insert-courses"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.2",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "node-fetch": "^3.3.0"
   }
 }
