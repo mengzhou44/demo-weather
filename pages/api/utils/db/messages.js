@@ -1,9 +1,9 @@
 import { queryHasura } from './query-hasura'; 
 
-export async function insertMessage({name, email, message}) {
+export async function insertMessage({lastName, firstName,  email, phone, message}) {
     const operationsDoc = `
-    mutation insertMessage ($email: String!, $name: String!, $message: String!) {
-      insert_messages_one(object: {email: $email, message: $message, name: $name}) {
+    mutation insertMessage ($firstName: String!, $lastName: String!, $email: String!, $phone: String!, $message: String!) {
+      insert_messages_one(object: {lastName: $lastName, firstName: $firstName,  email: $email, phone: $phone, message: $message,}) {
         id
       }
     }    
@@ -12,7 +12,7 @@ export async function insertMessage({name, email, message}) {
     const response = await queryHasura(
       operationsDoc,
       'insertMessage',
-      {name, email, message }
+      {lastName, firstName, email, phone, message }
     );
      if (response.errors && response.errors.length>0) {
          console.log({length:response.errors.length})

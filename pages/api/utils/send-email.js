@@ -1,6 +1,5 @@
 import nodemailer from "nodemailer";
-import { resolve } from "styled-jsx/css";
-
+ 
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 465,
@@ -11,11 +10,13 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const createHtml = ({name, email, message}) => {
+const createHtml = ({lastName, firstName, email, phone,  message}) => {
     return `
       <div> 
-        <h3>Name:  ${name} </h3>
+        <h3>LastName:  ${lastName} </h3>
+        <h3>FirstName: ${firstName} </h3>
         <h3>Email: ${email} </h3>
+        <h3>Phone: ${phone} </h3>
         <p>
              ${message}
         </p>
@@ -23,13 +24,13 @@ const createHtml = ({name, email, message}) => {
      `;
   }
 
-export const sendEMail = ({name,email, message}) => {
+export const sendEMail = ({lastName, firstName, email, phone, message}) => {
     return new Promise((resolve, reject)=> {
 
         const mailOptions= {
-            html:  createHtml({name, email, message}),
+            html:  createHtml({lastName, firstName, email, phone, message}),
             to: process.env.SYSTEM_EMAIL,
-            subject: `${name} inqury`
+            subject: `${firstName} inqury`
         }
          
         transporter.sendMail(mailOptions,(error, info) => {
@@ -39,7 +40,6 @@ export const sendEMail = ({name,email, message}) => {
                 resolve()
             } 
         });
-
     })
 };
 
