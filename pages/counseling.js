@@ -21,7 +21,7 @@ export default function Home() {
                        <Image alt='couseling' src='/static/counselling.jpg' width={512} height={512} /> 
                    </div>
                    <div className={styles.content}>
-                      <p className={styles.group}> 
+                      <p className={styles.group1}> 
                       The college application process is a complicated task.  While the admissions officers' decisions are a mystery. At Agoura Hills Academy, we provide you with an accredited, competitive high school transcript and diploma. In addition, we offer you up to 4 hours’ complimentary college counseling service.  
                       </p>  
                       <div className={styles.group}>
@@ -58,11 +58,8 @@ export default function Home() {
                               <p>
                               Email: zhu@agourahillsacademy.org 
                               </p>
-
                          </div>
-
-                    
-                   </div>
+                    </div>
               </div> 
       </div>
       </Layout>
