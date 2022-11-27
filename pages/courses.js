@@ -62,7 +62,15 @@ export default function Course() {
                 key={item.category}
                 className={`${styles.category} ${current === item.category ? styles.current : ''}`}
               >
-                <h4 className={styles['category-name']} onClick={() => setCurrent(item.category)}>{item.category}</h4>
+                <h4 className={styles['category-name']} onClick={() => {
+                  if (item.category === current) {
+                     setCurrent('')
+                  }else {
+                    setCurrent(item.category)
+                  }
+                 
+                 }
+                }>{item.category}</h4>
                 {
                   item.category === current &&
                   <div className={styles.courses}>
