@@ -1,0 +1,33 @@
+
+const Register=  async (req, res) => {
+  if (req.method === 'POST') {
+    try {
+     
+        const { firstName, lastName } = req.body;
+
+        if (!firstName) {
+          res.send({ done: false, message: 'First name is empty.' });
+        } else if (!lastName) {
+          res.send({ done: false, message: 'Last name is empty.' });
+        } else {
+          const newUser = {
+            firstName,
+            lastName,
+            ...metadata,
+          };
+
+          await register(token, newUser);
+          setTokenCookie(token, res);
+          res.send({ done: true, firstName });
+        }
+     
+    } catch (err) {
+      console.log(`Something wenty wrong while logging ${err}`);
+      res.status(500).send({ done: false });
+    }
+  } else {
+    res.status(400).send({ done: false });
+  }
+};
+
+export default Register;

@@ -2,12 +2,13 @@ import Head from 'next/head';
 import styles from './counseling.module.css';
 import Layout from '../components/layout';
 import Image from 'next/image';
-export default function Home() {
+
+export default function Counseling() {
   return (
     <div>
       <Head>
-        <title></title>
-        <meta name="description" content="Scroll Prototype" />
+        <title>Counseling</title>
+        <meta name="description" content="Counseling" />
       </Head>
       <Layout>
       <div className={styles.page}>

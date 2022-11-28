@@ -1,0 +1,11 @@
+.page {
+  margin-top: 4rem; 
+  padding-top: 2rem; 
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+ 
+@media screen and (max-width: 800px) {
+   
+}
