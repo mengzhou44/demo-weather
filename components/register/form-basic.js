@@ -1,9 +1,11 @@
 import validator from 'email-validator';
+import moment from 'moment';
 import phone from 'phone';
 import { useState } from 'react';
-import styles from './form1.module.css'
+import styles from './form.module.css'
+import { toast, ToastContainer } from 'react-toastify'
 
-export function FormBasic({ data, onNext }) {
+function FormBasic({ data, onNext }) {
 
   const [firstName, setFirstName] = useState(data.firstName ?? '');
   const [lastName, setLastName] = useState(data.lastName ?? '');
@@ -14,52 +16,56 @@ export function FormBasic({ data, onNext }) {
 
   const [email, setEmail] = useState(data.email ?? '');
   const [phoneNumber, setPhoneNumber] = useState(data.phone?.number ?? '');
-  const [countryCode, setCountryCode] = useState(data.phone?.country ?? '');
-
-  const [message, setMessage] = useState('');
+  const [countryCode, setCountryCode] = useState(data.phone?.country ?? '+1');
 
   const validateInputs = () => {
-    setMessage('');
     if (firstName === '') {
-      setMessage('First name is required!');
+      toast.error('First name is required!');
       return false;
     } else if (lastName === '') {
-      setMessage('Last name is required!');
+      toast.error('Last name is required!');
       return false;
     } else if (gender === '') {
-      setMessage('Gender is required!');
+      toast.error('Gender is required!');
       return false;
     }
     else if (ethnicity === '') {
-      setMessage('Ethnicity is required!');
+      toast.error('Ethnicity is required!');
       return false;
     }
     else if (birthDate === '') {
-      setMessage('Birth Date is required!');
+      toast.error('Birth Date is required!');
+      return false;
+    } else if (!isBirthDateValid(birthDate)) {
+      toast.error('Birth Date is not valid!');
       return false;
     }
     else if (email === '') {
-      setMessage('Email is required!');
+      toast.error('Email is required!');
       return false;
     } else if (email !== '' && !validator.validate(email)) {
-      setMessage('Enter valid email address!');
+      toast.error('Enter valid email address!');
       return false;
     } else if (phoneNumber === '') {
-      setMessage('Phone number is required!');
+      toast.error('Phone number is required!');
       return false;
     } else if (countryCode === '') {
-      setMessage('Country code is required!');
+      toast.error('Country code is required!');
       return false;
     } else if (!countryCode.startsWith('+')) {
-      setMessage('Country code is invalid!');
+      toast.error('Country code  should starts with +');
       return false;
     }
     else if (phone(`${countryCode}${phoneNumber}`).isValid === false) {
-      setMessage('country code or phone number is invalid!');
+      toast.error('country code or phone number is invalid!');
       return false;
     }
     return true;
   };
+ 
+  function isBirthDateValid(birthDate) {
+      return moment(birthDate).isValid()
+  }
 
   const handleFirstNameTextChange = (e) => {
     setFirstName(e.target.value);
@@ -96,7 +102,7 @@ export function FormBasic({ data, onNext }) {
   return <>
     <div className={styles.inputs}>
       <div className={styles.field}>
-        <label htmlFor="firstName">First name *</label>
+        <label htmlFor="firstName">First Name</label>
         <input
           id="firstName"
           type="text"
@@ -105,7 +111,7 @@ export function FormBasic({ data, onNext }) {
         ></input>
       </div>
       <div className={styles.field}>
-        <label htmlFor="lastName">Last name *</label>
+        <label htmlFor="lastName">Last Name</label>
         <input
           id="lastName"
           type="text"
@@ -126,7 +132,7 @@ export function FormBasic({ data, onNext }) {
         </select>
       </div>
       <div className={styles.field}>
-        <label htmlFor="birthDate">Birth Date *</label>
+        <label htmlFor="birthDate">Birth Date</label>
         <input
           id="birthDate"
           type="text"
@@ -153,7 +159,7 @@ export function FormBasic({ data, onNext }) {
         </select>
       </div>
       <div className={styles.field}>
-        <label htmlFor="email">Email *</label>
+        <label htmlFor="email">Email</label>
         <input
           id="email"
           type="text"
@@ -164,14 +170,13 @@ export function FormBasic({ data, onNext }) {
 
       <div className={styles.field}>
 
-        <label>Phone *</label>
+        <label>Phone</label>
         <div className={styles.phoneInput} >
           <input
             className={styles.countryCode}
             id="countryCode"
             type="text"
             value={countryCode}
-            placeholder="+1"
             onChange={handleCountryCodeTextChange}
           ></input>
 
@@ -186,7 +191,6 @@ export function FormBasic({ data, onNext }) {
         </div>
       </div>
 
-      <p>{message}</p>
       <div className={styles.buttons}>
         <button onClick={() => {
           if (validateInputs()) {
@@ -199,12 +203,15 @@ export function FormBasic({ data, onNext }) {
               email,
               phone: {
                 country: countryCode,
-                phone: phoneNumber
+                number: phoneNumber
               }
             })
           }
         }}>Next</button>
       </div>
+      <ToastContainer />
     </div>
   </>
 }
+
+export default FormBasic

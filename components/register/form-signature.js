@@ -1,54 +1,57 @@
 import { useState } from 'react';
 import phone from 'phone';
+import moment from 'moment'
 import { validate } from 'email-validator'
-import styles from './form-signature.module.css'
+import styles from './form.module.css'
+import {toast, ToastContainer} from 'react-toastify'
 
 function FormSignature({ data, onSubmit, onPrev }) {
 
     const [parentName, setParentName] = useState(data.parentName ?? '');
     const [parentEmail, setParentEmail] = useState(data.parenEmail ?? '');
-    const [parentPhoneNumber, setParentPhoneNumber] = useState(data.parent.phone.number ?? '');
-    const [parentPhoneCountryCode, setParentPhoneCountryCode] = useState(data.parent.phone.country ?? '');
+    const [parentPhoneNumber, setParentPhoneNumber] = useState(data.parentPhone?.number ?? '');
+    const [parentPhoneCountryCode, setParentPhoneCountryCode] = useState(data.parentPhone?.country ?? '');
     const [parentSignature, setParentSignature] = useState(data.parentSignature ?? '');
     const [studentSignature, setStudentSignature] = useState(data.studentSignature ?? '');
 
-    const [message, setMessage] = useState('');
-    const age = data.age;
+    const age = calculateAge(data.birthDate)
 
+    function calculateAge(birthDate){
+       return  moment().diff(birthDate, 'years');
+    }
     const validateInputs = () => {
         if (!parentName) {
-            setMessage('Parent Name is required!')
+            toast.error('Parent Name is required!')
             return false
         }
         else if (!parentEmail) {
-            setMessage('Parent email is required!')
+            toast.error('Parent email is required!')
             return false
         } else if (!validate(email)) {
-            setMessage('Parent email is invalid!')
+            toast.error('Parent email is invalid!')
             return false
         }
         else if (!parentPhoneCountryCode) {
-            setMessage('Parent phone country code is required!')
+            toast.error('Parent phone country code is required!')
             return false
         }
         else if (!parentPhoneNumber) {
-            setMessage('Parent phone number is required!')
+            toast.error('Parent phone number is required!')
             return false
         }
-        else if (phone(`${countryCode}${phoneNumber}`).isValid === false) {
-            setMessage('country code or phone number is invalid!');
+        else if (phone(`${parentPhoneCountryCode}${parentPhoneNumber}`).isValid === false) {
+            toast.error('country code or phone number is invalid!');
             return false;
         }
         else if (age<18 && !parentSignature) {
-            setMessage('Parent signature is required');
+            toast.error('Parent signature is required');
             return false;
         }
         else if (!studentSignature) {
-            setMessage('Student signature is required');
+            toast.error('Student signature is required');
             return false;
         }
 
-        setMessage('');
         return true;
     };
 
@@ -79,7 +82,7 @@ function FormSignature({ data, onSubmit, onPrev }) {
     return <>
         <div className={styles.inputs}>
             <div className={styles.field}>
-                <label htmlFor="parentName">Parent Name*</label>
+                <label htmlFor="parentName">Parent Name</label>
                 <input
                     id="parentName"
                     type="text"
@@ -89,7 +92,7 @@ function FormSignature({ data, onSubmit, onPrev }) {
             </div>
 
             <div className={styles.field}>
-                <label htmlFor="parentEmail">Parent Email*</label>
+                <label htmlFor="parentEmail">Parent Email</label>
                 <input
                     id="parentEmail"
                     type="text"
@@ -100,7 +103,7 @@ function FormSignature({ data, onSubmit, onPrev }) {
 
             <div className={styles.field}>
 
-                <label>Phone *</label>
+                <label>Parent Phone</label>
                 <div className={styles.phoneInput} >
                     <input
                         className={styles.countryCode}
@@ -128,7 +131,7 @@ function FormSignature({ data, onSubmit, onPrev }) {
                         Enrollment Agreement: If the applicant is under 18-years of age, printing parent/guardian full name in this box constitutes electronic signature.
                     </p>
 
-                    <label htmlFor="parentSignature">Parent Signature*</label>
+                    <label htmlFor="parentSignature">Parent Signature</label>
                     <input
                         id="parentSignature"
                         type="text"
@@ -139,7 +142,7 @@ function FormSignature({ data, onSubmit, onPrev }) {
             }
 
             <div className={styles.field}>
-                <label htmlFor="studnetSignature">Your Signature*</label>
+                <label htmlFor="studnetSignature">Your Signature</label>
                 <input
                     id="studentSignature"
                     type="text"
@@ -147,8 +150,7 @@ function FormSignature({ data, onSubmit, onPrev }) {
                     onChange={handleStudentSignatureTextChange}
                 ></input>
             </div>
-            <p>{message}</p>
-
+        
             <div className={styles.buttons}>
                 <button onClick={() => onPrev()}>Prev</button>
                 <button onClick={() => {
@@ -166,6 +168,7 @@ function FormSignature({ data, onSubmit, onPrev }) {
                     }
                 }}>Submit</button>
             </div>
+            <ToastContainer />
         </div>
     </>
 }

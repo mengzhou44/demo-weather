@@ -1,23 +1,21 @@
 import { useState } from 'react';
-import styles from './form3.module.css'
+import styles from './form.module.css'
+import {toast, ToastContainer} from 'react-toastify'
 
 function FormCourse({data, onNext, onPrev}) {
  
     const [currentGrade, setCurrentGrade] = useState(data.currentGrade??'');
     const [coursesRequest, setCoursesRequest] = useState(data.coursesRequest??'');
    
-    const [message, setMessage] = useState('');
-
     const validateInputs = () => {
        if (!currentGrade){
-         setMessage('Current grade is required!')
+         toast.error('Current grade is required!')
          return false
        }else  if (!coursesRequest){
-         setMessage('Courses request is required!')
+         toast.error('Courses request is required!')
          return false
        }
 
-      setMessage('');
       return true;
     };
 
@@ -32,7 +30,7 @@ function FormCourse({data, onNext, onPrev}) {
     return <>
        <div className={styles.inputs}>
           <div className={styles.field}>
-            <label htmlFor="currentGrade">Current Grade *</label>
+            <label htmlFor="currentGrade">Current Grade</label>
             <input
               id="currentGrade"
               type="text"
@@ -42,7 +40,7 @@ function FormCourse({data, onNext, onPrev}) {
           </div>
  
           <div className={styles.field}>
-            <label htmlFor="coursesRequest">Courses Request *</label>
+            <label htmlFor="coursesRequest">Courses Request</label>
             <input
               id="coursesRequest"
               type="text"
@@ -50,9 +48,7 @@ function FormCourse({data, onNext, onPrev}) {
               onChange={handleCoursesRequestTextChange}
             ></input>
           </div>
-
-          <p>{message}</p>
-
+ 
           <div className={styles.buttons}>
             <button onClick={()=> onPrev()}>Prev</button>
             <button onClick={()=> {
@@ -60,7 +56,8 @@ function FormCourse({data, onNext, onPrev}) {
                      onNext({currentGrade, coursesRequest})
                  }
             }}>Next</button>
-          </div>    
+          </div>
+          <ToastContainer />    
         </div>
     </>
 }

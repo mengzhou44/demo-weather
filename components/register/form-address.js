@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import styles from './form-address.module.css'
+import styles from './form.module.css'
+import {toast, ToastContainer} from 'react-toastify'
 
 function FormAddress({ data, onNext, onPrev }) {
 
@@ -9,33 +10,31 @@ function FormAddress({ data, onNext, onPrev }) {
   const [zipCode, setZipCode] = useState(data.zipCode ?? '');
   const [country, setCountry] = useState(data.country ?? '');
 
-  const [message, setMessage] = useState('');
-
   const validateInputs = () => {
-    setMessage('');
-
+  
     if (!address) {
-      setMessage('Address is required')
+      toast.error('Address is required')
       return false
     }
     else if (!city) {
-      setMessage('City is required')
+      toast.error('City is required')
       return false
     }
     else if (!state) {
-      setMessage('State is required')
+      toast.error('State is required')
       return false
     }
     else if (!zipCode) {
-      setMessage('Zip code is required')
+      toast.error('Zip code is required')
       return false
     }
     else if (country === '') {
-      setMessage('Country is required!')
+      toast.error('Country is required!')
       return false
     }
+
     else if (country.length < 3) {
-      setMessage('Country is invalid')
+      toast.error('Country is invalid')
       return false
     }
 
@@ -66,7 +65,7 @@ function FormAddress({ data, onNext, onPrev }) {
     <div className={styles.inputs}>
 
       <div className={styles.field}>
-        <label htmlFor="address">Address *</label>
+        <label htmlFor="address">Address</label>
         <input
           id="address"
           type="text"
@@ -76,7 +75,7 @@ function FormAddress({ data, onNext, onPrev }) {
       </div>
 
       <div className={styles.field}>
-        <label htmlFor="city">City *</label>
+        <label htmlFor="city">City</label>
         <input
           id="city"
           type="text"
@@ -86,7 +85,7 @@ function FormAddress({ data, onNext, onPrev }) {
       </div>
 
       <div className={styles.field}>
-        <label htmlFor="state">State *</label>
+        <label htmlFor="state">State</label>
         <input
           id="state"
           type="text"
@@ -96,7 +95,17 @@ function FormAddress({ data, onNext, onPrev }) {
       </div>
 
       <div className={styles.field}>
-        <label htmlFor="country">Country *</label>
+        <label htmlFor="zipCode">Zip Code</label>
+        <input
+          id="zipCode"
+          type="text"
+          value={zipCode}
+          onChange={handleZipCodeTextChange}
+        ></input>
+      </div>
+
+      <div className={styles.field}>
+        <label htmlFor="country">Country</label>
         <input
           id="country"
           type="text"
@@ -105,8 +114,6 @@ function FormAddress({ data, onNext, onPrev }) {
         ></input>
       </div>
     
-      <p>{message}</p>
-
       <div className={styles.buttons}>
         <button onClick={() => onPrev()}>Prev</button>
         <button onClick={() => {
@@ -115,6 +122,7 @@ function FormAddress({ data, onNext, onPrev }) {
           }
         }}>Next</button>
       </div>
+      <ToastContainer />
     </div>
   </>
 }

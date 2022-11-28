@@ -1,11 +1,27 @@
 .page {
   margin-top: 4rem; 
   padding-top: 2rem; 
-  background-color: #fff;
+  background-color: var(--clr-grey-10);
   min-height: 100vh;
+}
+
+.container {
+   width: 100%; 
+   display: flex; 
+   justify-content: center;
+   align-items: flex-start; 
+   padding-bottom: 2rem; 
+}
+
+.form {
+   min-width: 35rem; 
 }
 
  
 @media screen and (max-width: 800px) {
-   
+   .form {
+     min-width: auto;
+     width: 100%; 
+     padding: 1rem; 
+   }
 }

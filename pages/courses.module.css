@@ -39,6 +39,8 @@
 .category-name {
    margin-bottom: 0; 
    cursor: pointer; 
+   font-weight:400; 
+   font-size: 1.2rem; 
 }
 
 .category:first-child {

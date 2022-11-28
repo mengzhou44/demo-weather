@@ -11,7 +11,6 @@ export default function Home() {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
-  const [warning, setWarning] = useState('')
   const [loading, setLoading] = useState(false)
 
   function clearInputs() {
@@ -35,14 +34,12 @@ export default function Home() {
         <input placeholder='Last name' type='text' value={lastName}
           onChange={e => {
             setLastName(e.target.value)
-            setWarning('')
           }}></input>
       </div>
       <div className={styles.field} >
         <input placeholder='First name' type='text' value={firstName}
           onChange={e => {
             setFirstName(e.target.value)
-            setWarning('')
           }}
         >
         </input>
@@ -51,7 +48,6 @@ export default function Home() {
         <input placeholder='Phone' type='text' value={phone}
           onChange={e => {
             setPhone(e.target.value)
-            setWarning('')
           }}
         ></input>
       </div>
@@ -60,7 +56,6 @@ export default function Home() {
         <input placeholder='Email' type='text' value={email}
           onChange={e => {
             setEmail(e.target.value)
-            setWarning('')
           }}
         ></input>
       </div>
@@ -68,37 +63,30 @@ export default function Home() {
         <textarea placeholder='I would like to know' type='text' value={message} rows="5" cols="45"
           onChange={e => {
             setMessage(e.target.value)
-            setWarning('')
           }}
         ></textarea>
       </div>
-      {warning &&
-        <div className={styles.field} >
-          <p className={styles.warning}>
-            {warning}
-          </p>
-        </div>
-      }
+ 
       <div className={styles.field} >
         <button className={styles.submit} onClick={
           async () => {
             if (lastName === '') {
-              setWarning('Last name is required.')
+              toast.warn('Last name is required.')
             }
             else if (firstName === '') {
-              setWarning('First name is required.')
+              toast.warn('First name is required.')
             }
             else if (phone === '') {
-              setWarning('Phone is required.')
+              toast.warn('Phone is required.')
             }
             else if (email === '') {
-              setWarning('Email is required.')
+              toast.warn('Email is required.')
             }
             else if (!validator.validate(email)) {
-              setWarning('Email is invalid.')
+              toast.warn('Email is invalid.')
             }
             else if (message === '') {
-              setWarning('Please tell us what you want to know')
+              toast.warn('Please tell us what you want to know')
             } else {
               setLoading(true)
 

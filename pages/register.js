@@ -1,14 +1,13 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import { FormBasic } from '../components/register/form-basic'
-import { FormAddress } from '../components/register/form-address'
-import { FormCourse } from '../components/register/form-course'
-import { FormSignature } from '../components/register/form-signature'
+import  FormBasic  from '../components/register/form-basic'
+import  FormAddress  from '../components/register/form-address'
+import  FormCourse  from '../components/register/form-course'
+import  FormSignature  from '../components/register/form-signature'
 
 import styles from './register.module.css';
 import { toast, ToastContainer } from 'react-toastify';
 import Layout from '../components/layout';
-import phone from 'phone';
 
 const Register = () => {
   const [registration, setRegistration] = useState({})
@@ -20,7 +19,7 @@ const Register = () => {
 
     try {
       setLoading(true);
-      let temp = {...registration}
+      let temp = { ...registration }
       temp.phone = `${temp.phone.country}${temp.phone.number}`
       temp.parentPhone = `${temp.parentPhone.country}${temp.parentPhone.number}`
 
@@ -49,9 +48,10 @@ const Register = () => {
       return <FormBasic
         data={registration}
         onNext={(data) => {
+          console.log('step1')
           setRegistration(Object.assign(registration, data))
           setStep(step + 1)
-        }}></FormBasic>
+        }} />
     }
     else if (step === 2) {
       return <FormAddress
@@ -59,32 +59,28 @@ const Register = () => {
         onNext={data => {
           setRegistration(Object.assign(registration, data))
           setStep(step + 1)
-        }
-        }
-        onPrev={() => setStep(step - 1)}>
-      </FormAddress>
+        }}
+        onPrev={() => setStep(step - 1)}
+        />
     } else if (step === 3) {
       return <FormCourse
         data={registration}
         onNext={data => {
           setRegistration(Object.assign(registration, data))
           setStep(step + 1)
-        }
-        } onPrev={() => setStep(step - 1)}>
+        }}
+        onPrev={() => setStep(step - 1)}
+      />
 
-      </FormCourse>
     } else if (step === 4) {
       return <FormSignature
         data={registration}
         onSubmit={data => {
           setRegistration(Object.assign(registration, data))
           handleRegister()
-        }
-        } onPrev={() => setStep(step - 1)}>
-
-      </FormSignature>
+        }}
+        onPrev={() => setStep(step - 1)} />
     }
-
   }
   return (
     <div>
@@ -99,8 +95,10 @@ const Register = () => {
               Register
             </h2>
             <div className={styles.container}>
-              {loading && renderLoading()}
-              {!loading && renderForm()}
+              <div className={styles.form}>
+                {loading && renderLoading()}
+                {!loading && renderForm()}
+              </div>
               <ToastContainer />
             </div>
           </div>
