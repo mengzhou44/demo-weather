@@ -1,0 +1,56 @@
+.courses-request {
+   padding: 1rem; 
+   border-radius: .3rem; 
+   border: 1px solid var(--clr-grey-9);
+   margin-bottom: 1rem; 
+   background-color: var(--clr-white);
+}
+
+.courses-request li {
+    list-style-type: none;
+    margin-bottom: 1rem; 
+    display: flex;
+    align-items: center;
+    font-size: 1rem; 
+}
+.courses-request li:last-child {
+     margin-bottom: 0rem; 
+} 
+
+.courses-request li button {
+    cursor: pointer; 
+    margin-left: 1rem;
+    border: none;
+    background-color: transparent; 
+ }
+
+
+.courses-request li svg {
+   width: 1.1rem; 
+   height: 1.1rem; 
+}
+
+.add-course-text{
+    font-size: 1rem; 
+    color: var(--clr-red-light);
+}
+
+.select {
+    margin-bottom: .5rem !important;  
+}
+
+.select select {
+    font-size: 1rem; 
+}
+
+.addCourse button {
+     background-color: var(--clr-red-light);
+     width: 8rem; 
+     padding: .5rem 0.5rem;
+     color: var(--clr-white);  
+     border: none; 
+     border-radius: .3rem; 
+     cursor: pointer; 
+}
+
+

@@ -3,49 +3,14 @@ import { motion } from 'framer-motion';
 import Layout from '../components/layout';
 import styles from './courses.module.css';
 import Image from 'next/image';
+import useCategorized from '../hooks/use-categorized';
 
 export default function Course() {
-  const [categorized, setCategorized] = useState([]);
+  
   const [current, setCurrent] = useState('')
-
-  useEffect(() => {
-    async function fetchCourses() {
-      const res = await fetch('/api/courses');
-      const courses = await res.json();
-      setCategorized(
-        categorize(courses)
-      )
-    }
-
-    fetchCourses()
-
-  }, [])
-
-  function categorize(courses) {
-    let res = []
-
-    for (let course of courses) {
-      let found = res.find(item => item.category === course.category)
-      if (!found) {
-        res.push({
-          category: course.category,
-          courses: [
-            {
-              id: course.id,
-              name: course.name
-            }
-          ]
-        })
-      } else {
-        found.courses.push({
-          id: course.id,
-          name: course.name
-        })
-      }
-    }
-    return res
-  }
-
+  
+  const [fetched, categorized]  = useCategorized(); 
+  
   return (
     <Layout>
       <div className={styles.page}>
@@ -57,7 +22,9 @@ export default function Course() {
             <Image src='/static/courses.jpg' alt='courses' width={525} height={499} />
           </div>
           <div className={styles.content}>
-            {categorized.map(item => {
+            {fetched === false  && <div className={styles.loading}> Please wait ... </div>}
+
+            {fetched  && categorized.map(item => {
               return <div
                 key={item.category}
                 className={`${styles.category} ${current === item.category ? styles.current : ''}`}

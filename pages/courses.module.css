@@ -12,8 +12,16 @@
    width: 35rem; 
 }
 
+.loading {
+   text-align: center; 
+   font-size: 1.2rem;
+}
+
 .content {
    flex:1; 
+   display: flex; 
+   justify-content: center;
+   flex-direction: column;
 }
 
 .category{
