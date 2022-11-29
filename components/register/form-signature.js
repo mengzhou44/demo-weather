@@ -3,6 +3,7 @@ import phone from 'phone';
 import moment from 'moment'
 import { validate } from 'email-validator'
 import styles from './form.module.css'
+import myStyles from './form-signature.module.css'
 
 
 import {toast, ToastContainer} from 'react-toastify'
@@ -129,9 +130,12 @@ function FormSignature({ data, onSubmit, onPrev }) {
 
             {age < 18 &&
                 <div className={styles.field}>
-                    <p>
-                        Enrollment Agreement: If the applicant is under 18-years of age, printing parent/guardian full name in this box constitutes electronic signature.
-                    </p>
+                    <div className={myStyles.agreement}>
+                        <div className={myStyles['enroll-agreement']}>Enrollment Agreement:</div>
+                        <p>
+                            If the applicant is under 18-years of age, printing parent/guardian full name in this box constitutes electronic signature.
+                        </p>
+                    </div>
 
                     <label htmlFor="parentSignature">Parent Signature</label>
                     <input

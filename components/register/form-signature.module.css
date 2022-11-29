@@ -1,0 +1,17 @@
+.agreement {
+   margin-top: 2rem ; 
+   margin-bottom: 2rem;
+   padding: .5rem; 
+   background-color: var(--clr-white);
+   border-radius: .3rem;
+}
+
+.enroll-agreement {
+    color: var(--clr-red-light) !important;
+ }
+ 
+ .agreement p {
+    color: var(--clr-grey-1) !important; 
+    text-align: justify;
+
+ }
