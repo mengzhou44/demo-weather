@@ -14,14 +14,14 @@ const Register = () => {
   const [step, setStep] = useState(1)
   const [loading, setLoading] = useState(false);
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
-
+  const handleRegister = async () => {
     try {
       setLoading(true);
       let temp = { ...registration }
+      
       temp.phone = `${temp.phone.country}${temp.phone.number}`
       temp.parentPhone = `${temp.parentPhone.country}${temp.parentPhone.number}`
+      temp.coursesRequest = registration.coursesRequest.join(',');
 
       let res = await fetch('/api/register', {
         method: 'POST',
@@ -42,6 +42,10 @@ const Register = () => {
       setLoading(false);
     }
   };
+
+  function renderLoading() {
+      return <div className={styles.loading}>Please wait...</div>
+  }
 
   function renderForm() {
     if (step === 1) {

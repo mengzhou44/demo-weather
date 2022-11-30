@@ -13,7 +13,7 @@ function FormSignature({ data, onSubmit, onPrev }) {
     const [parentName, setParentName] = useState(data.parentName ?? '');
     const [parentEmail, setParentEmail] = useState(data.parenEmail ?? '');
     const [parentPhoneNumber, setParentPhoneNumber] = useState(data.parentPhone?.number ?? '');
-    const [parentPhoneCountryCode, setParentPhoneCountryCode] = useState(data.parentPhone?.country ?? '');
+    const [parentPhoneCountryCode, setParentPhoneCountryCode] = useState(data.parentPhone?.country ?? '+1');
     const [parentSignature, setParentSignature] = useState(data.parentSignature ?? '');
     const [studentSignature, setStudentSignature] = useState(data.studentSignature ?? '');
 
@@ -30,7 +30,7 @@ function FormSignature({ data, onSubmit, onPrev }) {
         else if (!parentEmail) {
             toast.error('Parent email is required!')
             return false
-        } else if (!validate(email)) {
+        } else if (!validate(parentEmail)) {
             toast.error('Parent email is invalid!')
             return false
         }
@@ -113,7 +113,6 @@ function FormSignature({ data, onSubmit, onPrev }) {
                         id="countryCode"
                         type="text"
                         value={parentPhoneCountryCode}
-                        placeholder="+1"
                         onChange={handleParentPhoneCountryCodeTextChange}
                     ></input>
 
@@ -147,6 +146,17 @@ function FormSignature({ data, onSubmit, onPrev }) {
                 </div>
             }
 
+            {age >= 18 &&
+                <div className={styles.field}>
+                    <div className={myStyles.agreement}>
+                        <div className={myStyles['enroll-agreement']}>Enrollment Agreement:</div>
+                        <p>
+                           Printing your full name in this box constitutes electronic signature.
+                        </p>
+                    </div>
+
+                </div>
+            }
             <div className={styles.field}>
                 <label htmlFor="studnetSignature">Your Signature</label>
                 <input
