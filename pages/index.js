@@ -60,7 +60,7 @@ export default function Home() {
         ></input>
       </div>
       <div className={styles.field} >
-        <textarea placeholder='I would like to know' type='text' value={message} rows="5" cols="42"
+        <textarea placeholder='I would like to know' type='text' value={message} rows="5" cols="45"
           onChange={e => {
             setMessage(e.target.value)
           }}
