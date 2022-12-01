@@ -38,9 +38,16 @@
        flex-direction: column;  
     }
 
-    .content {
-   
+    .content {  
         padding: 0rem; 
     }   
+    
+    .content p {
+         text-align: justify;
+    }
+    
+    .register {
+        margin-bottom: 2rem;  
+    }
     
 }

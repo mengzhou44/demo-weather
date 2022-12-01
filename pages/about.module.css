@@ -84,9 +84,16 @@
         margin: 0 1rem; 
     }
 
+    .content {
+        padding: 1rem;
+    }
+
     .container {
        flex-direction: column;  
     }
-    
+
+    .section {
+        margin-bottom: 2rem;
+    }
 }
 

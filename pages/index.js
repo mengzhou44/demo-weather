@@ -23,9 +23,9 @@ export default function Home() {
 
   function renderLoading() {
     return <div className={styles['form-content']}>
-     <p className={styles.loading}>  
-         Please Wait ...
-    </p>
+      <p className={styles.loading}>
+        Please Wait ...
+      </p>
     </div>
   }
   function renderFormContent() {
@@ -60,13 +60,13 @@ export default function Home() {
         ></input>
       </div>
       <div className={styles.field} >
-        <textarea placeholder='I would like to know' type='text' value={message} rows="5" cols="45"
+        <textarea placeholder='I would like to know' type='text' value={message} rows="5" cols="42"
           onChange={e => {
             setMessage(e.target.value)
           }}
         ></textarea>
       </div>
- 
+
       <div className={styles.field} >
         <button className={styles.submit} onClick={
           async () => {
@@ -114,27 +114,27 @@ export default function Home() {
   }
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title></title>
         <meta name="description" content="Scroll Prototype" />
       </Head>
       <Layout>
-        <section id="home" className={styles.hero}>
+        <div className={styles.page}>
           <div className={styles.mission} >
             <h3>ACHIEVE YOUR COLLEGE DREAM WITH AGOURA HILLS ACADEMY</h3>
           </div>
-          <div className={styles['form-container']}>
-            <div className={styles.form}>
-              <div className={styles.contact}>
-                <h4>Contact Us</h4>
-              </div>
-              {loading && renderLoading()}
-              {!loading && renderFormContent()}
-              <ToastContainer  />
+
+          <div className={styles.form}>
+            <div className={styles.contact}>
+              <h4>Contact Us</h4>
             </div>
+            {loading && renderLoading()}
+            {!loading && renderFormContent()}
+
           </div>
-        </section>
+
+        </div>
       </Layout>
     </div>
   );

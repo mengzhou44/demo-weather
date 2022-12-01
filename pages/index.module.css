@@ -1,39 +1,22 @@
-.container {
-  position: relative;
-}
-
-.hero {
-  min-height: 100vh;
-  display: flex; 
-  background: linear-gradient(rgba(222, 84, 108, 0.5), rgba(0, 0, 0, 0.8)),
-  url(../public/static/hero.jpg) center/cover;
-  position: relative;
-  display: flex; 
-  flex-direction: row; 
-  justify-content: space-between;
-  padding: 2rem; 
-}
-
-.contact {
-   margin-top: 4rem;
+.page {
+   margin-top: 4rem; 
+   min-height: 100vh;
+   background: linear-gradient(rgba(222, 84, 108, 0.5), rgba(0, 0, 0, 0.8)),
+   url(../public/static/hero.jpg) center/cover; 
+   display: flex; 
+   flex-direction: row; 
+   justify-content: space-between;
 }
 
 .mission {
    margin-top: 4rem; 
-   width: 40rem;  
    min-height: 100vh; 
    display: flex; 
 }
+
 .mission h3 {
   color: var(--clr-white);
   line-height: 145%;
-}
-
-.form-container {
-   flex: 1;  
-   min-height: 100vh;
-   display: flex;
-   justify-content: flex-end; 
 }
 
 .loading {
@@ -42,14 +25,15 @@
    margin-top: 4rem;
 }
 
-
 .form {
+   flex: 1;  
    font-size: 1.3rem; 
-} 
-
-.form-content {
-   width: 25rem; 
 }
+
+.form .contact {
+   margin-top: 4rem;
+}
+
 .form h4 {
    color: var(--clr-white);
 }
@@ -79,28 +63,22 @@
 }
  
 @media screen and (max-width: 800px) {
-   .hero {
+   .page {
      flex-direction: column;
+     justify-content: flex-start;
+     padding-left: 2rem;
+     padding-right: 2rem; 
    } 
 
    .mission {
+      width: 100%; 
       min-height: 20vh;
-      width: 100%;
       justify-content: center;  
-  }
-
-  .form {
-     width: 100%;
   }
 
   .field:first-child {
     margin-top: 0rem; 
   }
-
   
-  .form-container {
-     justify-content: center;
-     min-height: auto; 
-  }
 }
 

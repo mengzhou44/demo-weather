@@ -12,9 +12,7 @@ function About() {
         <meta name="description" content="Scroll Prototype" />
       </Head>
       <Layout>
-      <section id="about" className={styles.page}>
-    
-
+      <section className={styles.page}>
             <div className="title">
                     <h2>
                       About
