@@ -28,7 +28,7 @@ function Admissions() {
 
               <h4>GOALS AND OBJECTIVES</h4>
               <p>
-                Agoura Hills Academy practices its philosophy by following the school's intellectual, social, and physical goals and objectives.
+                Agoura Hills Academy practices its philosophy by following the school&apos;s intellectual, social, and physical goals and objectives.
               </p>
               <div>
                 <Link href="/register" passHref>

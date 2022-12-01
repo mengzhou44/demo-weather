@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router'; 
 import { useDevice } from '../hooks/use-device';
 import { motion } from 'framer-motion'; 
+import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import {
    expand,
@@ -99,7 +100,7 @@ const Header = () => {
             dispatch(collapse());
           }}
         >
-          <img src="/static/logo.jpg" className={styles.logo} alt="logo" />
+          <Image src="/static/logo.jpg"  alt="logo" width={192} height={48} />
         </div>
       </Link>
     );

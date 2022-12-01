@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Layout from '../components/layout';
 import styles from './courses.module.css';
@@ -42,6 +42,7 @@ export default function Course() {
                   item.category === current &&
                   <div className={styles.courses}>
                     {item.courses.map(course => <motion.div
+                      key={course.id}
                       className={styles.course}
                       initial="closed"
                       animate="open"

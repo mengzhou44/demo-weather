@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
     return () => {
       document.removeEventListener('click', handleDocumentClick);
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={styles.layout}>

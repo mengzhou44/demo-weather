@@ -38,7 +38,7 @@ function About() {
           <div className={styles.section}>
             <p><span className={styles.bold}> Curriculum - </span>
             Agoura Hills Academy provides all UC/CSU (A-G) approved coursework. 
-            Our schedule is tailor made to meet each student's different learning style.  
+            Our schedule is tailor made to meet each student&apos;s different learning style.
             </p>
           </div>
           
@@ -58,7 +58,7 @@ function About() {
 
             <div className={styles.section}>
             <p className={styles.simple}><span className={styles.bold}>Schedule - </span>
-            As our students are members of a global society, our flexible schedules meet students' needs no matter where they are located. 
+            As our students are members of a global society, our flexible schedules meet students&apos; needs no matter where they are located. 
               </p>   
             </div>
 

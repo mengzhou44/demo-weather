@@ -23,7 +23,7 @@ export default function Counseling() {
                    </div>
                    <div className={styles.content}>
                       <p className={styles.group1}> 
-                      The college application process is a complicated task.  While the admissions officers' decisions are a mystery. At Agoura Hills Academy, we provide you with an accredited, competitive high school transcript and diploma. In addition, we offer you up to 4 hours’ complimentary college counseling service.  
+                      The college application process is a complicated task.  While the admissions officers&apos; decisions are a mystery. At Agoura Hills Academy, we provide you with an accredited, competitive high school transcript and diploma. In addition, we offer you up to 4 hours’ complimentary college counseling service.  
                       </p>  
                       <div className={styles.group}>
                           <p className={styles.yourself}>

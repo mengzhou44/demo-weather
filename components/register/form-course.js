@@ -62,7 +62,7 @@ function FormCourse({ data, onNext, onPrev }) {
         <label >Courses Request</label>
         <ul className={myStyles['courses-request']}>
             {coursesRequest.map(course =>
-              <li>
+              <li key={course}>
                 <span>{course}</span>
                 <button onClick={() => removeCourse(course)}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#de546c">
@@ -87,7 +87,7 @@ function FormCourse({ data, onNext, onPrev }) {
                   setCourses(["Select course", ...temp])
                 }}
               >
-                {categories.map(item => <option value={item.category}>{item.category}</option>)}
+                {categories.map(item => <option key={item.category}  value={item.category}>{item.category}</option>)}
               </select>
             </div>
 
@@ -97,7 +97,7 @@ function FormCourse({ data, onNext, onPrev }) {
                   value={course}
                   onChange={e => setCourse(e.target.value)}
                 >
-                  {courses.map(item => <option value={item}>{item}</option>)}
+                  {courses.map(item => <option key={item} value={item}>{item}</option>)}
                 </select>
               </div>
             }
