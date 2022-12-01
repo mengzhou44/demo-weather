@@ -3,14 +3,12 @@ import { motion } from 'framer-motion';
 import Layout from '../components/layout';
 import styles from './courses.module.css';
 import Image from 'next/image';
-import useCategorized from '../hooks/use-categorized';
+import {categorize} from '../utils/categorize-courses'
 
-export default function Course() {
+export default function Course({categorized} ) {
   
   const [current, setCurrent] = useState('')
-  
-  const [fetched, categorized]  = useCategorized(); 
-  
+
   return (
     <Layout>
       <div className={styles.page}>
@@ -22,9 +20,9 @@ export default function Course() {
             <Image src='/static/courses.jpg' alt='courses' width={525} height={499} />
           </div>
           <div className={styles.content}>
-            {fetched === false  && <div className={styles.loading}> Please wait ... </div>}
+            {categorized.length === 0  && <div className={styles.loading}> Please wait ... </div>}
 
-            {fetched  && categorized.map(item => {
+            {categorized.length>0  && categorized.map(item => {
               return <div
                 key={item.category}
                 className={`${styles.category} ${current === item.category ? styles.current : ''}`}
@@ -72,3 +70,19 @@ export default function Course() {
     </Layout>
   );
 }
+
+
+export async function getStaticProps() {
+
+  const res = await fetch(`${process.env.BASE_URL}/courses`);
+  const categorized = categorize(await res.json());
+  return {
+    props: {
+       categorized
+    },
+  }
+}
+
+
+
+ 

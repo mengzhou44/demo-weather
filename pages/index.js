@@ -134,7 +134,7 @@ export default function Home() {
 
           </div>
           </div>
-
+          <ToastContainer />
         </div>
       </Layout>
     </div>

@@ -1,24 +1,4 @@
-import { useEffect, useState } from 'react'
-
-export default function useCategorized() {
-    const [ categorized, setCategorized] = useState([])
-    const [fetched, setFetched]  = useState(false)
-    useEffect(() => {
-        async function fetchCourses() {
-            const res = await fetch('/api/courses');
-            const courses = await res.json();
-            setCategorized(categorize(courses))
-            setFetched(true)
-        }
-        if (fetched === false) {
-            fetchCourses()
-        }
-       
-    }, [])
-
-    return [fetched, categorized] 
-
-    function categorize(courses) {
+export  function categorize(courses) {
         let res = []
 
         for (let course of courses) {
@@ -41,5 +21,5 @@ export default function useCategorized() {
             }
         }
         return res
-    }
 }
+ 

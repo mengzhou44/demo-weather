@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 import styles from './form.module.css'
 import { toast, ToastContainer } from 'react-toastify'
-import useCategorized from '../../hooks/use-categorized';
+
 import myStyles from './form-course.module.css'
 
-function FormCourse({ data, onNext, onPrev }) {
+function FormCourse({ data, onNext, onPrev, categorized }) {
   const [currentGrade, setCurrentGrade] = useState(data.currentGrade ?? '');
   const [coursesRequest, setCoursesRequest] = useState(data.coursesRequest ?? []);
 
-  const [fetched, categorized] = useCategorized();
   const [categories, setCategories] = useState([])
   const [category, setCategory] = useState('')
   const [courses, setCourses] = useState(['Select course'])
@@ -38,8 +37,6 @@ function FormCourse({ data, onNext, onPrev }) {
   const handleCurrentGradeTextChange = (e) => {
     setCurrentGrade(e.target.value);
   };
-
-
 
   const removeCourse = (course) => {
     let temp = [...coursesRequest]

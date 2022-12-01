@@ -4,12 +4,13 @@ import  FormBasic  from '../components/register/form-basic'
 import  FormAddress  from '../components/register/form-address'
 import  FormCourse  from '../components/register/form-course'
 import  FormSignature  from '../components/register/form-signature'
+import { categorize } from '../utils/categorize-courses';
 
 import styles from './register.module.css';
 import { toast, ToastContainer } from 'react-toastify';
 import Layout from '../components/layout';
 
-const Register = () => {
+const Register = ({categorized}) => {
   const [registration, setRegistration] = useState({})
   const [step, setStep] = useState(1)
   const [loading, setLoading] = useState(false);
@@ -68,6 +69,7 @@ const Register = () => {
         />
     } else if (step === 3) {
       return <FormCourse
+        categorized={categorized}
         data={registration}
         onNext={data => {
           setRegistration(Object.assign(registration, data))
@@ -114,4 +116,19 @@ const Register = () => {
 
 export default Register;
 
+
+
+
+
+export async function getStaticProps() {
+
+  const res = await fetch(`${process.env.BASE_URL}/courses`);
+  const categorized = categorize(await res.json());
+  return {
+    props: {
+       categorized
+    },
+  }
+}
+ 
 
