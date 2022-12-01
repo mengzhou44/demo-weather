@@ -124,7 +124,7 @@ export default function Home() {
           <div className={styles.mission} >
             <h3>ACHIEVE YOUR COLLEGE DREAM WITH AGOURA HILLS ACADEMY</h3>
           </div>
-
+          <div className={styles['form-container']}>
           <div className={styles.form}>
             <div className={styles.contact}>
               <h4>Contact Us</h4>
@@ -132,6 +132,7 @@ export default function Home() {
             {loading && renderLoading()}
             {!loading && renderFormContent()}
 
+          </div>
           </div>
 
         </div>

@@ -1,6 +1,7 @@
 .page {
    margin-top: 4rem; 
    min-height: 100vh;
+   padding-left:2rem;
    background: linear-gradient(rgba(222, 84, 108, 0.5), rgba(0, 0, 0, 0.8)),
    url(../public/static/hero.jpg) center/cover; 
    display: flex; 
@@ -9,14 +10,23 @@
 }
 
 .mission {
-   margin-top: 4rem; 
+   width: 40rem; 
+   margin-top: 4rem;
    min-height: 100vh; 
    display: flex; 
 }
 
+
 .mission h3 {
   color: var(--clr-white);
   line-height: 145%;
+}
+
+.form-container {
+   flex: 1;
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-end;
 }
 
 .loading {
@@ -26,7 +36,6 @@
 }
 
 .form {
-   flex: 1;  
    font-size: 1.3rem; 
 }
 
@@ -66,9 +75,12 @@
    .page {
      flex-direction: column;
      justify-content: flex-start;
-     padding-left: 2rem;
-     padding-right: 2rem; 
+     
    } 
+
+   .form-container {
+      display: block; 
+   }
 
    .mission {
       width: 100%; 
