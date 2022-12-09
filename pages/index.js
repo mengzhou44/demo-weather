@@ -140,7 +140,6 @@ export default function Home() {
                <h3>Mission</h3>
                <p>
                At Agoura Hills Academy, our mission is to provide each student with a global education, preparing them for a diverse and ever-changing world! 
-
                </p>
           </div>
         
