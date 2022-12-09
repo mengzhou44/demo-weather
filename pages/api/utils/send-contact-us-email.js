@@ -1,14 +1,4 @@
-import nodemailer from "nodemailer";
- 
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true, 
-  auth: {
-    user: process.env.SYSTEM_EMAIL,
-    pass: process.env.SYSTEM_EMAIL_PASSWORD
-  }
-});
+import { transporter } from "./transporter";
 
 const createHtml = ({lastName, firstName, email, phone,  message}) => {
     return `

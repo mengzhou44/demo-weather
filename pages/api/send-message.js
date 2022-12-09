@@ -1,5 +1,5 @@
 import { insertMessage } from './utils/db/messages';
-import { sendEMail } from './utils/send-email';
+import { sendEMail } from './utils/send-contact-us-email';
 
 const SendMessage = async (req, res) => {
   if (req.method === 'POST') {

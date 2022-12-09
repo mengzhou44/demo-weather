@@ -2,6 +2,7 @@ import { createRegistration } from "./utils/db/registration";
 import validator from 'email-validator';
 import moment from 'moment';
 import phoneValidate from 'phone';
+import { sendEMail } from "./utils/send-register-email";
 
 function isBirthDateValid(birthDate) {
   return moment(birthDate).isValid()
@@ -102,11 +103,12 @@ const Register=  async (req, res) => {
           
           registration.birthDate=moment(birthDate)
           await createRegistration(registration);
+          await sendEMail(registration)
           res.send({ done: true});
         }
      
     } catch (err) {
-      console.log(`Something wenty wrong while creating registration. ${err}`);
+      console.log(`Something went wrong while creating registration. ${err}`);
       res.status(500).send({ done: false });
     }
   } else {

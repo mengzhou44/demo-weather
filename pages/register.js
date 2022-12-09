@@ -35,12 +35,14 @@ const Register = ({categorized}) => {
       res = await res.json();
       setLoading(false)
       if (res.done) {
-        toast.success('Thank You, your registration is complete.')
+        toast.success('Your registration is submitted. Someone from our admission team will contact you shortly.')
       } else {
         toast.error('Sorry, error occured, your registration failed.')
       }
     } catch (err) {
       setLoading(false);
+    } finally {
+       setRegistration({})
     }
   };
 
