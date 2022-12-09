@@ -1,9 +1,11 @@
 import validator from 'email-validator';
 import moment from 'moment';
 import phone from 'phone';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './form.module.css'
 import { toast, ToastContainer } from 'react-toastify'
+import myStyles from './form-basic.module.css'
+
 
 function FormBasic({ data, onNext }) {
 
@@ -11,12 +13,30 @@ function FormBasic({ data, onNext }) {
   const [lastName, setLastName] = useState(data.lastName ?? '');
 
   const [gender, setGender] = useState(data.gender ?? 'M');
-  const [birthDate, setBirthDate] = useState(data.birthDate ?? '');
+  const [birthDate, setBirthDate] = useState({});
   const [ethnicity, setEthnicity] = useState(data.ethnicity ?? 'Asian');
 
   const [email, setEmail] = useState(data.email ?? '');
   const [phoneNumber, setPhoneNumber] = useState(data.phone?.number ?? '');
   const [countryCode, setCountryCode] = useState(data.phone?.country ?? '+1');
+
+  useEffect(()=> {
+        let temp= data.birthDate?? '' 
+        if  (temp ==='') {
+           setBirthDate({
+             month:'',
+             day:'',
+             year: ''
+           })
+        } else {
+            const [month, day, year] =temp.split('-')
+            setBirthDate({
+              month,
+              day,
+              year
+            })
+        }
+  },[])
 
   const validateInputs = () => {
     if (firstName === '') {
@@ -33,7 +53,7 @@ function FormBasic({ data, onNext }) {
       toast.error('Ethnicity is required!');
       return false;
     }
-    else if (birthDate === '') {
+    else if (birthDate.day === '' || birthDate.month === '' || birthDate.year === '') {
       toast.error('Birth Date is required!');
       return false;
     } else if (!isBirthDateValid(birthDate)) {
@@ -64,7 +84,8 @@ function FormBasic({ data, onNext }) {
   };
  
   function isBirthDateValid(birthDate) {
-      return moment(birthDate).isValid()
+       let val = `${birthDate.month}-${birthDate.day}-${birthDate.year}`
+      return moment(val).isValid()
   }
 
   const handleFirstNameTextChange = (e) => {
@@ -83,9 +104,18 @@ function FormBasic({ data, onNext }) {
     setEthnicity(e.target.value);
   };
 
-  const handleBirthDateChange = (e) => {
-    setBirthDate(e.target.value);
+  const handleBirthDateMonthChange = (e) => {
+    setBirthDate(Object.assign({}, birthDate,  {month: e.target.value}))
   };
+
+  const handleBirthDateDayChange = (e) => {
+    setBirthDate(Object.assign({}, birthDate,  {day: e.target.value}))
+  };
+
+  const handleBirthDateYearChange = (e) => {
+    setBirthDate(Object.assign({}, birthDate,  {year: e.target.value}))
+  };
+
 
   const handleEmailTextChange = (e) => {
     setEmail(e.target.value);
@@ -132,14 +162,28 @@ function FormBasic({ data, onNext }) {
         </select>
       </div>
       <div className={styles.field}>
-        <label htmlFor="birthDate">Birth Date</label>
+        <label>Birth Date</label>
+        <div className={myStyles.birthDate}>
         <input
-          id="birthDate"
           type="text"
-          value={birthDate}
-          placeholder='yyyy-mm-dd'
-          onChange={handleBirthDateChange}
+          value={birthDate.month}
+          placeholder='mm'
+          onChange={handleBirthDateMonthChange}
         ></input>
+         <input
+          type="text"
+          value={birthDate.day}
+          placeholder='dd'
+          onChange={handleBirthDateDayChange}
+        ></input>
+        <input
+          type="text"
+          value={birthDate.year}
+          placeholder='yyyy'
+          onChange={handleBirthDateYearChange}
+        ></input>
+        </div>
+       
       </div>
 
       <div className={styles.field}>
@@ -199,7 +243,7 @@ function FormBasic({ data, onNext }) {
               lastName,
               gender, 
               ethnicity,
-              birthDate,
+              birthDate: `${birthDate.month}-${birthDate.day}-${birthDate.year}`,
               email,
               phone: {
                 country: countryCode,

@@ -19,9 +19,9 @@ function About() {
                     </h2>
                   </div>
           <div className={styles.summary}>
-            <h4>
+            <p>
               Agoura Hills Academy is a distance learning 9 –12 accredited high school located in Los Angeles, California. Our goal is to bridge students applying to U.S. High School and Universities.  
-            </h4>
+            </p>
           </div>
 
 

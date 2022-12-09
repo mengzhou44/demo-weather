@@ -48,6 +48,7 @@
 
 .section p {
     color: var(--clr-black);
+    text-align: justify;
 }
 
 .section .simple {
@@ -72,10 +73,11 @@
    padding: 2rem; 
 }
 
-.summary h4 {
+.summary p {
   text-transform: none;
   line-height: 145%;
-  text-align: center;
+  text-align: justify;
+  font-weight: 400; 
 }
 
 @media screen and (max-width: 800px) {

@@ -28,7 +28,8 @@
 
 
 .contact h4 {
-    color: var(--clr-grey-4) !important;    
+    color: var(--clr-grey-4) !important;   
+    font-weight: 400;
 }
 
 .mission {
