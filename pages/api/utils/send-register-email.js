@@ -38,56 +38,39 @@ const createHtml = ({
             rel="stylesheet"
           ></link>
 
-
-    <style>
-         .section {
-            margin-bottom: 40px;
-            background-color:  #e9e9e9;
-            padding: 20px;
-            border-radius: 3px;  
-         }
-
-         .section h3 {
-             margin-bottom: 5px;
-         }
-
-         .section h4 {
-            font-weight: 400;
-         }
-    </style>
 </head>
 <body>
     <div>
-        <div class="section"> 
+        <div  style="margin-bottom: 40px; background-color: #e9e9e9; padding: 20px; border-radius: 3px">
             <h3>Personal Info </h3> 
-            <h4>First Name: ${firstName} </h4>
-            <h4>Last Name: ${lastName} </h4>
-            <h4>Email: ${email} </h4>
-            <h4>Phone: ${phone} </h4>
-            <h4>Birth Date: ${birthDate} </h4>
-            <h4>Ethnicity: ${ethnicity} </h4>
-            <h4>Gender: ${gender} </h4>
+            <p>First Name: ${firstName} </p>
+            <p>Last Name: ${lastName} </p>
+            <p>Email: ${email} </p>
+            <p>Phone: ${phone} </p>
+            <p>Birth Date: ${birthDate} </p>
+            <p>Ethnicity: ${ethnicity} </p>
+            <p>Gender: ${gender} </p>
         </div> 
         
-        <div class="section"> 
+        <div  style="margin-bottom: 40px; background-color: #e9e9e9; padding: 20px; border-radius: 3px">
                 <h3>Address </h3> 
-                <h4>${address}</h4>
-                <h4>${city} ${state} ${zipCode} ${country}</h4>             
+                <p>${address}</p>
+                <p>${city} ${state} ${zipCode} ${country}</p>             
         </div> 
 
-        <div class="section"> 
+        <div  style="margin-bottom: 40px; background-color: #e9e9e9; padding: 20px; border-radius: 3px">
                 <h3>Courses Requested </h3> 
-                <h4>Current Grade: ${currentGrade} </h4>
-                <h4>${coursesRequest}</h4>             
+                <p>Current Grade: ${currentGrade} </p>
+                <p>${coursesRequest}</p>             
         </div> 
 
-        <div class="section"> 
+        <div  style="margin-bottom: 40px; background-color: #e9e9e9; padding: 20px; border-radius: 3px">
                 <h3>Signatures </h3> 
-                <h4>Parent Name: ${parentName} </h4>
-                <h4>Parent Email: ${parentEmail} </h4>
-                <h4>Parent Phone: ${parentPhone} </h4>
-                <h4>Parent Signature: ${parentSignature} </h4>
-                <h4>Student Signature: ${studentSignature} </h4>
+                <p>Parent Name: ${parentName} </p>
+                <p>Parent Email: ${parentEmail} </p>
+                <p>Parent Phone: ${parentPhone} </p>
+                <p>Parent Signature: ${parentSignature} </p>
+                <p>Student Signature: ${studentSignature} </p>
         </div> 
       </div>
 </body>
