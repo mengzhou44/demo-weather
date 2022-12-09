@@ -11,10 +11,10 @@
      padding: 0 2rem; 
 }
 
-
 .content {
      flex: 1;
      padding: 1rem; 
+     padding-top: 0rem; 
 }
 
 .content h4 {
@@ -50,4 +50,18 @@
         margin-bottom: 2rem;  
     }
     
+}
+
+@media screen and (min-width: 1200px) {
+    .content {
+         flex: 3; 
+    }
+
+    .pic {
+        flex: 2
+    }
+    .page{
+       padding-left: 10%; 
+       padding-right: 10%;
+    }
 }

@@ -9,7 +9,7 @@
    display: flex; 
 }
 .pic {
-   width: 35rem; 
+   width: 35rem;
 }
 
 .loading {
@@ -20,8 +20,9 @@
 .content {
    flex:1; 
    display: flex; 
-   justify-content: center;
+   justify-content: start; 
    flex-direction: column;
+   padding-top: 1.5rem;  
 }
 
 .category{
@@ -54,9 +55,17 @@
 .category:first-child {
    border-bottom: none; 
 }
+
 .course {
    display: flex; 
    align-items: center;
+}
+
+.notes { 
+   margin-top: 1rem; 
+   padding: 1rem; 
+   background-color: var(--clr-yellow);
+   margin-right: 3rem; 
 }
 
 @media screen and (max-width: 800px) {
@@ -68,9 +77,16 @@
   .pic {
      display: none; 
   }
+  
+  .notes,
   .category{
     margin-right: 0rem; 
  }
 }
 
-
+@media screen and (min-width: 1200px) {
+   .page{
+      padding-left: 10%; 
+      padding-right: 10%;
+   }
+}

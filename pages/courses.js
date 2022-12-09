@@ -63,6 +63,7 @@ export default function Course({categorized} ) {
                 }
               </div>
             })}
+            <p className={styles.notes}> Course marked with * is one semester only</p>
           </div>
         </div>
 

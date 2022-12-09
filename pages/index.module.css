@@ -19,6 +19,10 @@
    display: flex;
 }
 
+.contact h4 {
+    color: var(--clr-grey-4) !important;    
+}
+
 .mission {
    margin: 0 auto;
    max-width: 50rem; 
@@ -57,7 +61,7 @@
 .form {
    margin-top: 4.5rem;
    font-size: 1.3rem;
-   border: 1px solid #d09699; 
+   background-color: var(--clr-grey-10);
    padding: 2rem;  
    border-radius: .3rem; 
 }
@@ -98,11 +102,18 @@
 
    .form-container {
       display: block;
+      margin: 0; 
+   }
+
+   .contact h4 {
+       color: var(--clr-white) !important;
    }
 
    .form {
+      margin-top: 1rem; 
       border: none; 
       padding: 0; 
+      background-color: transparent;
    }
 
    .top { 
@@ -126,13 +137,21 @@
       margin-right: 2rem; 
    }
 
-   .slogan h2 {
-       font-size: 1.8rem; 
-   }
-
+ 
    .mission { 
       width: 100%; 
    }
+
+ 
+   .slogan h2 {
+       font-size: 1.5rem; 
+   }
+  
+
+   .mission p {
+      font-size: 1rem; 
+      color: var(--clr-white);
+  }
 
    .field input {
       width: 100%;

@@ -27,7 +27,7 @@ export default function Counseling() {
                       </p>  
                       <div className={styles.group}>
                           <p className={styles.yourself}>
-                          When thinking about college and university here are a few common questions to ask yourself: 
+                          When thinking about college and university, here are a few common questions to ask yourself: 
                           </p>
                           <ul>
                                 <li>
