@@ -9,6 +9,10 @@ export default function Course({categorized} ) {
   
   const [current, setCurrent] = useState('')
  
+  function getGridTemplateRows(courses) {
+       let temp =  Math.ceil(courses.length/2)
+        return `repeat(${temp}, auto)`    
+  } 
   return (
     <Layout>
       <div className={styles.page}>
@@ -38,7 +42,11 @@ export default function Course({categorized} ) {
                 }>{item.category}</h4>
                 {
                   item.category === current &&
-                  <div className={styles.courses}>
+                  <div className={styles.courses}
+                    style={{
+                      gridTemplateRows: getGridTemplateRows(item.courses)
+                    }}
+                  >
                     {item.courses.map(course => <motion.div
                       key={course.id}
                       className={styles.course}
