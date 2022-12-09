@@ -1,16 +1,10 @@
 .footer {
   background: var(--clr-grey-1);
-  padding: 3rem 1rem;
+  padding: 1rem;
 }
 
 .footer h4 {
   color: var(--clr-white);
-}
-
-.content {
-   display: flex; 
-   flex-direction: row;
-   justify-content: space-around;
 }
 
 .footer p {
@@ -18,18 +12,8 @@
   margin-bottom: 0;
 }
 
-.footer a {
-  text-decoration: underline;
-  color: var(--clr-red-light);
-  margin-top: 1rem;
-  display: block;
-  cursor: pointer;
-}
-
 .copyright {
-   margin-top: 2rem; 
    text-align: center; 
-   padding: 1rem; 
 }
 
  

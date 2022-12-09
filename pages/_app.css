@@ -28,7 +28,7 @@ Variables
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
-  --nav-height: 4.2rem;
+  --nav-height: 5rem;
   --nav-height-expanded: 30rem;
   --z-index-higher: 5;
   --z-index-lower: -1;
@@ -68,7 +68,7 @@ h1 {
   font-size: 4rem;
 }
 h2 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
 }
 h3 {
   font-size: 1.75rem;

@@ -29,7 +29,7 @@ export const sendEMail = ({lastName, firstName, email, phone, message}) => {
 
         const mailOptions= {
             html:  createHtml({lastName, firstName, email, phone, message}),
-            to: process.env.SYSTEM_EMAIL,
+            to: process.env.ADMIN_EMAIL,
             subject: `${firstName} inqury`
         }
          

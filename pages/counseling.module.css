@@ -5,6 +5,10 @@
     min-height: 100vh;
 }
 
+.page h2 {
+    word-spacing: 1rem;
+}
+
 .container {
      display: flex;
      flex-direction: row; 

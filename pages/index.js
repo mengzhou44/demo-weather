@@ -102,7 +102,7 @@ export default function Home() {
               setLoading(false)
               if (res.done) {
                 clearInputs()
-                toast.success('We received your message. Thank You!')
+                toast.success('We received your message. Someone from our admission team will contact you shortly.')
               } else {
                 toast.error('Sorry, error occured. Message was not sent!')
               }
@@ -121,19 +121,29 @@ export default function Home() {
       </Head>
       <Layout>
         <div className={styles.page}>
-          <div className={styles.mission} >
-            <h3>ACHIEVE YOUR COLLEGE DREAM WITH AGOURA HILLS ACADEMY</h3>
-          </div>
-          <div className={styles['form-container']}>
-          <div className={styles.form}>
-            <div className={styles.contact}>
-              <h4>Contact Us</h4>
-            </div>
-            {loading && renderLoading()}
-            {!loading && renderFormContent()}
+          <div className={styles.top}>
+              <div className={styles.slogan} >
+                <h2>ACHIEVE YOUR COLLEGE DREAM WITH AGOURA HILLS ACADEMY</h2>
+              </div>
+              <div className={styles['form-container']}>
+              <div className={styles.form}>
+                <div className={styles.contact}>
+                  <h4>Contact Us</h4>
+                </div>
+                {loading && renderLoading()}
+                {!loading && renderFormContent()}
 
+              </div>
+              </div>
           </div>
+          <div className={styles.mission}>
+               <h3>Mission</h3>
+               <p>
+               At Agoura Hills Academy, our mission is to provide each student with a global education, preparing them for a diverse and ever-changing world! 
+
+               </p>
           </div>
+        
           <ToastContainer />
         </div>
       </Layout>

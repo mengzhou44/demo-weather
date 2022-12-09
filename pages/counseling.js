@@ -14,7 +14,7 @@ export default function Counseling() {
       <div className={styles.page}>
                     <div className="title">
                     <h2>
-                      Counseling
+                    Colledge  Counseling
                     </h2>
                   </div>
               <div className={styles.container}>      
