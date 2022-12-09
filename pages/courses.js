@@ -8,7 +8,7 @@ import {categorize} from '../utils/categorize-courses'
 export default function Course({categorized} ) {
   
   const [current, setCurrent] = useState('')
-
+ 
   return (
     <Layout>
       <div className={styles.page}>

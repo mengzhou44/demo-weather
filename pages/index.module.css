@@ -11,13 +11,21 @@
    display: flex; 
    flex-direction: row;
    justify-content: space-between;
+   margin-bottom: 5rem; 
 }
 
 .slogan {
-   width: 40rem;
-   margin-top: 4rem;
+   margin-top: 8rem;
    display: flex;
+   flex: 2; 
+   justify-content: center;
 }
+
+.slogan h2 {
+    max-width: 70%;
+    margin: 0 auto;
+}
+
 
 .contact h4 {
     color: var(--clr-grey-4) !important;    
@@ -46,10 +54,11 @@
 }
 
 .form-container {
-   flex: .8;
+   flex: 1;
    display: flex;
    flex-direction: row;
    justify-content: center;
+   padding-right: 2rem; 
 }
 
 .loading {
@@ -110,7 +119,7 @@
    }
 
    .form {
-      margin-top: 1rem; 
+      margin-top: 0rem; 
       border: none; 
       padding: 0; 
       background-color: transparent;
@@ -123,11 +132,18 @@
    }
 
    .slogan {
-      width: 100%;
+      margin-top: 2rem;
+      width: 100%; 
       min-height: 20vh;
-      justify-content: center;
    }
 
+
+   .slogan h2 {
+      max-width: 100%;
+      width: 100% !important;  
+      margin: 0 auto;
+  }
+  
    .field:first-child {
       margin-top: 0rem;
    }
@@ -142,9 +158,9 @@
       width: 100%; 
    }
 
- 
+
    .slogan h2 {
-       font-size: 1.5rem; 
+       font-size: 1.5rem;  
    }
   
 
