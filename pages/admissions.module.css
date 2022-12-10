@@ -17,8 +17,17 @@
      padding-top: 0rem; 
 }
 
+.section {
+     background-color: var(--clr-grey-10);
+     border-radius: .3rem; 
+     padding: 1rem; 
+}
+
+.section:first-child {
+     margin-bottom: 3rem; 
+}
+
 .content h4 {
-    margin-top: 3rem; 
     text-decoration: underline; 
 }
 
@@ -33,6 +42,10 @@
    cursor: pointer; 
 }
 
+.section p {
+    text-align: justify;
+}
+
 @media screen and (max-width: 800px) {
     .container {
        flex-direction: column;  
@@ -41,13 +54,10 @@
     .content {  
         padding: 0rem; 
     }   
-    
-    .content p {
-         text-align: justify;
-    }
-    
-    .register {
-        margin-bottom: 2rem;  
+   
+  
+    .section {
+        margin-bottom: 3rem; 
     }
     
 }

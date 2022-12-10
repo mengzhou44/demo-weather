@@ -221,6 +221,7 @@ function FormBasic({ data, onNext }) {
             id="countryCode"
             type="text"
             value={countryCode}
+            autoComplete="none"
             onChange={handleCountryCodeTextChange}
           ></input>
 

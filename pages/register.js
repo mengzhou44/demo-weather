@@ -5,6 +5,7 @@ import  FormAddress  from '../components/register/form-address'
 import  FormCourse  from '../components/register/form-course'
 import  FormSignature  from '../components/register/form-signature'
 import { categorize } from '../utils/categorize-courses';
+import { useRouter } from 'next/router'
 
 import styles from './register.module.css';
 import { toast, ToastContainer } from 'react-toastify';
@@ -14,6 +15,8 @@ const Register = ({categorized}) => {
   const [registration, setRegistration] = useState({})
   const [step, setStep] = useState(1)
   const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
 
   const handleRegister = async () => {
     try {
@@ -35,7 +38,13 @@ const Register = ({categorized}) => {
       res = await res.json();
       setLoading(false)
       if (res.done) {
-        toast.success('Your registration is submitted. Someone from our admission team will contact you shortly.')
+        toast.success('Your registration is submitted. Someone from our admission team will contact you shortly.', {
+            onClose: ()=> {
+               setTimeout(()=> {
+                router.push('/')
+               }, 3000)
+            }
+        })
       } else {
         toast.error('Sorry, error occured, your registration failed.')
       }
@@ -107,7 +116,7 @@ const Register = ({categorized}) => {
                 {loading && renderLoading()}
                 {!loading && renderForm()}
               </div>
-              <ToastContainer />
+              <ToastContainer  />
             </div>
           </div>
         </div>

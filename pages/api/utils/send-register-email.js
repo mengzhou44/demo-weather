@@ -71,7 +71,8 @@ const createHtml = ({
                 <p>Parent Phone: ${parentPhone} </p>
                 <p>Parent Signature: ${parentSignature} </p>
                 <p>Student Signature: ${studentSignature} </p>
-        </div> 
+        </div>
+        
       </div>
 </body>
 </html>

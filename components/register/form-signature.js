@@ -113,6 +113,7 @@ function FormSignature({ data, onSubmit, onPrev }) {
                         id="countryCode"
                         type="text"
                         value={parentPhoneCountryCode}
+                        autoComplete="none" 
                         onChange={handleParentPhoneCountryCodeTextChange}
                     ></input>
 

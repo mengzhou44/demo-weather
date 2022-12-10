@@ -22,23 +22,29 @@ function Admissions() {
           <div className={styles.container}>
 
             <div className={styles.content}>
-              <p>
-                Agoura Hills Academy exists to provide a College Preparatory education to our students. Our goal is to work in partnership with parents and college counselors, to provide a solid academic foundation during a student’s formative years. Our integrated curriculum program gives us hope that we will ensure an excellent academic education that will prepare students for a global society.
-              </p>
+              <div className={styles.section}>
+                <p>
+                  Agoura Hills Academy exists to provide a College Preparatory education to our students. Our goal is to work in partnership with parents and college counselors, to provide a solid academic foundation during a student’s formative years. Our integrated curriculum program gives us hope that we will ensure an excellent academic education that will prepare students for a global society.
+                </p>
+              </div>
 
-              <h4>GOALS AND OBJECTIVES</h4>
-              <p>
-                Agoura Hills Academy practices its philosophy by following the school&apos;s intellectual, social, and physical goals and objectives.
-              </p>
-              <div>
-                <Link href="/register" passHref>
-                  <button className={styles.register} >
-                    Register
-                  </button>
-                </Link>
+              <div className={styles.section}>
+                <h4>GOALS AND OBJECTIVES</h4>
+                <p>
+                  Agoura Hills Academy practices its philosophy by following the school&apos;s intellectual, social, and physical goals and objectives.
+                </p>
+                <div>
+                  <Link href="/register" passHref>
+                    <button className={styles.register} >
+                      Register
+                    </button>
+                  </Link>
 
+                </div>
               </div>
             </div>
+
+
             <div className={styles.pic}>
               <Image src='/static/admissions.jpg' width={565} height={463} alt='admissions' />
             </div>
