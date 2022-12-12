@@ -159,21 +159,21 @@ function FormBasic({ data, onNext }) {
         <div className={myStyles.birthDate}>
         <input
           type="text"
-          maxlength={2}
+          maxLength={2}
           value={birthDate.month}
           placeholder='mm'
           onChange={handleBirthDateMonthChange}
         ></input>
          <input
           type="text"
-          maxlength={2}
+          maxLength={2}
           value={birthDate.day}
           placeholder='dd'
           onChange={handleBirthDateDayChange}
         ></input>
         <input
           type="text"
-          maxlength={4}
+          maxLength={4}
           value={birthDate.year}
           placeholder='yyyy'
           onChange={handleBirthDateYearChange}
