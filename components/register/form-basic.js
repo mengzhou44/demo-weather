@@ -45,13 +45,6 @@ function FormBasic({ data, onNext }) {
     } else if (lastName === '') {
       toast.error('Last name is required!');
       return false;
-    } else if (gender === '') {
-      toast.error('Gender is required!');
-      return false;
-    }
-    else if (ethnicity === '') {
-      toast.error('Ethnicity is required!');
-      return false;
     }
     else if (birthDate.day === '' || birthDate.month === '' || birthDate.year === '') {
       toast.error('Birth Date is required!');
@@ -158,7 +151,7 @@ function FormBasic({ data, onNext }) {
         >
           <option value='M'>Male</option>
           <option value='F'>Female</option>
-          <option value=''>Rather Not Say</option>
+          <option value='Rather Not Say'>Rather Not Say</option>
         </select>
       </div>
       <div className={styles.field}>
@@ -166,18 +159,21 @@ function FormBasic({ data, onNext }) {
         <div className={myStyles.birthDate}>
         <input
           type="text"
+          maxlength={2}
           value={birthDate.month}
           placeholder='mm'
           onChange={handleBirthDateMonthChange}
         ></input>
          <input
           type="text"
+          maxlength={2}
           value={birthDate.day}
           placeholder='dd'
           onChange={handleBirthDateDayChange}
         ></input>
         <input
           type="text"
+          maxlength={4}
           value={birthDate.year}
           placeholder='yyyy'
           onChange={handleBirthDateYearChange}
@@ -199,7 +195,7 @@ function FormBasic({ data, onNext }) {
           <option value='Hispanic'>Spanish Origin</option>
           <option value='Pacific Islander'>Pacific Islander</option>
           <option value='White'>White</option>
-          <option value=''>Rather Not Say</option>
+          <option value='Rather Not Say'>Rather Not Say</option>
         </select>
       </div>
       <div className={styles.field}>
@@ -239,6 +235,7 @@ function FormBasic({ data, onNext }) {
       <div className={styles.buttons}>
         <button onClick={() => {
           if (validateInputs()) {
+
             onNext({
               firstName,
               lastName,
