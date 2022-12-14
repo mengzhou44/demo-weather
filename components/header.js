@@ -24,17 +24,14 @@ const Header = () => {
   useEffect(() => {
     const { pathname} = router;
 
-    if (pathname.includes('/about')) {
-      setSelected('about');
+    if (pathname.includes('/company')) {
+      setSelected('company');
     }
-    else if (pathname.includes('/admissions')) {
-      setSelected('admissions');
+    else if (pathname.includes('/projects')) {
+      setSelected('projects');
     }
-    else if (pathname.includes('/counseling')) {
-      setSelected('counseling');
-    }
-    else if (pathname.includes('/courses')) {
-      setSelected('courses');
+    else if (pathname.includes('/testimonials')) {
+      setSelected('testimonials');
     }
   }, [router]);
  
@@ -82,10 +79,9 @@ const Header = () => {
         className={styles.links}
         onClick={() => dispatch(collapse())}
       >
-        {renderPageLink('about')}
-        {renderPageLink('admissions')}
-        {renderPageLink('counseling')}
-        {renderPageLink('courses')}
+        {renderPageLink('company')}
+        {renderPageLink('projects')}
+        {renderPageLink('testimonials')}
       </motion.div>
     );
   }
@@ -100,7 +96,12 @@ const Header = () => {
             dispatch(collapse());
           }}
         >
-          <Image src="/static/logo.jpg"  alt="logo" width={192} height={48} />
+          <Image src="/static/logo.png"  alt="logo" width={48} height={48} />
+          <div className={styles.company}>
+            <h4>Easy Express</h4>
+            <h4>Solutions Inc.</h4>
+          </div>
+          
         </div>
       </Link>
     );

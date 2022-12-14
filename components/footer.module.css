@@ -1,14 +1,14 @@
 .footer {
-  background: var(--clr-grey-1);
+  background: var(--clr-grey-10);
   padding: 1rem;
 }
 
 .footer h4 {
-  color: var(--clr-white);
+  color: var(--clr-grey-1);
 }
 
 .footer p {
-  color: var(--clr-white);
+  color: var(--clr-grey-1);
   margin-bottom: 0;
 }
 

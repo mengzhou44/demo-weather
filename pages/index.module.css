@@ -2,8 +2,8 @@
    margin-top: 4rem;
    min-height: 100vh;
    padding-left: 2rem;
-   background: linear-gradient(rgba(222, 84, 108, 0.5), rgba(0, 0, 0, 0.8)),
-      url(../public/static/hero.jpg) center/cover; 
+   background: linear-gradient(rgba(0, 98, 155, 0.8), rgba(0, 0, 0, 0.8)),
+      url(../public/static/welcome.jpg) center/cover; 
    padding-bottom: 2rem; 
 }
 
@@ -24,28 +24,26 @@
 .slogan h2 {
     max-width: 70%;
     margin: 0 auto;
+    text-transform: uppercase;
+    text-align: center;
 }
 
+.contact {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.phone a {
+   color: var(--clr-grey-4);  
+   font-size: 1rem; 
+   text-decoration: underline;
+}
 
 .contact h4 {
     color: var(--clr-grey-4) !important;   
     font-weight: 400;
-}
-
-.mission {
-   margin: 0 auto;
-   max-width: 50rem; 
-   margin-top: 3rem;  
-}
-
-.mission h3 {
-   text-transform: uppercase;
-    color: var(--clr-white);
-}
-
-.mission p {
-    font-size: 1.3rem; 
-    color: var(--clr-white);
+    margin: 0; 
 }
 
 .slogan h2 {
@@ -60,12 +58,6 @@
    flex-direction: row;
    justify-content: center;
    padding-right: 2rem; 
-}
-
-.loading {
-   color: var(--clr-white);
-   font-size: 1rem;
-   margin-top: 4rem;
 }
 
 .form {
@@ -98,10 +90,9 @@
    padding: .5rem;
    border-radius: .2rem;
    border: none;
-   background-color: var(--clr-red-light);
+   background-color: var(--clr-red);
    color: var(--clr-white);
    cursor: pointer;
-
 }
 
 @media screen and (max-width: 800px) {
@@ -115,8 +106,22 @@
       margin: 0; 
    }
 
+   .contact {
+      margin-bottom: 2rem; 
+      justify-content: center;
+      align-items: center; 
+   }
+
    .contact h4 {
        color: var(--clr-white) !important;
+   }
+
+   .phone a {
+      color: var(--clr-white) !important;
+  }
+
+   .phone {
+       margin-left: 1rem;
    }
 
    .form {
@@ -138,7 +143,6 @@
       min-height: 20vh;
    }
 
-
    .slogan h2 {
       max-width: 100%;
       width: 100% !important;  
@@ -153,17 +157,10 @@
       margin-top: 2rem;
       margin-right: 2rem; 
    }
-
  
-   .mission { 
-      width: 100%; 
-   }
-
-
    .slogan h2 {
        font-size: 1.5rem;  
    }
-  
 
    .mission p {
       font-size: 1rem; 

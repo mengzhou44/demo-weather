@@ -1,0 +1,127 @@
+.page {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    background-color: #fff;    
+}
+
+.title {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center; 
+    max-width: 40rem; 
+    margin: 0 auto; 
+}
+
+
+.title h2 {
+    text-transform: uppercase;
+    color: var(--clr-grey);
+    font-size: 1.8rem;
+    text-align: center;
+    word-spacing: 0.2rem;
+    letter-spacing: .1rem;
+    font-weight: 400;
+}
+
+.title h2:after {
+    display: block;
+    height: 0.2rem;
+    background-color: var(--clr-red);
+    content: ' ';
+    width: 10rem;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+
+.linkedIn,
+.linkedIn:hover,
+.linkedIn:link,
+.linkedIn:active,
+.linkedIn:visited {
+    border-bottom: none;
+    cursor: pointer;
+}
+
+.linkedIn .photo {
+	width: 8rem;
+	height: auto;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.github,
+.github:hover,
+.github:link,
+.github:active,
+.github:visited {
+     
+    border-bottom: none;
+    cursor: pointer;
+}
+
+.container {
+    margin: 0 auto; 
+    padding-top: 3rem; 
+}
+
+.summary {
+     max-width: 60rem;
+     margin: 0 auto;
+     line-height: 145%;
+
+}
+
+.clients {
+     max-width: 60rem;
+     margin: 0 auto; 
+     margin-top: 3rem; 
+     background-color: var(--clr-white-smoke);
+     padding: 2rem; 
+     border-radius: .3rem; 
+}
+
+.clients h4 {
+     text-transform: uppercase;
+     text-decoration: underline;
+     text-align: center; 
+     font-weight: 500;
+     margin-bottom: 2rem; 
+     color: var(--clr-red);
+}
+
+.clientList {
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto; 
+}
+
+.client {
+     margin-bottom: 1rem; 
+     margin-left: 5em; 
+}
+
+@media screen and (max-width: 800px) {
+    .summary {
+        max-width: 100%;
+        margin: 0 1rem;
+        text-align: justify;
+    }
+
+    .title {
+       width: 90%;
+    }
+    .clientList {
+        display: grid; 
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+    .page {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
