@@ -21,7 +21,7 @@ function Company() {
     'Clickdishes',
     'Computer Aid Professional Services',
     'Wiles Jackson Inc'
-  ] 
+  ]
 
   return (
     <div>
@@ -30,41 +30,42 @@ function Company() {
         <meta name="description" content="Company" />
       </Head>
       <Layout>
-      <section className={styles.page}>
+        <section className={styles.page}>
+          <div className={styles.container}>
             <div className={styles.title}>
-                    <a  className={styles.linkedIn} href="https://www.linkedin.com/in/mengzhou44" target="__blank">
-                      <Image className={styles.photo} src="/static/my-photo.jpeg" alt="myphoto" width={60} height={60} />
-                      <Image className={styles.linkedIn} src="/static/linkedin.svg" alt="linked-in"  width={15} height={15} />
-                    </a>
-                 
-                   <h2>
-                     Company
-                   </h2>
-                
-                   <a className={styles.github} href="https://github.com/mengzhou44" target="__blank">
-			            		<Image  src="/static/github.svg" alt="github" width={60} height={60}  />
-		              	</a>
-            </div> 
+              <a className={styles.linkedIn} href="https://www.linkedin.com/in/mengzhou44" target="__blank">
+                <Image className={styles.photo} src="/static/my-photo.jpeg" alt="myphoto" width={60} height={60} />
+                <Image className={styles.linkedIn} src="/static/linkedin.svg" alt="linked-in" width={15} height={15} />
+              </a>
 
-            <div className={styles.container}>
-                <p className={styles.summary}>
-                   Easy Express Solutions Inc. was founded in 2006.  We offer a variety of software consulting services, this includes but not limitted to 
-                   web, mobile, desktop application development, research,  prototype, analysis, design, development, test, build, deployment, maintenance.
-                   performance optimization, migration, rewrite, security, architecture, UI desgin, and project management etc.  
-                </p>
+              <h2>
+                Company
+              </h2>
 
-                <div className={styles.clients}>
-                     <h4>Our Clients</h4>
-                     <ul className={styles.clientList}>
-                     {
-                       clients.map(client=> <li className={styles.client} key={client}>{client}</li>)
-                     }
-                     </ul>  
-                </div>
-                <br/>
-                <br/>
+              <a className={styles.github} href="https://github.com/mengzhou44" target="__blank">
+                <Image src="/static/github.svg" alt="github" width={60} height={60} />
+              </a>
             </div>
-      </section>
+
+
+            <p className={styles.summary}>
+              Easy Express Solutions Inc. was founded in 2006.  We offer a variety of software consulting services, this includes but not limitted to
+              web, mobile, desktop application development, research,  prototype, analysis, design, development, test, build, deployment, maintenance,
+              performance optimization, migration, rewrite, security, architecture, UI desgin, and project management etc.
+            </p>
+
+            <div className={styles.clients}>
+              <h4>Our Clients</h4>
+              <ul className={styles.clientList}>
+                {
+                  clients.map(client => <li className={styles.client} key={client}>{client}</li>)
+                }
+              </ul>
+            </div>
+            <br />
+            <br />
+          </div>
+        </section>
 
       </Layout>
     </div>

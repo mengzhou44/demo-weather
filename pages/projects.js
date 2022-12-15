@@ -2,8 +2,6 @@ import Head from 'next/head';
 import { memo } from 'react';
 import styles from './projects.module.css'
 import Layout from '../components/layout';
-import Image from 'next/image';
-import Link from 'next/link';
 
 function Projects() {
   return (
@@ -14,17 +12,36 @@ function Projects() {
       </Head>
       <Layout>
         <div className={styles.page}>
-          <div className="title">
+          <div className='title'>
             <h2>
-                Projects
+               Web Projects
             </h2>
+
           </div>
           <div className={styles.container}>
 
-            <div className={styles.content}>
-         
-            </div>
+                 <a className={styles.link} href='https://order.clickdishes.com/' target='_blank'>
+                    Click Dishes
+                </a>
+                <a className={styles.link} href=''>
+                    Agoura Hills Academy
+                </a>
 
+           
+                <a className={styles.link} href=''>
+                    Youtube Videos
+                </a>
+                <a className={styles.link} href=''>
+                    News Feed
+                </a>
+
+                <a className={styles.link} href=''>
+                    Local Weather 
+                </a>
+
+                <a className={styles.link} href=''>
+                    Tangerine Home Page 
+                </a>
           </div>
         </div>
       </Layout>

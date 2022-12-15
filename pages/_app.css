@@ -158,31 +158,26 @@ main {
 }
  
 .title {
-  margin-bottom: 2rem; 
-}
-
-.title h2 {
-  text-transform: uppercase;
-  color: var(--clr-grey);
-  font-size: 1.8rem;
-  text-align: center;
-  word-spacing: 0.2rem;
-  letter-spacing: .1rem;
-  font-weight: 400;
-}
-
-.title h2:after {
-  display: block;
-  height: 0.2rem;
-  background-color: var(--clr-red);
-  content: ' ';
-  width: 10rem;
-  margin: 0 auto;
-  margin-top: 2rem;
-}
-
-.title span {
-  color: var(--clr-secondary);
- 
-}
+	margin-bottom: 2rem; 
+  }
+  
+  .title h2 {
+	text-transform: uppercase;
+	color: var(--clr-white-smoke);
+	font-size: 1.8rem;
+	text-align: center;
+	word-spacing: 0.2rem;
+	letter-spacing: .1rem;
+	font-weight: 400;
+  }
+  
+  .title h2:after {
+	display: block;
+	height: 0.2rem;
+	background-color: var(--clr-red);
+	content: ' ';
+	width: 10rem;
+	margin: 0 auto;
+	margin-top: 2rem;
+  }
 

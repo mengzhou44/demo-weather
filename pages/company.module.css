@@ -1,7 +1,10 @@
 .page {
     margin-top: 4rem;
-    padding-top: 2rem;
-    background-color: #fff;    
+    background-color: var(--clr-blue-light); 
+}
+
+.container {
+    background-color: var(--clr-white-smoke);
 }
 
 .title {
@@ -33,6 +36,7 @@
     margin: 0 auto;
     margin-top: 2rem;
 }
+
 
 
 .linkedIn,
