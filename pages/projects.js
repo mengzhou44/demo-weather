@@ -39,7 +39,7 @@ function Projects() {
                     Local Weather 
                 </a>
 
-                <a className={styles.link} href=''>
+                <a className={styles.link} href='https://tangerine-home.netlify.app/' target='_blank'>
                     Tangerine Home Page 
                 </a>
           </div>
