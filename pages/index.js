@@ -1,147 +1,103 @@
+import React, { useState } from 'react'
 import Head from 'next/head';
+import { ToastContainer, toast } from 'react-toastify';
+
 import styles from './index.module.css';
 import Layout from '../components/layout';
-import { useState } from 'react'
-import validator from 'email-validator'
-import { ToastContainer, toast } from 'react-toastify';
+import CurrentLocation from '../components/current-location';
+
 export default function Home() {
 
-  const [lastName, setLastName] = useState('')
-  const [firstName, setFirstName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-  const [message, setMessage] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [enableGeoLocation, setEnableGeoLocation] = useState(false)
+  const [temperature, setTemperature] = useState(-1)
+  const [summary, setSummary] = useState('')
+  const [precipProbability, setPrecipProbability] = useState(-1)
+  const [latitude, setLatitude] = useState(0)
+  const [longitude, setLongitude] = useState(0)
 
-  function clearInputs() {
-    setLastName('')
-    setFirstName('')
-    setEmail('');
-    setPhone('')
-    setMessage('')
+  async function fetchWeather(latitude, longitude) {
+    try {
+
+      let res = await fetch(`/api?latitude=${latitude}&longitude=${longitude}`)
+      res = await res.json();
+
+      setSummary(res.summary)
+      setTemperature(res.temperature)
+      setPrecipProbability(res.precipProbability)
+    } catch (err) {
+      toast.error(res.message)
+    }
+
   }
 
-  function renderLoading() {
-    return <div className={styles['form-content']}>
-      <p className={styles.loading}>
-        Please Wait ...
-      </p>
-    </div>
+  function isFetching() {
+    if (temperature === -1 || summary === undefined || precipProbability === -1) {
+      return true
+    }
+    return false
   }
-  function renderFormContent() {
-    return <div className={styles['form-content']}>
-      <div className={styles.field} >
-        <input placeholder='Last name' type='text' value={lastName}
-          onChange={e => {
-            setLastName(e.target.value)
-          }}></input>
-      </div>
-      <div className={styles.field} >
-        <input placeholder='First name' type='text' value={firstName}
-          onChange={e => {
-            setFirstName(e.target.value)
+
+  function renderWeather() {
+    if (enableGeoLocation === false) {
+      return (
+        <div
+          onClick={() => {
+            setEnableGeoLocation(true)
           }}
         >
-        </input>
-      </div>
-      <div className={styles.field} >
-        <input placeholder='Phone' type='text' value={phone}
-          onChange={e => {
-            setPhone(e.target.value)
+          <div >Local weather</div>
+        </div>
+      )
+    }
+
+    if (isFetching()) {
+      return <div>
+        <p>Fetching ... </p>
+        <CurrentLocation
+          onLocated={async ({ latitude, longitude }) => {
+            setLatitude(latitude)
+            setLongitude(longitude)
+            await fetchWeather(latitude, longitude)
           }}
-        ></input>
-      </div>
-
-      <div className={styles.field} >
-        <input placeholder='Email' type='text' value={email}
-          onChange={e => {
-            setEmail(e.target.value)
+          onError={error => {
+            setEnableGeoLocation(false)
+            toast.error(error)
           }}
-        ></input>
+        />
       </div>
-      <div className={styles.field} >
-        <textarea placeholder='I would like to know' type='text' value={message} rows="5" cols="45"
-          onChange={e => {
-            setMessage(e.target.value)
-          }}
-        ></textarea>
-      </div>
+    }
 
-      <div className={styles.field} >
-        <button className={styles.submit} onClick={
-          async () => {
-            if (lastName === '') {
-              toast.warn('Last name is required.')
-            }
-            else if (firstName === '') {
-              toast.warn('First name is required.')
-            }
-            else if (phone === '') {
-              toast.warn('Phone is required.')
-            }
-            else if (email === '') {
-              toast.warn('Email is required.')
-            }
-            else if (!validator.validate(email)) {
-              toast.warn('Email is invalid.')
-            }
-            else if (message === '') {
-              toast.warn('Please tell us what you want to know')
-            } else {
-              setLoading(true)
+    return <a
+      className={styles.content}
+      href={`https://darksky.net/forecast/${latitude}, ${longitude}/si12/en`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div>{summary}</div>
+      <div>{temperature.toFixed(0)} &#8451; </div>
+      <div>{precipProbability.toFixed(0)}% chance of rain</div>
+    </a>
 
-              let res = await fetch('/api/send-message', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ lastName, firstName, email, phone, message }),
-              });
-
-              res = await res.json();
-              setLoading(false)
-              if (res.done) {
-                clearInputs()
-                toast.success('Thanks for your message. We will contact you shortly.')
-              } else {
-                toast.error('Sorry, error occured. Message was not sent!')
-              }
-            }
-          }
-        }>Submit</button>
-      </div>
-    </div>
   }
 
   return (
     <div>
       <Head>
-        <title></title>
-        <meta name="description" content="Scroll Prototype" />
+        <title>Demo Local Weather</title>
+        <meta name="description" content="Easy Express Solutions Inc." />
       </Head>
       <Layout>
         <div className={styles.page}>
-          <div className={styles.top}>
-              <div className={styles.slogan} >
-                <h2>deliver beyond your expectations</h2>
-              </div>
-              <div className={styles['form-container']}>
-              <div className={styles.form}>
-                <div className={styles.contact}>
-                  <h4>Contact Us</h4>
-                  <div className={styles.phone}><a href="tel:5879695571"> 587-969-5571</a> </div>
-                </div>
-                {loading && renderLoading()}
-                {!loading && renderFormContent()}
+          <div className={styles.container}>
 
-              </div>
-              </div>
+            {renderWeather()}
           </div>
-   
           <ToastContainer />
         </div>
       </Layout>
     </div>
   );
 }
+
+
 

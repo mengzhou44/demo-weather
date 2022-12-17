@@ -1,17 +1,6 @@
 import 'react-toastify/dist/ReactToastify.css';
 import './_app.css';
-import { motion } from 'framer-motion';
-import { configureStore } from '@reduxjs/toolkit';
-import headerReducer from  '../state/header-slice';
-
- 
-import { Provider } from 'react-redux';
-
-const store = configureStore({
-  reducer: {
-    header:  headerReducer,    
-  },
-});
+import { motion } from 'framer-motion'; 
 
 function MyApp({ Component, pageProps, router }) {
 
@@ -29,9 +18,7 @@ function MyApp({ Component, pageProps, router }) {
         },
       }}
     >
-       <Provider store={store}>
-           <Component {...pageProps} />
-        </Provider> 
+         <Component {...pageProps} />
     </motion.div>
   );
 }

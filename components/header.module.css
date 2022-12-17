@@ -7,7 +7,11 @@
   background: var(--clr-white);
   box-shadow: var(--light-shadow);
   z-index: var(--z-index-higher) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .container {
   height: var(--nav-height);
   width: 100%;
@@ -16,87 +20,50 @@
   align-items: center;
 }
 
-.expanded {
-  height: var(--nav-height-expanded) !important;
-}
-
 .nav-content {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  padding: 0rem 0.5rem;
-}
-
-.links {
-   margin-left: 5rem;
-   width: 40rem;
-   display: flex; 
-   justify-content: space-between;
-}
-
-.links li {
-  list-style-type: none;
-  margin: 1rem;
-}
-
-.links a {
-  background: var(--clr-white);
-  color: var(--clr-grey-1);
-  font-size: 1.1rem;
-  text-transform: capitalize;
-  letter-spacing: var(--spacing);
-  display: block;
-  transition: var(--transition);
-  padding: 0.75rem 0;
-}
-
-.links a:hover {
-  color: var(--clr-grey-1);
-}
-
-.link-selected {
-  color: var(--clr-red) !important;
-  font-weight: 600; 
+  padding: 0 .5rem; 
 }
 
 .logo {
   height: 4.8rem;
   cursor: pointer;
-  display: flex; 
+  display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 .logo .company {
-   display: flex; 
-   flex-direction: column;
-   justify-content: center;
-   margin-left: .5rem; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: .5rem;
+  height: 4rem;
+}
+
+.weather {
+  flex: 1;
+  color: var(--clr-blue-light);
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0; 
 }
 
 .company h4 {
-   padding: 0;
-   margin: 0;
-   color: var(--clr-blue-dark);
+  margin: 0rem;
 }
 
-
-.toggle {
-  font-size: 1.5rem;
-  color: var(--clr-grey-1);
-  background: transparent;
-  border-color: transparent;
-  transition: var(--transition);
-  cursor: pointer;
-  height: 2.5rem;
-  width: 2.5rem;
-}
- 
 @media screen and (max-width: 800px) {
-   .links {
-     margin-left: 1rem;
-     flex-direction: column;
-   }
-}
 
+  .weather {
+    font-size: 1.2rem;
+  }
+
+  .company h4 {
+    font-size: 1rem
+  }
+  
+}

@@ -5,178 +5,21 @@
    background: linear-gradient(rgba(0, 98, 155, 0.8), rgba(0, 0, 0, 0.8)),
       url(../public/static/welcome.jpg) center/cover; 
    padding-bottom: 2rem; 
-}
 
-.top { 
    display: flex; 
-   flex-direction: row;
-   justify-content: space-between;
-   margin-bottom: 5rem; 
+   align-items: center; 
+   justify-content: center; 
+}
+ 
+.container {
+    font-size: 1.5rem;
+    color: var(--clr-white-smoke)
 }
 
-.slogan {
-   margin-top: 8rem;
-   display: flex;
-   flex: 2; 
-   justify-content: center;
-}
-
-.slogan h2 {
-    max-width: 70%;
-    margin: 0 auto;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.contact {
-    display: flex; 
-    justify-content: space-between;
-    align-items: center;
-}
-
-.phone a {
-   color: var(--clr-grey-4);  
-   font-size: 1rem; 
-   text-decoration: underline;
-}
-
-.contact h4 {
-    color: var(--clr-grey-4) !important;   
-    font-weight: 400;
-    margin: 0; 
-}
-
-.slogan h2 {
-   color: var(--clr-white);
-   line-height: 140%;
-   padding: 0; 
-}
-
-.form-container {
-   flex: 1;
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   padding-right: 2rem; 
-}
-
-.form {
-   margin-top: 4.5rem;
-   font-size: 1.3rem;
-   background-color: var(--clr-grey-10);
-   padding: 2rem;  
-   border-radius: .3rem; 
-}
-
-.form h4 {
-   color: var(--clr-white);
-}
-
-.field {
-   margin-right: 5rem;
-   margin-top: 1.5rem;
-}
-
-.field input,
-.field textarea {
-   padding: .5rem;
-   border-radius: .2rem;
-   border: none;
-   outline: none;
-}
-
-.submit {
-   width: 6rem;
-   padding: .5rem;
-   border-radius: .2rem;
-   border: none;
-   background-color: var(--clr-red);
-   color: var(--clr-white);
-   cursor: pointer;
-}
 
 @media screen and (max-width: 800px) {
    .page {
       flex-direction: column;
       justify-content: flex-start;
-   }
-
-   .form-container {
-      display: block;
-      margin: 0; 
-   }
-
-   .contact {
-      margin-bottom: 2rem; 
-      justify-content: center;
-      align-items: center; 
-   }
-
-   .contact h4 {
-       color: var(--clr-white) !important;
-   }
-
-   .phone a {
-      color: var(--clr-white) !important;
-  }
-
-   .phone {
-       margin-left: 1rem;
-   }
-
-   .form {
-      margin-top: 0rem; 
-      border: none; 
-      padding: 0; 
-      background-color: transparent;
-   }
-
-   .top { 
-      display: flex; 
-      flex-direction: column;
-      justify-content: flex-start;
-   }
-
-   .slogan {
-      margin-top: 2rem;
-      width: 100%; 
-      min-height: 20vh;
-   }
-
-   .slogan h2 {
-      max-width: 100%;
-      width: 100% !important;  
-      margin: 0 auto;
-  }
-  
-   .field:first-child {
-      margin-top: 0rem;
-   }
-
-   .field {
-      margin-top: 2rem;
-      margin-right: 2rem; 
-   }
- 
-   .slogan h2 {
-       font-size: 1.5rem;  
-   }
-
-   .mission p {
-      font-size: 1rem; 
-      color: var(--clr-white);
-  }
-
-   .field input {
-      width: 100%;
-      font-size: 1.2rem; 
-   }
-
-   .field textarea {
-       font-size: 1.2rem; 
-       width: 100%; 
-   }
-   .field button  {
-      font-size: 1.2rem; 
    }
 }
