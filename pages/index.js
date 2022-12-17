@@ -55,6 +55,7 @@ export default function Home() {
         <p>Fetching ... </p>
         <CurrentLocation
           onLocated={async ({ latitude, longitude }) => {
+            console.log({latitude, longitude})
             setLatitude(latitude)
             setLongitude(longitude)
             await fetchWeather(latitude, longitude)
