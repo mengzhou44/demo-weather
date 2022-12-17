@@ -18,7 +18,7 @@ export default function Home() {
   async function fetchWeather(latitude, longitude) {
     try {
 
-      let res = await fetch(`/api?latitude=${latitude}&longitude=${longitude}`)
+      let res = await fetch(`/api/weather?latitude=${latitude}&longitude=${longitude}`)
       res = await res.json();
 
       setSummary(res.summary)
@@ -55,7 +55,7 @@ export default function Home() {
         <p>Fetching ... </p>
         <CurrentLocation
           onLocated={async ({ latitude, longitude }) => {
-            console.log({latitude, longitude})
+
             setLatitude(latitude)
             setLongitude(longitude)
             await fetchWeather(latitude, longitude)
