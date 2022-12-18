@@ -21,6 +21,11 @@
 
 .content {
     color: var(--clr-white-smoke);
+    font-size: 1rem; 
+}
+
+.localWeather {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {

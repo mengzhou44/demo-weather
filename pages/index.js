@@ -38,12 +38,12 @@ export default function Home() {
   function renderWeather() {
     if (enableGeoLocation === false) {
       return (
-        <div
+        <div className={styles.localWeather}
           onClick={() => {
             setEnableGeoLocation(true)
           }}
         >
-          <div >Local weather</div>
+          <div>Local weather</div>
         </div>
       )
     }
