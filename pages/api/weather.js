@@ -15,10 +15,10 @@ const Weather = async (req, res) => {
       res.status(200).send(weatherData)
     } catch (err) {
       console.log(`Something wenty wrong ${err.message}`);
-      res.status(500).send('Error occured!');
+      res.status(500).send({message: 'Error occured!'});
     }
   } else {
-    res.status(400).send('Error occured!');
+    res.status(400).send({message: 'Bad Input!'});
   }
 };
 

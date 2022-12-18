@@ -19,15 +19,13 @@ export default function Home() {
     try {
 
       let res = await fetch(`/api/weather?latitude=${latitude}&longitude=${longitude}`)
-      res = await res.json();
-
-      setSummary(res.summary)
-      setTemperature(res.temperature)
-      setPrecipProbability(res.precipProbability)
+      const {currently} = await res.json();
+      setSummary(currently.summary)
+      setTemperature(currently.temperature)
+      setPrecipProbability(currently.precipProbability)
     } catch (err) {
       toast.error(res.message)
     }
-
   }
 
   function isFetching() {
