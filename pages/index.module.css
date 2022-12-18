@@ -19,6 +19,9 @@
     justify-content: center; 
 }
 
+.content {
+    color: var(--clr-white-smoke);
+}
 
 @media screen and (max-width: 800px) {
    .page {

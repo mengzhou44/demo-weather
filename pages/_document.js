@@ -16,7 +16,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           ></link>
 
-          <link rel="shortcut icon" href="/static/favicon.svg" /> 
+          <link rel="shortcut icon" href="/static/logo.ico" /> 
         </Head>
         <body>
           <Main />

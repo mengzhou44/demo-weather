@@ -1,6 +1,5 @@
 import { useGeolocated } from "react-geolocated";
 
-
 export default function CurrentLocation({
     onLocated,
     onError
@@ -23,7 +22,6 @@ export default function CurrentLocation({
           onLocated(coords)
         }
     }
-
 
     return <></>
 }
