@@ -90,7 +90,6 @@ export default function Home() {
       <Layout>
         <div className={styles.page}>
           <div className={styles.container}>
-
             {renderWeather()}
           </div>
           <ToastContainer />
