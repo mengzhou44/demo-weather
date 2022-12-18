@@ -48,7 +48,7 @@ export default function Home() {
       )
     }
 
-    if (isFetching()) {
+     if (isFetching()) {
       return <div>
         <p>Fetching ... </p>
         <CurrentLocation
@@ -64,7 +64,7 @@ export default function Home() {
           }}
         />
       </div>
-    }
+     }
 
     return <a
       className={styles.content}
@@ -76,7 +76,6 @@ export default function Home() {
       <div>{temperature.toFixed(0)} &#8451; </div>
       <div>{precipProbability.toFixed(0)}% chance of rain</div>
     </a>
-
   }
 
   return (

@@ -19,7 +19,9 @@ export default function CurrentLocation({
     } else if (!isGeolocationEnabled) {
         onError("Geolocation is not allowed!")
     } else {
-        onLocated(coords)
+        if (coords) {
+          onLocated(coords)
+        }
     }
 
 
